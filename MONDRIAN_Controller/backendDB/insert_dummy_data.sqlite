@@ -1,0 +1,21 @@
+INSERT INTO zones VALUES (1, "Zone 1");
+INSERT INTO zones VALUES (2, "Zone 2");
+INSERT INTO zones VALUES (3, "Zone 3");
+INSERT INTO zones VALUES (4, "Zone 4");
+
+INSERT INTO sites VALUES ("1.2.3.4", "Site 1");
+INSERT INTO sites VALUES ("2.3.4.5", "Site 2");
+INSERT INTO sites VALUES ("3.4.5.6", "Site 3");
+INSERT INTO sites VALUES ("4.5.6.7", "Site 4");
+
+INSERT INTO subnets VALUES ("192.168.0.1", "255.0.0.0", 1, "1.2.3.4");
+INSERT INTO subnets VALUES ("192.168.0.2", "255.255.0.0", 2, "2.3.4.5");
+INSERT INTO subnets VALUES ("192.168.0.3", "255.255.255.0", 3, "3.4.5.6");
+INSERT INTO subnets VALUES ("192.168.0.4", "255.255.255.255", 4, "4.5.6.7");
+
+INSERT INTO transitions VALUES (1, 1, 2, 80, 100, "http", "allow");
+INSERT INTO transitions VALUES (2, 2, 1, 80, 100, "ftp", "drop");
+INSERT INTO transitions VALUES (3, 1, 2, NULL, NULL, "http", "allow");
+INSERT INTO transitions VALUES (4, 3, 4, 80, 100, NULL, "allow");
+INSERT INTO transitions VALUES (5, 1, NULL, 80, 100, "http", "allow");
+INSERT INTO transitions VALUES (6, NULL, 2, 80, 100, "http", "allow");

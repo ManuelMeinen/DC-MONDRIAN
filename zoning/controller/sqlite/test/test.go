@@ -6,8 +6,8 @@ import (
 	"net"
 
 	_ "github.com/mattn/go-sqlite3"
-	"github.com/scionproto/scion/go/sig/zoning/controller/sqlite"
-	"github.com/scionproto/scion/go/sig/zoning/types"
+	"../../sqlite"
+	"../../../types"
 )
 
 func main() {

@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -27,7 +28,7 @@ func main() {
 			ClientCAs:  pool,
 		},
 	} */
-
+	
 	// flag setup
 	dbPath := flag.String("db", ":memory:", "path to the database file")
 	listen := flag.String("listen", ":4433", "server listen address")
@@ -36,34 +37,34 @@ func main() {
 
 	// init DB
 	handler.SetupDB(*dbPath)
-
+	fmt.Print("###")
 	apiChain := handler.LogHandler
 
 	/*** API used by Zone Translation Points ***/
-	http.HandleFunc("/api/get-subnets", apiChain(handler.GetSubnetsHandler))
-	http.HandleFunc("/api/get-transitions", apiChain(handler.GetTransitionsHandler))
+	//http.HandleFunc("/api/get-subnets", apiChain(handler.GetSubnetsHandler))
+	//http.HandleFunc("/api/get-transitions", apiChain(handler.GetTransitionsHandler))
 
 	/*** API used by admin frontend ***/
 	/*** READ ***/
 	http.HandleFunc("/", handler.IndexHandler)
 	http.HandleFunc("/api/get-all-sites", apiChain(handler.GetAllSitesHandler))
-	http.HandleFunc("/api/get-all-zones", apiChain(handler.GetAllZonesHandler))
-	http.HandleFunc("/api/get-all-subnets", apiChain(handler.GetAllSubnetsHandler))
-	http.HandleFunc("/api/get-all-transitions", apiChain(handler.GetAllTransitionsHandler))
+	//http.HandleFunc("/api/get-all-zones", apiChain(handler.GetAllZonesHandler))
+	//http.HandleFunc("/api/get-all-subnets", apiChain(handler.GetAllSubnetsHandler))
+	//http.HandleFunc("/api/get-all-transitions", apiChain(handler.GetAllTransitionsHandler))
 
 	/*** Insert ***/
-	http.HandleFunc("/api/insert-sites", apiChain(handler.InsertSitesHandler))
-	http.HandleFunc("/api/insert-zones", apiChain(handler.InsertZonesHandler))
-	http.HandleFunc("/api/insert-subnets", apiChain(handler.InsertSubnetsHandler))
-	http.HandleFunc("/api/insert-transitions", apiChain(handler.InsertTransitionsHandler))
+	//http.HandleFunc("/api/insert-sites", apiChain(handler.InsertSitesHandler))
+	//http.HandleFunc("/api/insert-zones", apiChain(handler.InsertZonesHandler))
+	//http.HandleFunc("/api/insert-subnets", apiChain(handler.InsertSubnetsHandler))
+	//http.HandleFunc("/api/insert-transitions", apiChain(handler.InsertTransitionsHandler))
 
 	/*** Delete ***/
-	http.HandleFunc("/api/delete-sites", apiChain(handler.DeleteSitesHandler))
-	http.HandleFunc("/api/delete-zones", apiChain(handler.DeleteZonesHandler))
-	http.HandleFunc("/api/delete-subnets", apiChain(handler.DeleteSubnetsHandler))
-	// http.HandleFunc("/api/delete-all-transitions", apiChain(handler.GetAllSubnetsHandler)) // todo
-	http.HandleFunc("/api/delete-transitions", apiChain(handler.DeleteTransitionsHandler))
-
+	//http.HandleFunc("/api/delete-sites", apiChain(handler.DeleteSitesHandler))
+	//http.HandleFunc("/api/delete-zones", apiChain(handler.DeleteZonesHandler))
+	//http.HandleFunc("/api/delete-subnets", apiChain(handler.DeleteSubnetsHandler))
+	// --http.HandleFunc("/api/delete-all-transitions", apiChain(handler.GetAllSubnetsHandler)) // todo
+	//http.HandleFunc("/api/delete-transitions", apiChain(handler.DeleteTransitionsHandler))
+	
 	// go func() {
 	log.Fatal(http.ListenAndServeTLS(*listen, "certs/server_cert.pem", "certs/server_key.pem", nil))
 	//}()

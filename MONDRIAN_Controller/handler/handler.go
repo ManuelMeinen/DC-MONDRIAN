@@ -1,44 +1,78 @@
 package handler
 
 import (
+	"controller/db"
+	"controller/types"
 	"encoding/json"
 	"fmt"
 	"io"
 	"io/ioutil"
-	"log"
-	"net"
 	"net/http"
-	"net/http/httputil"
-
-	"../sqlite"
-	"../../types"
 )
 
-var db *sqlite.Backend
+var ApiMap = make(map[string]http.HandlerFunc)
 
-// IndexHandler handles the default route
+func Init(){
+	
+	/*** API used by Zone Translation Points ***/
+	ApiMap["/api/get-subnets"] = GetSubnetsHandler
+	ApiMap["/api/get-transitions"] = GetTransitionsHandler
+
+	/*** API used by admin frontend ***/
+	/*** READ ***/
+	ApiMap["/"] = IndexHandler
+	ApiMap["/api/get-all-sites"] = GetAllSitesHandler
+	ApiMap["/api/get-all-zones"] = GetAllZonesHandler
+	ApiMap["/api/get-all-subnets"] = GetAllSubnetsHandler
+	ApiMap["/api/get-all-transitions"] = GetAllTransitionsHandler
+
+	/*** Insert ***/
+	ApiMap["/api/insert-sites"] = InsertSitesHandler
+	ApiMap["/api/insert-zones"] = InsertZonesHandler
+	ApiMap["/api/insert-subnets"] = InsertSubnetsHandler
+	ApiMap["/api/insert-transitions"] = InsertTransitionsHandler
+	
+	/*** Delete ***/
+	ApiMap["/api/delete-sites"] = DeleteSitesHandler
+	ApiMap["/api/delete-zones"] = DeleteZonesHandler
+	ApiMap["/api/delete-subnets"] = DeleteSubnetsHandler
+	ApiMap["/api/delete-all-transitions"] = DeleteTransitionsHandler
+	ApiMap["/api/delete-transitions"] = DeleteTransitionsHandler
+		
+	fmt.Println("Handlers initialized")
+}
+
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
+	// send something to client
 	io.WriteString(w, "Hello from the Controller\n")
+	defer r.Body.Close()
+	// read the data
+	buf, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		fmt.Fprint(w, err)
+		return
+	}
+	fmt.Println(string(buf))
 }
 
 /*** GET Handlers (Read) ***/
 
 // GetAllSitesHandler returns all sites information to the client
 func GetAllSitesHandler(w http.ResponseWriter, r *http.Request) {
-	sites, err := db.GetAllSites()
+	sites, err := db.DB.GetAllSites()
 	encodeAndSend(sites, err, w)
 }
 
 // GetAllZonesHandler returns all sites information to the client
 func GetAllZonesHandler(w http.ResponseWriter, r *http.Request) {
-	zones, err := db.GetAllZones()
+	zones, err := db.DB.GetAllZones()
 	encodeAndSend(zones, err, w)
 }
 
 // GetAllSubnetsHandler returns all subnet information to the client
 func GetAllSubnetsHandler(w http.ResponseWriter, r *http.Request) {
-	nets, err := db.GetAllSubnets()
-	encodeAndSend(nets, err, w)
+	nets, err := db.DB.GetAllSubnets()
+	encodeAndSend(&nets, err, w)
 }
 
 // GetAllTransitionsHandler returns all transition information to the client
@@ -46,7 +80,7 @@ func GetAllTransitionsHandler(w http.ResponseWriter, r *http.Request) {
 	// TODO: the shttp package is very basic and does not allow to set the local address
 	// therefore the handler sees the default ISD-AS,127.0.0.1 address as remote. The public IP of the TP is therfore sent
 	// in the body. This should be checked to match the certificate
-	transitions, err := db.GetAllTransitions()
+	transitions, err := db.DB.GetAllTransitions()
 	encodeAndSend(transitions, err, w)
 }
 
@@ -61,7 +95,7 @@ func GetSubnetsHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, err)
 		return
 	}
-	nets, err := db.GetSubnets(string(buf))
+	nets, err := db.DB.GetSubnets(string(buf))
 	encodeAndSend(nets, err, w)
 }
 
@@ -76,7 +110,7 @@ func GetTransitionsHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, err)
 		return
 	}
-	transitions, err := db.GetTransitions(string(buf))
+	transitions, err := db.DB.GetTransitions(string(buf))
 	encodeAndSend(transitions, err, w)
 }
 
@@ -90,6 +124,7 @@ func encodeAndSend(data interface{}, err error, w http.ResponseWriter) {
 	enc := json.NewEncoder(w)
 	enc.SetIndent("", "    ") //TODO: remove after testing
 	enc.Encode(data)
+	
 }
 
 /*** POST Handlers (Insert) ***/
@@ -97,14 +132,14 @@ func encodeAndSend(data interface{}, err error, w http.ResponseWriter) {
 // InsertSitesHandler inserts the given sites into the backend
 func InsertSitesHandler(w http.ResponseWriter, r *http.Request) {
 	// decode body into site
-	var sites []types.Site
+	var sites types.Sites
 	err := json.NewDecoder(r.Body).Decode(&sites)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
 		return
 	}
-	err = db.InsertSites(sites)
+	err = db.DB.InsertSites(sites)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
@@ -116,14 +151,14 @@ func InsertSitesHandler(w http.ResponseWriter, r *http.Request) {
 // InsertZonesHandler inserts the given zones into the backend
 func InsertZonesHandler(w http.ResponseWriter, r *http.Request) {
 	// decode body into site
-	var zones []types.Zone
+	var zones types.Zones
 	err := json.NewDecoder(r.Body).Decode(&zones)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
 		return
 	}
-	err = db.InsertZones(zones)
+	err = db.DB.InsertZones(zones)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
@@ -135,14 +170,14 @@ func InsertZonesHandler(w http.ResponseWriter, r *http.Request) {
 // InsertSubnetsHandler inserts the given subnets into the backend
 func InsertSubnetsHandler(w http.ResponseWriter, r *http.Request) {
 	// decode body into site
-	var subnets []types.Subnet
+	var subnets types.Subnets
 	err := json.NewDecoder(r.Body).Decode(&subnets)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
 		return
 	}
-	err = db.InsertSubnets(subnets)
+	err = db.DB.InsertSubnets(subnets)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
@@ -161,7 +196,7 @@ func InsertTransitionsHandler(w http.ResponseWriter, r *http.Request) {
 		io.WriteString(w, err.Error())
 		return
 	}
-	err = db.InsertTransitions(transitions)
+	err = db.DB.InsertTransitions(transitions)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
@@ -175,14 +210,14 @@ func InsertTransitionsHandler(w http.ResponseWriter, r *http.Request) {
 // DeleteSitesHandler deletes the given sites from the backend
 func DeleteSitesHandler(w http.ResponseWriter, r *http.Request) {
 	// decode body into sites
-	var sites []types.Site
+	var sites types.Sites
 	err := json.NewDecoder(r.Body).Decode(&sites)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
 		return
 	}
-	err = db.DeleteSites(sites)
+	err = db.DB.DeleteSites(sites)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
@@ -194,14 +229,14 @@ func DeleteSitesHandler(w http.ResponseWriter, r *http.Request) {
 // DeleteZonesHandler deletes the given zones from the backend
 func DeleteZonesHandler(w http.ResponseWriter, r *http.Request) {
 	// decode body into zones
-	var zones []types.Zone
+	var zones types.Zones
 	err := json.NewDecoder(r.Body).Decode(&zones)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
 		return
 	}
-	err = db.DeleteZones(zones)
+	err = db.DB.DeleteZones(zones)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
@@ -213,14 +248,14 @@ func DeleteZonesHandler(w http.ResponseWriter, r *http.Request) {
 // DeleteSubnetsHandler deletes the given subnets from the backend
 func DeleteSubnetsHandler(w http.ResponseWriter, r *http.Request) {
 	// decode body into subnets
-	var subnets []types.Subnet
+	var subnets types.Subnets
 	err := json.NewDecoder(r.Body).Decode(&subnets)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
 		return
 	}
-	err = db.DeleteSubnets(subnets)
+	err = db.DB.DeleteSubnets(subnets)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
@@ -239,92 +274,11 @@ func DeleteTransitionsHandler(w http.ResponseWriter, r *http.Request) {
 		io.WriteString(w, err.Error())
 		return
 	}
-	err = db.DeleteTransitions(transitions)
+	err = db.DB.DeleteTransitions(transitions)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain")
 		io.WriteString(w, err.Error())
 		return
 	}
 	w.WriteHeader(http.StatusNoContent)
-}
-
-// LogHandler logs incoming HTTP requests
-// useful for debugging
-func LogHandler(fn http.HandlerFunc) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		x, err := httputil.DumpRequest(r, true)
-		if err != nil {
-			http.Error(w, fmt.Sprint(err), http.StatusInternalServerError)
-			return
-		}
-		log.Println(fmt.Sprintf("%q", x))
-		fn(w, r)
-	}
-}
-
-func SetupDB(path string) {
-	var err error
-	db, err = sqlite.New(path)
-	if err != nil {
-		fmt.Print("###")
-		log.Fatal(err)
-	}
-	fmt.Print("###")
-	// if in memory DB is used, add some test data
-	if path != ":memory:" {
-		return
-	}
-	fmt.Print("###")
-	err = db.InsertZones([]types.Zone{
-		{ID: 1, Name: "gNB1"},
-		{ID: 2, Name: "gNB2"},
-		{ID: 3, Name: "MEC"},
-	})
-	if err != nil {
-		panic(err)
-	}
-	fmt.Print("###")
-	/* err = db.InsertZone(3, "other")
-	if err != nil {
-		panic(err)
-	}
-	err = db.InsertZone(4, "other")
-	if err != nil {
-		panic(err)
-	}
-	err = db.InsertZone(5, "other")
-	if err != nil {
-		panic(err)
-	} */
-
-	err = db.InsertSites([]types.Site{{TPAddr: "1-ff00:0:112,127.0.0.1", Name: "Site A"}})
-	if err != nil {
-		panic(err)
-	}
-
-	/* err = db.InsertSite("1-ff00:0:113,172.16.0.13", "Site B")
-	if err != nil {
-		panic(err)
-	} */
-	fmt.Print("###")
-	err = db.InsertSubnets([]types.Subnet{
-		{IPNet: net.IPNet{IP: net.IPv4(192, 168, 17, 90).To4(), Mask: net.IPv4Mask(255, 255, 255, 255)}, ZoneID: 1, TPAddr: "1-ff00:0:112,127.0.0.1"}, // gNB1
-		{net.IPNet{IP: net.IPv4(192, 168, 17, 91).To4(), Mask: net.IPv4Mask(255, 255, 255, 255)}, 2, "1-ff00:0:112,127.0.0.1"},                        // gNB 2
-		{net.IPNet{IP: net.IPv4(192, 168, 14, 100).To4(), Mask: net.IPv4Mask(255, 255, 255, 255)}, 3, "1-ff00:0:112,127.0.0.1"},                       // MEC App Server
-	})
-	if err != nil {
-		panic(err)
-	}
-	fmt.Print("###")
-	t := types.Transitions{
-		1: {2, 3},
-		2: {3},
-		3: {1, 2},
-	}
-
-	err = db.InsertTransitions(t)
-	if err != nil {
-		panic(err)
-	}
-
 }

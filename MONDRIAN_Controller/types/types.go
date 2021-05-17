@@ -35,7 +35,7 @@ type Transition struct {
 	Src ZoneID
 	Dest ZoneID
 	SrcPort uint
-	DesPort uint
+	DestPort uint
 	Proto string
 	Action string
 }
@@ -74,13 +74,22 @@ func (s *Subnet) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-// Transitions maps a zone ID to all Zone IDs to which it is allowed to send data
-type Transitions map[ZoneID][]ZoneID
-
 // Network implements the RangerEntry interface for use with github.com/yl2chen/cidranger
 func (s *Subnet) Network() net.IPNet {
 	return s.IPNet
 }
 
+// Zones is a list of zones
+type Zones []*Zone
+
+// Sites is a list of sites
+type Sites []*Site
+
+// Transitions is a list of transitions
+type Transitions []*Transition
+
 // Subnets is a list of IP subnets
 type Subnets []*Subnet
+
+
+
