@@ -15,7 +15,7 @@ from ryu.lib.packet import icmp
 from ryu.lib.packet import tcp
 from ryu.lib.packet import udp
 
-from transition_module.packet import Packet, proto_dict
+from transition_module.types import Packet, proto_dict, Policy, Zone, Subnet
 
 class EndpointTP(app_manager.RyuApp):
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
@@ -93,6 +93,15 @@ class EndpointTP(app_manager.RyuApp):
             
             myPacket = Packet(destIP=dstip, srcIP=srcip, destPort=dstport, srcPort=srcport, proto=proto)
             myPacket.print_packet()
+
+            srcZone = Zone(zoneID=1, name="Zone 1")
+            dstZone = Zone(zoneID=2, name="Zone 2")
+
+            myPolicy = Policy(policyID=1, action="forwarding", dstZone=dstZone, srcZone=srcZone, dstPort=123, srcPort=456)
+            myPolicy.print_policy()
+            srcZone.print_zone()
+            mySubnet = Subnet(netAddr="1.2.3.0/24", zone=srcZone, tpAddr="127.0.0.1")
+            mySubnet.print_subnet()
            
         
 
