@@ -15,7 +15,7 @@ from ryu.lib.packet import icmp
 from ryu.lib.packet import tcp
 from ryu.lib.packet import udp
 
-from transition_module.types import Packet, proto_dict, Policy, Zone, Subnet
+from code_base.types import Packet, proto_dict, Policy, Zone, Subnet
 
 class EndpointTP(app_manager.RyuApp):
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]

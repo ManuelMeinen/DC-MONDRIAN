@@ -20,6 +20,8 @@ func startController() {
 	for api, handler := range handler.ApiMap {
         http.HandleFunc(api, handler)
     }
+	fmt.Println("*** Controller Ready ***")
+	fmt.Println(fmt.Sprintf("Listening at: https://%s:%s/", config.ControllerAddr, config.ControllerPort))
     log.Fatal(http.ListenAndServeTLS(*listen, config.ServerCert, config.ServerKey, nil))
 }
 

@@ -49,10 +49,10 @@ class Packet:
 
 
 class Policy:
-    def __init__(self, policyID, action, dstZone=None, srcZone=None, dstPort=None, srcPort=None, proto=None):
+    def __init__(self, policyID, action, dstZoneID=None, srcZoneID=None, dstPort=None, srcPort=None, proto=None):
         self.policyID = policyID
-        self.dstZone = dstZone
-        self.srcZone = srcZone
+        self.dstZoneID = dstZoneID
+        self.srcZoneID = srcZoneID
         self.dstPort = dstPort
         self.srcPort = srcPort
         self.proto = proto
@@ -60,18 +60,18 @@ class Policy:
 
     def print_policy(self):
         msg = "Policy ID: "+str(self.policyID)+ " <"
-        if self.dstZone == None:
+        if self.dstZoneID == None:
             msg += "*"+", "
         else:
-            msg += str(self.dstZone.name)+", "
+            msg += str(self.dstZoneID)+", "
         if self.dstPort == None:
             msg += "*"+", "
         else:
             msg += str(self.dstPort)+", "
-        if self.srcZone == None:
+        if self.srcZoneID == None:
             msg += "*"+", "
         else:
-            msg += str(self.srcZone.name)+", "
+            msg += str(self.srcZoneID)+", "
         if self.srcPort == None:
             msg += "*"+", "
         else:
@@ -86,13 +86,13 @@ class Policy:
 
 
 class Subnet:
-    def __init__(self, netAddr, zone, tpAddr):
+    def __init__(self, netAddr, zoneID, tpAddr):
         self.netAddr = netAddr
-        self.zone = zone
+        self.zoneID = zoneID
         self.tpAddr = tpAddr
     
     def print_subnet(self):
-        print("Subnet: <"+str(self.netAddr)+", "+str(self.zone.zoneID)+", "+str(self.tpAddr)+">")
+        print("Subnet: <"+str(self.netAddr)+", "+str(self.zoneID)+", "+str(self.tpAddr)+">")
 
 class Zone:
     def __init__(self, zoneID, name):
