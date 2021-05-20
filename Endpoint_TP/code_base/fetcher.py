@@ -28,7 +28,6 @@ class Fetcher:
         self.deamon = threading.Thread(target=self.refresh_deamon)
         self.deamon.daemon = True
         self.deamon.start()
-    
 
     
     def refresh_deamon(self):
@@ -149,21 +148,21 @@ class Fetcher:
         for line in resp_dict:
             policyID = int(line['PolicyID'])
             action = line['Action']
-            dstZoneID=None
+            destZoneID=None
             srcZoneID=None
-            dstPort=None
+            destPort=None
             srcPort=None
             proto=None
             if int(line['Dest']) != 0:
-                dstZoneID = int(line['Dest'])
+                destZoneID = int(line['Dest'])
             if int(line['Src']) != 0:
                 srcZoneID = int(line['Src'])
             if int(line['DestPort']) != 0:
-                dstPort = int(line['DestPort'])
+                destPort = int(line['DestPort'])
             if int(line['SrcPort']) != 0:
                 srcPort = int(line['SrcPort'])
             if line['Proto'] != '':
                 proto = line['Proto']
-            t = Policy(policyID=policyID, action=action, dstZoneID=dstZoneID, srcZoneID=srcZoneID, dstPort=dstPort, srcPort=srcPort, proto=proto)
+            t = Policy(policyID=policyID, action=action, destZoneID=destZoneID, srcZoneID=srcZoneID, destPort=destPort, srcPort=srcPort, proto=proto)
             transitions.append(t)
         return transitions

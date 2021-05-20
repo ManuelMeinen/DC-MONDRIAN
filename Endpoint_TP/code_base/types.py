@@ -43,31 +43,31 @@ class Packet:
         if self.proto == None:
             print("Proto: NONE")
         else:
-            print("Proto: "+str(proto_dict[self.proto]))
+            print("Proto: "+str(self.proto))
         print("------------------------------")
 
 
 
 class Policy:
-    def __init__(self, policyID, action, dstZoneID=None, srcZoneID=None, dstPort=None, srcPort=None, proto=None):
+    def __init__(self, policyID, action, destZoneID=None, srcZoneID=None, destPort=None, srcPort=None, proto=None):
         self.policyID = policyID
-        self.dstZoneID = dstZoneID
+        self.destZoneID = destZoneID
         self.srcZoneID = srcZoneID
-        self.dstPort = dstPort
+        self.destPort = destPort
         self.srcPort = srcPort
         self.proto = proto
         self.action = action
 
     def print_policy(self):
         msg = "Policy ID: "+str(self.policyID)+ " <"
-        if self.dstZoneID == None:
+        if self.destZoneID == None:
             msg += "*"+", "
         else:
-            msg += str(self.dstZoneID)+", "
-        if self.dstPort == None:
+            msg += str(self.destZoneID)+", "
+        if self.destPort == None:
             msg += "*"+", "
         else:
-            msg += str(self.dstPort)+", "
+            msg += str(self.destPort)+", "
         if self.srcZoneID == None:
             msg += "*"+", "
         else:

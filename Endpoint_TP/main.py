@@ -97,10 +97,10 @@ class EndpointTP(app_manager.RyuApp):
             srcZone = Zone(zoneID=1, name="Zone 1")
             dstZone = Zone(zoneID=2, name="Zone 2")
 
-            myPolicy = Policy(policyID=1, action="forwarding", dstZone=dstZone, srcZone=srcZone, dstPort=123, srcPort=456)
+            myPolicy = Policy(policyID=1, action="forwarding", destZoneID=dstZone.zoneID, srcZoneID=srcZone.zoneID, destPort=123, srcPort=456)
             myPolicy.print_policy()
             srcZone.print_zone()
-            mySubnet = Subnet(netAddr="1.2.3.0/24", zone=srcZone, tpAddr="127.0.0.1")
+            mySubnet = Subnet(netAddr="1.2.3.0/24", zoneID=srcZone.zoneID, tpAddr="127.0.0.1")
             mySubnet.print_subnet()
            
         
