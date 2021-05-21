@@ -20,10 +20,10 @@ class TransferModule:
 
     def check_packet(self, packet):
         '''
-        Checks a packet for a matching policy. It returns the match with the highest policyID.
+        Checks a packet for a matching policy. It returns the match with the highest priority and breaks ties with the policyID.
         The match can be reconstructed using the src and dest subnet address, the packet 
         (for protocol and port) and an ACTION (drop, forwarding, established, intra_zone, default)
-
+        Priority: srcZone +5, destZone +5, srcPort +1, destPort +2, proto +1
         return src_net, dest_net, packet, ACTION
         '''
         policies = self.fetcher.get_policies()
@@ -34,70 +34,95 @@ class TransferModule:
             return src_net, dest_net, packet, INTRA_ZONE
         # Iterate over all policies and check for the match with the highest policyID
         matching_policy = None
+        highest_priority = 0
         for policy in policies:
+            priority = 0
             policy.print_policy()
             match=False
             if policy.srcZoneID == None or policy.srcZoneID == src:
                 match = True
+                priority += 5
             else:
                 match = False
             if match==True and (policy.destZoneID == None or policy.destZoneID == dest):
                 match = True
+                priority += 5
             else: 
                 match=False
             if match==True and (policy.srcPort == None or policy.srcPort == packet.srcPort):
                 match = True
+                priority += 1
             else: 
                 match=False
             if match==True and (policy.destPort == None or policy.destPort == packet.destPort):
                 match = True
+                priority += 2
             else: 
                 match=False
             if match==True and (policy.proto == None or policy.proto == packet.proto):
                 match = True
+                priority += 1
             else: 
                 match=False
             if match:
                 print("We have a Match:")
                 policy.print_policy()
                 packet.print_packet()
-                if matching_policy == None or matching_policy.policyID < policy.policyID:
-                    # Make sure in the end we have the matching policy with the highest policyID (priority)
-                    matching_policy = policy
-                    continue
+                if matching_policy == None or highest_priority <= priority:
+                    if highest_priority == priority:
+                        # Break ties
+                        if matching_policy.policyID < policy.policyID:
+                            matching_policy = policy
+                            highest_priority = priority
+                    else:
+                        matching_policy = policy
+                        highest_priority = priority
+                        continue
             # check for established rule
+            priority = 0
             if policy.action == "established":
                 match = True
             else: 
                 match=False
             if match==True and (policy.srcZoneID == None or policy.srcZoneID == dest):
                 match = True
+                priority += 5
             else: 
                 match=False
             if match==True and (policy.destZoneID == None or policy.destZoneID == src):
                 match = True
+                priority += 5
             else: 
                 match=False
             if match==True and (policy.srcPort == None or policy.srcPort == packet.destPort):
                 match = True
+                priority += 1
             else: 
                 match=False
             if match==True and (policy.destPort == None or policy.destPort == packet.srcPort):
                 match = True
+                priority += 2
             else: 
                 match=False
             if match==True and (policy.proto == None or policy.proto == packet.proto):
                 match = True
+                priority += 1
             else: 
                 match=False
             if match:
                 print("We have a Match:")
                 policy.print_policy()
                 packet.print_packet()
-                if matching_policy == None or matching_policy.policyID < policy.policyID:
-                    # Make sure in the end we have the matching policy with the highest policyID (priority)
-                    matching_policy = policy
-                    continue
+                if matching_policy == None or highest_priority <= priority:
+                    if highest_priority == priority:
+                        # Break ties
+                        if matching_policy.policyID < policy.policyID:
+                            matching_policy = policy
+                            highest_priority = priority
+                    else:
+                        matching_policy = policy
+                        highest_priority = priority
+                        continue
             # Depending on the policy found (if any) return the right info
             if matching_policy == None:
                 # No matching policy --> default
@@ -146,7 +171,7 @@ if __name__=='__main__':
         "Dest": 1,
         "SrcPort": 80,
         "DestPort": 100,
-        "Proto": "ftp",
+        "Proto": "TCP",
         "Action": "drop"
 
         {
@@ -161,7 +186,7 @@ if __name__=='__main__':
     },
 
     '''
-    packet = Packet("192.168.2.3", "192.168.0.1", destPort=100, srcPort=80, proto="http")
+    packet = Packet("192.168.2.3", "192.168.0.1", destPort=100, srcPort=80, proto="TCP")
     src_net, dest_net, packet, action = module.check_packet(packet=packet)
     print(module.find_zone("192.168.0.1"))
     print(module.find_zone("192.168.2.3"))

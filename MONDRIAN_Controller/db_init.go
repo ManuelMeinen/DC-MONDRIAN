@@ -36,12 +36,12 @@ func main() {
 	subnets = append(subnets, &types.Subnet{net.IPNet{IP: net.ParseIP("192.3.0.0"), Mask: net.IPv4Mask(255, 255, 0, 0)}, 3, "3.4.5.6"})
 	subnets = append(subnets, &types.Subnet{net.IPNet{IP: net.ParseIP("4.0.0.0"), Mask: net.IPv4Mask(255, 0, 0, 0)}, 4, "4.5.6.7"})
 	// Init Transitions
-	transitions = append(transitions, &types.Transition{1, 1, 2, 80, 100, "http", "allow"})
-	transitions = append(transitions, &types.Transition{2, 2, 1, 80, 100, "ftp", "drop"})
-	transitions = append(transitions, &types.Transition{3, 1, 2, 0, 0, "http", "allow"})
+	transitions = append(transitions, &types.Transition{1, 1, 2, 80, 100, "TCP", "allow"})
+	transitions = append(transitions, &types.Transition{2, 2, 1, 80, 100, "UDP", "drop"})
+	transitions = append(transitions, &types.Transition{3, 1, 2, 0, 0, "TCP", "allow"})
 	transitions = append(transitions, &types.Transition{4, 3, 4, 100, 0, "", "allow"})
-	transitions = append(transitions, &types.Transition{5, 1, 0, 80, 100, "http", "allow"})
-	transitions = append(transitions, &types.Transition{6, 0, 2, 80, 100, "http", "allow"})
+	transitions = append(transitions, &types.Transition{5, 1, 0, 80, 100, "TCP", "allow"})
+	transitions = append(transitions, &types.Transition{6, 0, 2, 80, 100, "UDP", "allow"})
 
 	// Insert stuff
 	err = db.InsertZones(zones)
