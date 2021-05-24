@@ -65,7 +65,6 @@ class TransferModule:
             else: 
                 match=False
             if match:
-                print("We have a Match:")
                 policy.print_policy()
                 packet.print_packet()
                 if matching_policy == None or highest_priority <= priority:
@@ -110,7 +109,6 @@ class TransferModule:
             else: 
                 match=False
             if match:
-                print("We have a Match:")
                 policy.print_policy()
                 packet.print_packet()
                 if matching_policy == None or highest_priority <= priority:

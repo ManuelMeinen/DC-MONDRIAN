@@ -18,14 +18,19 @@ from ryu.ofproto import ofproto_v1_3
 from ryu.lib.packet import packet
 from ryu.lib.packet import ethernet
 from ryu.lib.packet import ether_types
+from ryu.app.simple_switch_stp_13 import SimpleSwitch13
 
 from code_base.types import Packet, proto_dict, Policy, Zone, Subnet
 from code_base.const import TCP_PROTO, UDP_PROTO, tpAddr
-from code_base.transfer_module import TransferModule
+from code_base.transfer_module import TransferModule, ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT
 
 class EndpointTP(app_manager.RyuApp):
-    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
 
+    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
+    TABLE_ID = 0
+    # Timeouts are in seconds and 0 menas it never times out
+    IDLE_TIMEOUT = 30
+    HARD_TIMEOUT = 5*60
     def debug(self, string):
         print("*** DEBUG INFO *** "+str(string))
 
@@ -38,7 +43,6 @@ class EndpointTP(app_manager.RyuApp):
         datapath = ev.msg.datapath
         ofproto = datapath.ofproto
         parser = datapath.ofproto_parser
-
         # install table-miss flow entry
         #
         # We specify NO BUFFER to max_len of the output action due to
@@ -49,11 +53,10 @@ class EndpointTP(app_manager.RyuApp):
         match = parser.OFPMatch()
         actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,
                                           ofproto.OFPCML_NO_BUFFER)]
-        self.add_flow(datapath, 9, match, actions)
+        self.add_flow(datapath, 0, match, actions) # NOTE: This flow is not allowed to time out --> hard_timeout = idle_timeout = 0
 
     @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)
-    def packet_in_handler(self, ev):
-        
+    def packet_in_handler(self, ev): 
         msg = ev.msg
         datapath = msg.datapath
         ofproto = datapath.ofproto
@@ -63,10 +66,6 @@ class EndpointTP(app_manager.RyuApp):
         pkt = packet.Packet(msg.data)
         eth = pkt.get_protocols(ethernet.ethernet)[0]
 
-
-        #############################
-        #       Start of my stuff   #
-        #############################
         dstip = None
         srcip = None
         dstport = None
@@ -76,7 +75,7 @@ class EndpointTP(app_manager.RyuApp):
         if eth.ethertype == ether_types.ETH_TYPE_IP:
             ip = pkt.get_protocol(ipv4.ipv4)
             if ip == None:
-                print("[Endpoint TP] WARNING: Non IPv4 Packet detected. IPv6 is currently not supported.")
+                self.logger.info("[Endpoint TP] WARNING: Non IPv4 Packet detected. IPv6 is currently not supported.")
                 return
             srcip = ip.src
             dstip = ip.dst
@@ -97,84 +96,61 @@ class EndpointTP(app_manager.RyuApp):
                 l3_proto = UDP_PROTO
             
             packet_in = Packet(destIP=dstip, srcIP=srcip, destPort=dstport, srcPort=srcport, proto=l3_proto)
-            '''
-            ----------- PACKET -----------
-            Dest IP: 10.0.0.1
-            Src IP: 10.0.0.2
-            Dest Port: 9999
-            Src Port: 48214
-            Proto: TCP
-            ------------------------------
-            '''
-            src_net = "10.0.0.0/8"
-            dest_net = "10.0.0.0/8"
-            action = "intra_zone"
-            #src_net, dest_net, packet_in, action = self.module.check_packet(packet=packet_in)
-            print(dest_net)
-            print(src_net)
-            packet_in.print_packet()
-            print(action)
-            #############################
-            #       End of my stuff     #
-            #############################
-
-            # TODO: figure out how to adapt it to our needs and delete the unnecessary stuff... but be careful since I don't know where I fucked up last time...
-
-            # install a flow to avoid packet_in next time
-            #if out_port != ofproto.OFPP_FLOOD:
-            actions = [] # DROP
-            #match = parser.OFPMatch(in_port=in_port, eth_type=ether_types.ETH_TYPE_IP)#, ipv4_src=src_net) # TODO: create the right match
-            #print(match)
-            '''
-            OFPMatch(oxm_fields={'in_port': 1, 'eth_type': 2048, 'ipv4_src': ('10.0.0.0', '255.0.0.0')})
-            '''
-            print(in_port)
-            match_dict = self.createMatchDict(in_port=in_port, src_net=src_net, dest_net=dest_net, packet_in=packet_in)
-            #match_dict = {
-            #        'in_port':in_port,
-            #        'eth_type':ether_types.ETH_TYPE_IP,
-            #        'ipv4_src':src_net
-            #    }
-                
+            src_net, dest_net, packet_in, action = self.module.check_packet(packet=packet_in)
+            if src_net == None or dest_net == None:
+                self.logger.info("[Endpoint TP] src_net or dest_net not found in the MONDRIAN Controller --> Packet can't be handled")
+                return
             
-            #match.from_jsondict(match_dict)
-            #match.append_field(header=ofproto.OXM_OF_IPV4_SRC, value=src_net)
+            match_dict = self.createMatchDict(in_port=in_port, src_net=src_net, dest_net=dest_net, packet_in=packet_in)
             match = parser.OFPMatch(**match_dict)
-            print(match)
+            
+            # actions = [ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT]
+            if action == DROP or action == DEFAULT:
+                # Drop the traffic (which is the default)
+                actions = []
+                instructions = []
+                self.logger.info("[Endpoint TP] Packet classification: "+str(action)+" --> DROP")
+            else:
+                # Let the VNF in the next flow table handle the traffic
+                actions = []
+                instructions = [parser.OFPInstructionGotoTable(table_id = self.TABLE_ID+1)]
+                self.logger.info("[Endpoint TP] Packet classification: "+str(action)+" --> GOTO next table")
+
             # verify if we have a valid buffer_id, if yes avoid to send both
             # flow_mod & packet_out
-            # TODO: figure out what goes on here
             if msg.buffer_id != ofproto.OFP_NO_BUFFER:
-                print("Buffer exist")
-                self.add_flow(datapath, 10, match, actions, msg.buffer_id) # TODO: make sure the priority is >1
+                self.add_flow(datapath, 1, match, actions, msg.buffer_id, instructions=instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)
                 return
             else:
-                print("Buffer doesn't exist")
-                self.add_flow(datapath, 10, match, actions)
-
-            # TODO: Only send packet-out msg if we accept the traffic --> only if actions != []
-            #data = None
-            #if msg.buffer_id == ofproto.OFP_NO_BUFFER:
-            #    data = msg.data
-            #
-            #out = parser.OFPPacketOut(datapath=datapath, buffer_id=msg.buffer_id,
-            #                          in_port=in_port, actions=actions, data=data)
-            #datapath.send_msg(out)
+                self.add_flow(datapath, 1, match, actions, instructions=instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)
+            # NOTE: The packet-out message is only needed if there was no switch after the Endpoint TP which handles that.
+            # actions = [ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT]
+            #if action == ESTABLISHED or action == FORWARDING or action == INTRA_ZONE:
+                #data = None
+                #if msg.buffer_id == ofproto.OFP_NO_BUFFER:
+                #    data = msg.data
+                #
+                #out = parser.OFPPacketOut(datapath=datapath, buffer_id=msg.buffer_id,
+                #                          in_port=in_port, actions=actions, data=data)
+                #datapath.send_msg(out)
         
 
-    def add_flow(self, datapath, priority, match, actions, buffer_id=None):
+    def add_flow(self, datapath, priority, match, actions, buffer_id=None, instructions=[], idle_timeout=0, hard_timeout=0):
         ofproto = datapath.ofproto
         parser = datapath.ofproto_parser
-
+    
         inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS,
-                                             actions)]
+                                             actions)]+instructions
+        
         if buffer_id:
             mod = parser.OFPFlowMod(datapath=datapath, buffer_id=buffer_id,
                                     priority=priority, match=match,
-                                    instructions=inst)
+                                    instructions=inst, table_id=self.TABLE_ID, 
+                                    idle_timeout=idle_timeout, hard_timeout=hard_timeout) # TODO: Set idle and hard timeout
         else:
             mod = parser.OFPFlowMod(datapath=datapath, priority=priority,
-                                    match=match, instructions=inst)
+                                    match=match, instructions=inst, table_id=self.TABLE_ID, 
+                                    idle_timeout=idle_timeout, hard_timeout=hard_timeout)# TODO: Set idle and hard timeout
         datapath.send_msg(mod)
 
     def createMatchDict(self, in_port, src_net, dest_net, packet_in):
