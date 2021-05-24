@@ -32,6 +32,24 @@ class EndpointTP(app_manager.RyuApp):
     def __init__(self, *args, **kwargs):
         super(EndpointTP, self).__init__(*args, **kwargs)
         self.module = TransferModule(tpAddr=tpAddr)
+    
+    @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
+    def switch_features_handler(self, ev):
+        datapath = ev.msg.datapath
+        ofproto = datapath.ofproto
+        parser = datapath.ofproto_parser
+
+        # install table-miss flow entry
+        #
+        # We specify NO BUFFER to max_len of the output action due to
+        # OVS bug. At this moment, if we specify a lesser number, e.g.,
+        # 128, OVS will send Packet-In with invalid buffer_id and
+        # truncated packet data. In that case, we cannot output packets
+        # correctly.  The bug has been fixed in OVS v2.1.0.
+        match = parser.OFPMatch()
+        actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,
+                                          ofproto.OFPCML_NO_BUFFER)]
+        self.add_flow(datapath, 9, match, actions)
 
     @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)
     def packet_in_handler(self, ev):
@@ -105,24 +123,43 @@ class EndpointTP(app_manager.RyuApp):
             # install a flow to avoid packet_in next time
             #if out_port != ofproto.OFPP_FLOOD:
             actions = [] # DROP
-            match = parser.OFPMatch(in_port=in_port, eth_type=ether_types.ETH_TYPE_IP, ipv4_src=src_net) # TODO: create the right match
+            #match = parser.OFPMatch(in_port=in_port, eth_type=ether_types.ETH_TYPE_IP)#, ipv4_src=src_net) # TODO: create the right match
+            #print(match)
+            '''
+            OFPMatch(oxm_fields={'in_port': 1, 'eth_type': 2048, 'ipv4_src': ('10.0.0.0', '255.0.0.0')})
+            '''
+            print(in_port)
+            match_dict = self.createMatchDict(in_port=in_port, src_net=src_net, dest_net=dest_net, packet_in=packet_in)
+            #match_dict = {
+            #        'in_port':in_port,
+            #        'eth_type':ether_types.ETH_TYPE_IP,
+            #        'ipv4_src':src_net
+            #    }
+                
+            
+            #match.from_jsondict(match_dict)
+            #match.append_field(header=ofproto.OXM_OF_IPV4_SRC, value=src_net)
+            match = parser.OFPMatch(**match_dict)
+            print(match)
             # verify if we have a valid buffer_id, if yes avoid to send both
             # flow_mod & packet_out
             # TODO: figure out what goes on here
             if msg.buffer_id != ofproto.OFP_NO_BUFFER:
+                print("Buffer exist")
                 self.add_flow(datapath, 10, match, actions, msg.buffer_id) # TODO: make sure the priority is >1
                 return
             else:
+                print("Buffer doesn't exist")
                 self.add_flow(datapath, 10, match, actions)
 
             # TODO: Only send packet-out msg if we accept the traffic --> only if actions != []
-            data = None
-            if msg.buffer_id == ofproto.OFP_NO_BUFFER:
-                data = msg.data
-
-            out = parser.OFPPacketOut(datapath=datapath, buffer_id=msg.buffer_id,
-                                      in_port=in_port, actions=actions, data=data)
-            datapath.send_msg(out)
+            #data = None
+            #if msg.buffer_id == ofproto.OFP_NO_BUFFER:
+            #    data = msg.data
+            #
+            #out = parser.OFPPacketOut(datapath=datapath, buffer_id=msg.buffer_id,
+            #                          in_port=in_port, actions=actions, data=data)
+            #datapath.send_msg(out)
         
 
     def add_flow(self, datapath, priority, match, actions, buffer_id=None):
@@ -140,7 +177,30 @@ class EndpointTP(app_manager.RyuApp):
                                     match=match, instructions=inst)
         datapath.send_msg(mod)
 
-            
+    def createMatchDict(self, in_port, src_net, dest_net, packet_in):
+        # Basic src and dest match
+        match_dict = {
+                    'in_port':in_port,
+                    'eth_type':ether_types.ETH_TYPE_IP,
+                    'ipv4_src':src_net,
+                    'ipv4_dst':dest_net
+                }
+        # Handle TCP packet
+        if packet_in.proto==TCP_PROTO:
+            match_dict['ip_proto'] = in_proto.IPPROTO_TCP
+            if packet_in.srcPort != None:
+                match_dict['tcp_src'] = packet_in.srcPort
+            if packet_in.destPort != None:
+                match_dict['tcp_dst'] = packet_in.destPort 
+        # Handle UDP packet
+        if packet_in.proto==UDP_PROTO:
+            match_dict['ip_proto'] = in_proto.IPPROTO_UDP
+            if packet_in.srcPort != None:
+                match_dict['udp_src'] = packet_in.srcPort
+            if packet_in.destPort != None:
+                match_dict['udp_dst'] = packet_in.destPort 
+        return match_dict
+        
            
         
 
