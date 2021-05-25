@@ -21,7 +21,7 @@ from ryu.lib.packet import ether_types
 from ryu.app.simple_switch_stp_13 import SimpleSwitch13
 
 from code_base.types import Packet, proto_dict, Policy, Zone, Subnet
-from code_base.const import Const#, TCP_PROTO, UDP_PROTO, tpAddr, init_const
+from code_base.const import Const
 from code_base.transfer_module import TransferModule, ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT
 
 class EndpointTP(app_manager.RyuApp):
@@ -36,8 +36,9 @@ class EndpointTP(app_manager.RyuApp):
 
     def __init__(self, *args, **kwargs):
         super(EndpointTP, self).__init__(*args, **kwargs)
-        Const.init_const()
-        self.module = TransferModule(tpAddr=Const.tpAddr)
+        c = Const()
+        print(Const.controllerAddr)
+        self.module = TransferModule(tpAddr=Const.tpAddr, controllerAddr=Const.controllerAddr, controllerPort=Const.controllerPort)
     
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
     def switch_features_handler(self, ev):

@@ -13,9 +13,9 @@ ACTIONS = [ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT]
 
 class TransferModule:
 
-    def __init__(self, tpAddr):
+    def __init__(self, tpAddr, controllerAddr, controllerPort):
         self.tpAddr = tpAddr
-        self.fetcher = Fetcher(tpAddr=tpAddr)
+        self.fetcher = Fetcher(tpAddr=tpAddr, controllerAddr=controllerAddr, controllerPort=controllerPort)
     
 
     def check_packet(self, packet):

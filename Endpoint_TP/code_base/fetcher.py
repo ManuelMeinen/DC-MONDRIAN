@@ -4,11 +4,6 @@ import threading
 import time
 sys.path.append("..") #TODO figure out wtf is wrong with python imports
 from code_base.types import Packet, proto_dict, Policy, Zone, Subnet
-from code_base.const import Const #controllerAddr, controllerPort
-
-
-subnets_url = "https://"+Const.controllerAddr+":"+Const.controllerPort+"/api/get-subnets"
-transitions_url = "https://"+Const.controllerAddr+":"+Const.controllerPort+"/api/get-transitions"
 
 
 class Fetcher:
@@ -16,8 +11,12 @@ class Fetcher:
             This Fetcher starts a deamon that fetches the relevant subnets and policies periodically.
             In order to avoid race conditions use the get_subnets and get_policies functions
     '''
-    def __init__(self, tpAddr, refresh_interval=30):
+    def __init__(self, tpAddr, controllerAddr, controllerPort, refresh_interval=30):
         self.tpAddr = tpAddr
+        self.controllerAddr = controllerAddr
+        self.controllerPort = controllerPort
+        self.subnets_url = "https://"+self.controllerAddr+":"+self.controllerPort+"/api/get-subnets"
+        self.transitions_url = "https://"+self.controllerAddr+":"+self.controllerPort+"/api/get-transitions"
         self.refresh_interval = refresh_interval
         self.subnets = []
         self.policies = []
@@ -106,7 +105,7 @@ class Fetcher:
         # Proceed, only if no error:
         resp_dict = {}
         try:
-            resp = requests.post(subnets_url, data=self.tpAddr, verify=False) #TODO figure out how to do that safely
+            resp = requests.post(self.subnets_url, data=self.tpAddr, verify=False) #TODO figure out how to do that safely
             resp.raise_for_status()
             # Decode JSON response into a Python dict:
             resp_dict = resp.json()
@@ -133,7 +132,7 @@ class Fetcher:
         # Proceed, only if no error:
         resp_dict = {}
         try:
-            resp = requests.post(transitions_url, data=self.tpAddr, verify=False) #TODO figure out how to do that safely
+            resp = requests.post(self.transitions_url, data=self.tpAddr, verify=False) #TODO figure out how to do that safely
             resp.raise_for_status()
             # Decode JSON response into a Python dict:
             resp_dict = resp.json()
