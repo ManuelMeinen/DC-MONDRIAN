@@ -1,0 +1,6 @@
+{
+    "controllerAddr": "localhost",
+    "controllerPort": "4433",
+    "tpAddr": "1.2.3.4",
+    "endpointTPPort": "6633"
+}

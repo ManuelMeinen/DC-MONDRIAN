@@ -4,11 +4,11 @@ import threading
 import time
 sys.path.append("..") #TODO figure out wtf is wrong with python imports
 from code_base.types import Packet, proto_dict, Policy, Zone, Subnet
-from code_base.const import controllerAddr, controllerPort
+from code_base.const import Const #controllerAddr, controllerPort
 
 
-subnets_url = "https://"+controllerAddr+":"+controllerPort+"/api/get-subnets"
-transitions_url = "https://"+controllerAddr+":"+controllerPort+"/api/get-transitions"
+subnets_url = "https://"+Const.controllerAddr+":"+Const.controllerPort+"/api/get-subnets"
+transitions_url = "https://"+Const.controllerAddr+":"+Const.controllerPort+"/api/get-transitions"
 
 
 class Fetcher:

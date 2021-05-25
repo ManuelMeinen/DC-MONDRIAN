@@ -40,6 +40,7 @@ class SimpleSwitch13(simple_switch_13.SimpleSwitch13):
 
         # Sample of stplib config.
         #  please refer to stplib.Stp.set_config() for details.
+        # TODO: Figure out why that goes in table 0
         config = {dpid_lib.str_to_dpid('0000000000000001'):
                   {'bridge': {'priority': 0x8000}},
                   dpid_lib.str_to_dpid('0000000000000002'):

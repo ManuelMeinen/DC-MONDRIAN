@@ -21,7 +21,7 @@ from ryu.lib.packet import ether_types
 from ryu.app.simple_switch_stp_13 import SimpleSwitch13
 
 from code_base.types import Packet, proto_dict, Policy, Zone, Subnet
-from code_base.const import TCP_PROTO, UDP_PROTO, tpAddr
+from code_base.const import Const#, TCP_PROTO, UDP_PROTO, tpAddr, init_const
 from code_base.transfer_module import TransferModule, ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT
 
 class EndpointTP(app_manager.RyuApp):
@@ -36,7 +36,8 @@ class EndpointTP(app_manager.RyuApp):
 
     def __init__(self, *args, **kwargs):
         super(EndpointTP, self).__init__(*args, **kwargs)
-        self.module = TransferModule(tpAddr=tpAddr)
+        Const.init_const()
+        self.module = TransferModule(tpAddr=Const.tpAddr)
     
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
     def switch_features_handler(self, ev):
@@ -87,13 +88,13 @@ class EndpointTP(app_manager.RyuApp):
                 t = pkt.get_protocol(tcp.tcp)
                 dstport = t.dst_port
                 srcport = t.src_port
-                l3_proto = TCP_PROTO        
+                l3_proto = Const.TCP_PROTO        
             #  If UDP Protocol 
             elif proto == in_proto.IPPROTO_UDP:
                 u = pkt.get_protocol(udp.udp)
                 dstport = u.dst_port
                 srcport = u.src_port
-                l3_proto = UDP_PROTO
+                l3_proto = Const.UDP_PROTO
             
             packet_in = Packet(destIP=dstip, srcIP=srcip, destPort=dstport, srcPort=srcport, proto=l3_proto)
             src_net, dest_net, packet_in, action = self.module.check_packet(packet=packet_in)
@@ -146,11 +147,11 @@ class EndpointTP(app_manager.RyuApp):
             mod = parser.OFPFlowMod(datapath=datapath, buffer_id=buffer_id,
                                     priority=priority, match=match,
                                     instructions=inst, table_id=self.TABLE_ID, 
-                                    idle_timeout=idle_timeout, hard_timeout=hard_timeout) # TODO: Set idle and hard timeout
+                                    idle_timeout=idle_timeout, hard_timeout=hard_timeout) 
         else:
             mod = parser.OFPFlowMod(datapath=datapath, priority=priority,
                                     match=match, instructions=inst, table_id=self.TABLE_ID, 
-                                    idle_timeout=idle_timeout, hard_timeout=hard_timeout)# TODO: Set idle and hard timeout
+                                    idle_timeout=idle_timeout, hard_timeout=hard_timeout)
         datapath.send_msg(mod)
 
     def createMatchDict(self, in_port, src_net, dest_net, packet_in):
@@ -162,14 +163,14 @@ class EndpointTP(app_manager.RyuApp):
                     'ipv4_dst':dest_net
                 }
         # Handle TCP packet
-        if packet_in.proto==TCP_PROTO:
+        if packet_in.proto==Const.TCP_PROTO:
             match_dict['ip_proto'] = in_proto.IPPROTO_TCP
             if packet_in.srcPort != None:
                 match_dict['tcp_src'] = packet_in.srcPort
             if packet_in.destPort != None:
                 match_dict['tcp_dst'] = packet_in.destPort 
         # Handle UDP packet
-        if packet_in.proto==UDP_PROTO:
+        if packet_in.proto==Const.UDP_PROTO:
             match_dict['ip_proto'] = in_proto.IPPROTO_UDP
             if packet_in.srcPort != None:
                 match_dict['udp_src'] = packet_in.srcPort
