@@ -33,6 +33,9 @@ def topology():
     print("*** Test UDP traffic")
     h1.cmd("nc –u –l 9999")
     h2.cmd("nc -u "+h1_ip+" 9999 < _testFile.txt")
+
+    print ("*** Running CLI")
+    CLI( net )
     
     print ("*** Stopping network")
     net.stop()

@@ -96,6 +96,9 @@ class EndpointTP(app_manager.RyuApp):
                 dstport = u.dst_port
                 srcport = u.src_port
                 l3_proto = Const.UDP_PROTO
+            else:
+                # Directly store the proto number in the packet
+                l3_proto = proto
             
             packet_in = Packet(destIP=dstip, srcIP=srcip, destPort=dstport, srcPort=srcport, proto=l3_proto)
             src_net, dest_net, packet_in, action = self.module.check_packet(packet=packet_in)
@@ -171,12 +174,15 @@ class EndpointTP(app_manager.RyuApp):
             if packet_in.destPort != None:
                 match_dict['tcp_dst'] = packet_in.destPort 
         # Handle UDP packet
-        if packet_in.proto==Const.UDP_PROTO:
+        elif packet_in.proto==Const.UDP_PROTO:
             match_dict['ip_proto'] = in_proto.IPPROTO_UDP
             if packet_in.srcPort != None:
                 match_dict['udp_src'] = packet_in.srcPort
             if packet_in.destPort != None:
                 match_dict['udp_dst'] = packet_in.destPort 
+        else:
+        # Handle any other packet type (i.e. ICMP)
+            match_dict['ip_proto'] = packet_in.proto
         return match_dict
         
            

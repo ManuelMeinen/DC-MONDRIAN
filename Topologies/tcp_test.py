@@ -34,6 +34,9 @@ def topology():
     h1.cmd("nc –t –l 9999")
     h2.cmd("nc -t "+h1_ip+" 9999 < _testFile.txt")
     
+    print ("*** Running CLI")
+    CLI( net )
+
     print ("*** Stopping network")
     net.stop()
 
