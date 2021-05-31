@@ -28,48 +28,47 @@ def topology():
     h4 = net.addHost('h4', ip=h4_ip, mac=h4_mac)
 
     print ("*** Creating links")
+    # Create intra domain links first --> intra domain links at eth0
     net.addLink(h1, h2)
+    net.addLink(h4, h3)
+    # Create inter domain links next --> inter domain links at eth1
     net.addLink(h2, h3)
-    net.addLink(h3, h4)
 
     print ("*** Starting network")
     net.build()
+    # Configure intra domain links 
+    # Site 1
+    set_up_interface(host=h1, if_name='eth0', ip_addr='10.0.0.2', net_mask='255.0.0.0')
+    set_up_interface(host=h2, if_name='eth0', ip_addr='10.0.0.1', net_mask='255.0.0.0')
+    # Site 2
+    set_up_interface(host=h4, if_name='eth0', ip_addr='20.0.0.2', net_mask='255.0.0.0')
+    set_up_interface(host=h3, if_name='eth0', ip_addr='20.0.0.1', net_mask='255.0.0.0')
 
-    h1.cmd('ifconfig h1-eth0 10.0.0.2 netmask 255.0.0.0 up')
-    #set_up_interface(host=h1, if_name='eth0', ip_addr='10.0.0.2', net_mask='255.0.0.0') #TODO: why doesn't that work?...
-    h2.cmd('ifconfig h2-eth1 30.0.0.1 netmask 255.0.0.0 up') 
-    #set_up_interface(host=h2, if_name='eth1', ip_addr='30.0.0.1', net_mask='255.0.0.0')
-    h2.cmd('ifconfig h2-eth0 10.0.0.1 netmask 255.0.0.0 up') 
-    #set_up_interface(host=h2, if_name='eth0', ip_addr='10.0.0.1', net_mask='255.0.0.0')
-    h3.cmd('ifconfig h3-eth1 20.0.0.1 netmask 255.0.0.0 up')
-    h3.cmd('ifconfig h3-eth0 30.0.0.2 netmask 255.0.0.0 up')
-    h4.cmd('ifconfig h4-eth0 20.0.0.2 netmask 255.0.0.0 up')
+    # Configure inter domain links 
+    # Site 1
+    set_up_interface(host=h2, if_name='eth1', ip_addr='30.0.0.1', net_mask='255.0.0.0')
+    # Site 2
+    set_up_interface(host=h3, if_name='eth1', ip_addr='30.0.0.2', net_mask='255.0.0.0')
     
-    h2.cmd('sysctl -w net.ipv4.ip_forward=1')  
-    h3.cmd('sysctl -w net.ipv4.ip_forward=1')
+    # Set up IP forwarding on the Gateway TPs
+    set_up_forwarding(h2)  
+    set_up_forwarding(h3)
     
-    h1.cmd('ip route add default via 10.0.0.1')    
-    h1.cmd('ip route change default via 10.0.0.1') 
-    h2.cmd('ip route add default via 30.0.0.2')    
-    h2.cmd('ip route change default via 30.0.0.2') 
-    h3.cmd('ip route add default via 30.0.0.1')    
-    h3.cmd('ip route change default via 30.0.0.1') 
-    h4.cmd('ip route add default via 20.0.0.1')    
-    h4.cmd('ip route change default via 12.0.0.1') 
+    # Set up default gateways
+    set_up_default_gw(h1, '10.0.0.1')
+    set_up_default_gw(h2, '30.0.0.2')
+    set_up_default_gw(h3, '30.0.0.1')
+    set_up_default_gw(h4, '20.0.0.1') 
     
-    h2.cmd('ip route add 20.0.0.0/8 via 30.0.0.2')
-    h3.cmd('ip route add 10.0.0.0/8 via 30.0.0.1')
-    
+    set_up_route(host=h2, dest='20.0.0.0/8', via='30.0.0.2')
+    set_up_route(host=h3, dest='10.0.0.0/8', via='30.0.0.1')
 
-
-    
-    
-
-    
-    
-
-    
-    
+    test_udp(h1, h4)
+    test_udp(h4, h1)
+    test_tcp(h1, h4)
+    test_tcp(h4, h1)
+    test_icmp(h1, h4)
+    test_icmp(h4, h1)
     
     print ("*** Running CLI")
     CLI( net )
@@ -78,10 +77,106 @@ def topology():
     net.stop()
 
 def set_up_interface(host, if_name, ip_addr, net_mask):
-    cmd = str(host.name)+' ifconfig '+str(host.name)+'-'+str(if_name)+' '+str(ip_addr)+' netmask '+str(net_mask)+' up'
-    print("[Set up interface] "+cmd)
-    print(type(host))
+    cmd = 'ifconfig '+str(host.name)+'-'+str(if_name)+' '+str(ip_addr)+' netmask '+str(net_mask)+' up'
+    print("[Set up interface] "+str(host.name)+' '+cmd)
     host.cmd(cmd)
+
+def set_up_forwarding(host):
+    cmd = 'sysctl -w net.ipv4.ip_forward=1'
+    print("[Set up forwarding] "+str(host.name)+' '+cmd)
+    host.cmd(cmd)
+
+def set_up_default_gw(host, gw):
+    cmd = 'ip route add default via '+str(gw)
+    print("[Set up default gw] "+str(host.name)+' '+cmd)
+    host.cmd(cmd) 
+    cmd = 'ip route change default via '+str(gw)  
+    print("[Set up default gw] "+str(host.name)+' '+cmd) 
+    host.cmd(cmd) 
+
+def set_up_route(host, dest, via):
+    cmd = 'ip route add '+str(dest)+' via '+str(via)
+    print("[Set up route] "+str(host.name)+' '+cmd)
+    host.cmd(cmd)
+
+def test_tcp(src, dest, srcPort=123, destPort=9999):
+    '''
+    Send a file using nc from src to dest via TCP
+    return success
+    '''
+    test_prefix = "[TCP Test] "
+    print("*** Running TCP Test")
+    print(test_prefix+"src: "+str(src.IP())+" dest: "+str(dest.IP())+" srcPort: "+str(srcPort)+" destPort: "+str(destPort))
+    with open("_test.out", "w") as f:
+        f.write("FAIL")
+    listen_cmd = "timeout 5 nc -t -l "+str(destPort)+" > _test.out"
+    dest.sendCmd(listen_cmd)
+    print(test_prefix+dest.name + ' ' + listen_cmd)
+    # Wait such that nc is listening before something is sent
+    time.sleep(1)
+    send_cmd = "timeout 2 nc -t -p "+str(srcPort)+" "+dest.IP()+" "+str(destPort)+" < _test.in"
+    src.sendCmd(send_cmd)
+    print(test_prefix+src.name + ' ' + send_cmd)
+    src.waitOutput()
+    dest.waitOutput()
+    with open("_test.out", "r") as f:
+        line = f.readline()
+        if line=="SUCCESS":
+            print(test_prefix+"Test successfull!")
+            return True
+        else:
+            print(test_prefix+"Test failed!")
+            return False
+
+def test_udp(src, dest, srcPort=123, destPort=9999):
+    '''
+    Send a file using nc from src to dest via UDP
+    return success
+    '''
+    test_prefix = "[UDP Test] "
+    print("*** Running UDP Test")
+    print(test_prefix+"src: "+str(src.IP())+" dest: "+str(dest.IP())+" srcPort: "+str(srcPort)+" destPort: "+str(destPort))
+    with open("_test.out", "w") as f:
+        f.write("FAIL")
+    listen_cmd = "timeout 5 nc -u -l "+str(destPort)+" > _test.out"
+    dest.sendCmd(listen_cmd)
+    print(test_prefix+dest.name + ' ' + listen_cmd)
+    # Wait such that nc is listening before something is sent
+    time.sleep(1)
+    send_cmd = "timeout 2 nc -u -p "+str(srcPort)+" "+dest.IP()+" "+str(destPort)+" < _test.in"
+    src.sendCmd(send_cmd)
+    print(test_prefix+src.name + ' ' + send_cmd)
+    src.waitOutput()
+    dest.waitOutput()
+    with open("_test.out", "r") as f:
+        line = f.readline()
+        if line=="SUCCESS":
+            print(test_prefix+"Test successfull!")
+            return True
+        else:
+            print(test_prefix+"Test failed!")
+            return False
+    
+def test_icmp(src, dest):
+    '''
+    Let src ping dest via ICMP
+    return success
+    '''
+    print("*** Running ICMP Test")
+    test_prefix = "[ICMP Test] "
+    print(test_prefix+"src: "+str(src.IP())+" dest: "+str(dest.IP()))
+    cmd = "ping -c1 "+str(dest.IP())
+    res = src.cmd(cmd)
+    print(test_prefix+str(src.name)+" "+cmd)
+    sent, received = Mininet._parsePing(res)
+    if sent == received:
+        print(test_prefix+"Test successfull!")
+        return True
+    else:
+        print(test_prefix+"Test failed!")
+        return False
+
+            
 
 if __name__ == '__main__':
     setLogLevel( 'info' )

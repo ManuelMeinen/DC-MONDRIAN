@@ -31,8 +31,11 @@ def topology():
     s1.start( [c0] )
 
     print("*** Test TCP traffic")
-    h1.cmd("nc –t –l 9999")
-    h2.cmd("nc -t "+h1_ip+" 9999 < _testFile.txt")
+    h1_res = h1.cmd("timeout 3 nc -t -l 9999 &")
+    h2_res = h2.cmd("timeout 1 nc -t "+h1_ip+" 9999 < _test.in &")
+    h1_res = h1.cmd("timeout 1 cat")
+    print(h1_res)
+    print(h2_res)
     
     print ("*** Running CLI")
     CLI( net )
