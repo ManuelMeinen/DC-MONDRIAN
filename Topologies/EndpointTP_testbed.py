@@ -7,9 +7,11 @@ from mininet.log import setLogLevel
 import time
 from util.setup import SetupUtil
 from util.test import TestUtil
+from util.services import ServicesUtil
 
 setup = SetupUtil()
 test = TestUtil()
+service = ServicesUtil()
 
 class EndpointTPTestbed:
 
@@ -19,6 +21,7 @@ class EndpointTPTestbed:
     def topology(self):
         "Create a network."
         net = Mininet( controller=RemoteController, link=TCLink, switch=OVSKernelSwitch )
+        service.start_Endpoint_TP()
 
         print ("*** Creating nodes")
         h1_ip = '10.0.0.2'

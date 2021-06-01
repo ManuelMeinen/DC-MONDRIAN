@@ -2,6 +2,7 @@ import sys
 sys.path.append("..") #TODO figure out wtf is wrong with python imports
 from code_base.fetcher import Fetcher
 from code_base.types import Packet
+from code_base.const import Const
 from ipaddress import ip_network, ip_address
 
 ESTABLISHED = "established"
@@ -154,7 +155,7 @@ class TransferModule:
                         longest_prefix = net.prefixlen
                         matching_subnet = subnet.netAddr
         if matching_zone == None:
-            print("[Transfer Module] ERROR: Zone not found")
+            print(Const.ENDPOINT_TP_PREFIX+"[Transfer Module] ERROR: Zone not found")
         return matching_zone, matching_subnet
 
 
@@ -162,7 +163,7 @@ class TransferModule:
 if __name__=='__main__':
     module = TransferModule(tpAddr="1.2.3.4")
     zone = module.find_zone("192.168.2.1")
-    print(zone)
+    print(Const.ENDPOINT_TP_PREFIX+str(zone))
     '''
     "PolicyID": 2,
         "Src": 2,
@@ -186,10 +187,10 @@ if __name__=='__main__':
     '''
     packet = Packet("192.168.2.3", "192.168.0.1", destPort=100, srcPort=80, proto="TCP")
     src_net, dest_net, packet, action = module.check_packet(packet=packet)
-    print(module.find_zone("192.168.0.1"))
-    print(module.find_zone("192.168.2.3"))
-    print(dest_net)
-    print(src_net)
+    print(Const.ENDPOINT_TP_PREFIX+str(module.find_zone("192.168.0.1")))
+    print(Const.ENDPOINT_TP_PREFIX+str(module.find_zone("192.168.2.3")))
+    print(Const.ENDPOINT_TP_PREFIX+str(dest_net))
+    print(Const.ENDPOINT_TP_PREFIX+str(src_net))
     packet.print_packet()
-    print(action)
+    print(Const.ENDPOINT_TP_PREFIX+str(action))
     # TODO: Do some more extensive testing to rule out bugs!!!

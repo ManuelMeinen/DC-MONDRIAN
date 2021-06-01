@@ -4,6 +4,7 @@ import threading
 import time
 sys.path.append("..") #TODO figure out wtf is wrong with python imports
 from code_base.types import Packet, proto_dict, Policy, Zone, Subnet
+from code_base.const import Const
 
 
 class Fetcher:
@@ -11,6 +12,7 @@ class Fetcher:
             This Fetcher starts a deamon that fetches the relevant subnets and policies periodically.
             In order to avoid race conditions use the get_subnets and get_policies functions
     '''
+
     def __init__(self, tpAddr, controllerAddr, controllerPort, refresh_interval=30):
         self.tpAddr = tpAddr
         self.controllerAddr = controllerAddr
@@ -33,7 +35,7 @@ class Fetcher:
         '''
         Run the fetching deamon
         '''
-        print("[Fetcher] Refresh deamon started")
+        print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] Refresh deamon started")
         while True:
             time.sleep(self.refresh_interval)
             self.refresh_subnets()
@@ -46,11 +48,11 @@ class Fetcher:
         '''
         self.subnet_lock.acquire()
         try:
-            print("[Fetcher] subnet lock acquired")
+            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock acquired")
             subnets = self.subnets
         finally:
             self.subnet_lock.release()
-            print("[Fetcher] subnet lock released")
+            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock released")
             return subnets
     
     def get_policies(self):
@@ -59,11 +61,11 @@ class Fetcher:
         '''
         self.policy_lock.acquire()
         try:
-            print("[Fetcher] policy lock acquired")
+            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock acquired")
             policies = self.policies
         finally:
             self.policy_lock.release()
-            print("[Fetcher] policy lock released")
+            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock released")
             return policies
 
     def refresh_subnets(self):
@@ -72,15 +74,15 @@ class Fetcher:
         '''
         self.subnet_lock.acquire()
         try:
-            print("[Fetcher] subnet lock acquired")
+            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock acquired")
             fresh_subnets = self.fetch_subnets() 
             if fresh_subnets != None:
                 self.subnets = fresh_subnets
             else:
-                print("[Fetcher] WARNING! No new subnets fetched. Local version is preserved and might be out of date.")
+                print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] WARNING! No new subnets fetched. Local version is preserved and might be out of date.")
         finally:
             self.subnet_lock.release()
-            print("[Fetcher] subnet lock released")
+            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock released")
     
     def refresh_policies(self):
         '''
@@ -88,15 +90,15 @@ class Fetcher:
         '''
         self.policy_lock.acquire()
         try:
-            print("[Fetcher] policy lock acquired")
+            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock acquired")
             fresh_policies = self.fetch_policies()
             if fresh_policies != None:
                 self.policies = fresh_policies
             else:
-                print("[Fetcher] WARNING! No new policies fetched. Local version is preserved and might be out of date.")
+                print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] WARNING! No new policies fetched. Local version is preserved and might be out of date.")
         finally:
             self.policy_lock.release()
-            print("[Fetcher] policy lock released")
+            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock released")
 
     def fetch_subnets(self):
         '''
@@ -110,12 +112,12 @@ class Fetcher:
             # Decode JSON response into a Python dict:
             resp_dict = resp.json()
         except requests.exceptions.HTTPError as e:
-            print("Bad HTTP status code:", e)
+            print(Const.ENDPOINT_TP_PREFIX+"Bad HTTP status code:", e)
             return None
         except requests.exceptions.RequestException as e:
-            print("Network error:", e)
+            print(Const.ENDPOINT_TP_PREFIX+"Network error:", e)
             return None
-        print("[Fetcher] Subnets fetched successfully")
+        print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] Subnets fetched successfully")
         subnets = []
         for line in resp_dict:
             netAddr = line['CIDR']
@@ -137,12 +139,12 @@ class Fetcher:
             # Decode JSON response into a Python dict:
             resp_dict = resp.json()
         except requests.exceptions.HTTPError as e:
-            print("Bad HTTP status code:", e)
+            print(Const.ENDPOINT_TP_PREFIX+"Bad HTTP status code:", e)
             return None
         except requests.exceptions.RequestException as e:
-            print("Network error:", e)
+            print(Const.ENDPOINT_TP_PREFIX+"Network error:", e)
             return None
-        print("[Fetcher] Policies fetched successfully")
+        print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] Policies fetched successfully")
         transitions = []
         for line in resp_dict:
             policyID = int(line['PolicyID'])

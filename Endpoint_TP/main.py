@@ -77,7 +77,7 @@ class EndpointTP(app_manager.RyuApp):
         if eth.ethertype == ether_types.ETH_TYPE_IP:
             ip = pkt.get_protocol(ipv4.ipv4)
             if ip == None:
-                self.logger.info("[Endpoint TP] WARNING: Non IPv4 Packet detected. IPv6 is currently not supported.")
+                self.logger.info(Const.ENDPOINT_TP_PREFIX+"WARNING: Non IPv4 Packet detected. IPv6 is currently not supported.")
                 return
             srcip = ip.src
             dstip = ip.dst
@@ -103,7 +103,7 @@ class EndpointTP(app_manager.RyuApp):
             packet_in = Packet(destIP=dstip, srcIP=srcip, destPort=dstport, srcPort=srcport, proto=l3_proto)
             src_net, dest_net, packet_in, action = self.module.check_packet(packet=packet_in)
             if src_net == None or dest_net == None:
-                self.logger.info("[Endpoint TP] src_net or dest_net not found in the MONDRIAN Controller --> Packet can't be handled")
+                self.logger.info(Const.ENDPOINT_TP_PREFIX+"src_net or dest_net not found in the MONDRIAN Controller --> Packet can't be handled")
                 return
             
             match_dict = self.createMatchDict(in_port=in_port, src_net=src_net, dest_net=dest_net, packet_in=packet_in)
@@ -114,12 +114,12 @@ class EndpointTP(app_manager.RyuApp):
                 # Drop the traffic (which is the default)
                 actions = []
                 instructions = []
-                self.logger.info("[Endpoint TP] Packet classification: "+str(action)+" --> DROP")
+                self.logger.info(Const.ENDPOINT_TP_PREFIX+"Packet classification: "+str(action)+" --> DROP")
             else:
                 # Let the VNF in the next flow table handle the traffic
                 actions = []
                 instructions = [parser.OFPInstructionGotoTable(table_id = self.TABLE_ID+1)]
-                self.logger.info("[Endpoint TP] Packet classification: "+str(action)+" --> GOTO next table")
+                self.logger.info(Const.ENDPOINT_TP_PREFIX+"Packet classification: "+str(action)+" --> GOTO next table")
 
             # verify if we have a valid buffer_id, if yes avoid to send both
             # flow_mod & packet_out
