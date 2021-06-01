@@ -32,13 +32,13 @@ class EndpointTP(app_manager.RyuApp):
     IDLE_TIMEOUT = 30
     HARD_TIMEOUT = 5*60
     def debug(self, string):
-        print("*** DEBUG INFO *** "+str(string))
+        self.logger.info("*** DEBUG INFO *** "+str(string))
 
     def __init__(self, *args, **kwargs):
         super(EndpointTP, self).__init__(*args, **kwargs)
-        c = Const()
-        print(Const.controllerAddr)
-        self.module = TransferModule(tpAddr=Const.tpAddr, controllerAddr=Const.controllerAddr, controllerPort=Const.controllerPort)
+        c = Const(self.logger)
+        self.module = TransferModule(tpAddr=Const.tpAddr, controllerAddr=Const.controllerAddr, controllerPort=Const.controllerPort, logger=self.logger)
+        
     
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
     def switch_features_handler(self, ev):

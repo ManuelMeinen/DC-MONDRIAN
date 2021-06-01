@@ -1,8 +1,9 @@
 import json
 import os
 class Const:
-    def __init__(self):
+    def __init__(self, logger = None):
         self.init_const()
+        self.logger = logger
 
     controllerAddr = "NOT SET"
     controllerPort = "NOT SET"
@@ -29,5 +30,5 @@ class Const:
                 Const.controllerPort = data["controllerPort"]
                 Const.tpAddr = data["tpAddr"]
         except json.JSONDecodeError as e:
-            print("[Const] ERROR: Reading config.json failed!")
+            self.logger.info("[Const] ERROR: Reading config.json failed!")
             exit(1)

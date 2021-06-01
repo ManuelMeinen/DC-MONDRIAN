@@ -1,3 +1,4 @@
+import logging
 import requests
 import sys
 import threading
@@ -13,10 +14,11 @@ class Fetcher:
             In order to avoid race conditions use the get_subnets and get_policies functions
     '''
 
-    def __init__(self, tpAddr, controllerAddr, controllerPort, refresh_interval=30):
+    def __init__(self, tpAddr, controllerAddr, controllerPort, refresh_interval=30, logger=None):
         self.tpAddr = tpAddr
         self.controllerAddr = controllerAddr
         self.controllerPort = controllerPort
+        self.logger = logger
         self.subnets_url = "https://"+self.controllerAddr+":"+self.controllerPort+"/api/get-subnets"
         self.transitions_url = "https://"+self.controllerAddr+":"+self.controllerPort+"/api/get-transitions"
         self.refresh_interval = refresh_interval
@@ -35,7 +37,7 @@ class Fetcher:
         '''
         Run the fetching deamon
         '''
-        print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] Refresh deamon started")
+        self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] Refresh deamon started")
         while True:
             time.sleep(self.refresh_interval)
             self.refresh_subnets()
@@ -48,11 +50,11 @@ class Fetcher:
         '''
         self.subnet_lock.acquire()
         try:
-            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock acquired")
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock acquired")
             subnets = self.subnets
         finally:
             self.subnet_lock.release()
-            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock released")
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock released")
             return subnets
     
     def get_policies(self):
@@ -61,11 +63,11 @@ class Fetcher:
         '''
         self.policy_lock.acquire()
         try:
-            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock acquired")
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock acquired")
             policies = self.policies
         finally:
             self.policy_lock.release()
-            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock released")
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock released")
             return policies
 
     def refresh_subnets(self):
@@ -74,15 +76,15 @@ class Fetcher:
         '''
         self.subnet_lock.acquire()
         try:
-            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock acquired")
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock acquired")
             fresh_subnets = self.fetch_subnets() 
             if fresh_subnets != None:
                 self.subnets = fresh_subnets
             else:
-                print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] WARNING! No new subnets fetched. Local version is preserved and might be out of date.")
+                self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] WARNING! No new subnets fetched. Local version is preserved and might be out of date.")
         finally:
             self.subnet_lock.release()
-            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock released")
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock released")
     
     def refresh_policies(self):
         '''
@@ -90,15 +92,15 @@ class Fetcher:
         '''
         self.policy_lock.acquire()
         try:
-            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock acquired")
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock acquired")
             fresh_policies = self.fetch_policies()
             if fresh_policies != None:
                 self.policies = fresh_policies
             else:
-                print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] WARNING! No new policies fetched. Local version is preserved and might be out of date.")
+                self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] WARNING! No new policies fetched. Local version is preserved and might be out of date.")
         finally:
             self.policy_lock.release()
-            print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock released")
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock released")
 
     def fetch_subnets(self):
         '''
@@ -112,12 +114,12 @@ class Fetcher:
             # Decode JSON response into a Python dict:
             resp_dict = resp.json()
         except requests.exceptions.HTTPError as e:
-            print(Const.ENDPOINT_TP_PREFIX+"Bad HTTP status code:", e)
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"Bad HTTP status code:"+str(e))
             return None
         except requests.exceptions.RequestException as e:
-            print(Const.ENDPOINT_TP_PREFIX+"Network error:", e)
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"Network error:"+str(e))
             return None
-        print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] Subnets fetched successfully")
+        self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] Subnets fetched successfully")
         subnets = []
         for line in resp_dict:
             netAddr = line['CIDR']
@@ -139,12 +141,12 @@ class Fetcher:
             # Decode JSON response into a Python dict:
             resp_dict = resp.json()
         except requests.exceptions.HTTPError as e:
-            print(Const.ENDPOINT_TP_PREFIX+"Bad HTTP status code:", e)
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"Bad HTTP status code:"+str(e))
             return None
         except requests.exceptions.RequestException as e:
-            print(Const.ENDPOINT_TP_PREFIX+"Network error:", e)
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"Network error:"+str(e))
             return None
-        print(Const.ENDPOINT_TP_PREFIX+"[Fetcher] Policies fetched successfully")
+        self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] Policies fetched successfully")
         transitions = []
         for line in resp_dict:
             policyID = int(line['PolicyID'])

@@ -1,20 +1,27 @@
 package main
 
 import (
-	"flag"
-    "fmt"
-    "log"
-    "net/http"
-	"controller/handler"
-	"controller/db"
 	"controller/config"
+	"controller/db"
+	"controller/handler"
+	"flag"
+	"fmt"
+	"log"
+	"net/http"
+
+	
 )
 
 // This function starts the Controller
 func startController() {
-	dbPath := flag.String("db", config.DbPath, "path to the database file")
-	listen := flag.String("listen", fmt.Sprintf(":%s", config.ControllerPort), "server listen address")
+	dbPath := flag.String("db", config.DbPath, "Path to the database file")
+	addr := flag.String("controllerAddr", config.ControllerAddr, "Address of the Mondrian Controller")
+	listen := flag.String("controllerPort", fmt.Sprintf(":%s", config.ControllerPort), "Controller listen port")
 	flag.Parse()
+	config.DbPath = *dbPath
+	config.ControllerAddr = *addr
+	config.ControllerPort = *listen
+	
 	fmt.Println(*dbPath)
 	db.SetupDB(*dbPath)
 	for api, handler := range handler.ApiMap {

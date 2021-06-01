@@ -1,3 +1,4 @@
+import logging
 import sys
 sys.path.append("..") #TODO figure out wtf is wrong with python imports
 from code_base.fetcher import Fetcher
@@ -14,9 +15,10 @@ ACTIONS = [ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT]
 
 class TransferModule:
 
-    def __init__(self, tpAddr, controllerAddr, controllerPort):
+    def __init__(self, tpAddr, controllerAddr, controllerPort, logger=None):
         self.tpAddr = tpAddr
-        self.fetcher = Fetcher(tpAddr=tpAddr, controllerAddr=controllerAddr, controllerPort=controllerPort)
+        self.logger = logger
+        self.fetcher = Fetcher(tpAddr=tpAddr, controllerAddr=controllerAddr, controllerPort=controllerPort, logger=logger)
     
 
     def check_packet(self, packet):
@@ -155,42 +157,6 @@ class TransferModule:
                         longest_prefix = net.prefixlen
                         matching_subnet = subnet.netAddr
         if matching_zone == None:
-            print(Const.ENDPOINT_TP_PREFIX+"[Transfer Module] ERROR: Zone not found")
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Transfer Module] ERROR: Zone not found")
         return matching_zone, matching_subnet
 
-
-
-if __name__=='__main__':
-    module = TransferModule(tpAddr="1.2.3.4")
-    zone = module.find_zone("192.168.2.1")
-    print(Const.ENDPOINT_TP_PREFIX+str(zone))
-    '''
-    "PolicyID": 2,
-        "Src": 2,
-        "Dest": 1,
-        "SrcPort": 80,
-        "DestPort": 100,
-        "Proto": "TCP",
-        "Action": "drop"
-
-        {
-        "CIDR": "192.168.0.1/32",
-        "ZoneID": 1,
-        "TPAddr": "1.2.3.4"
-    },
-    {
-        "CIDR": "192.168.2.0/24",
-        "ZoneID": 2,
-        "TPAddr": "2.3.4.5"
-    },
-
-    '''
-    packet = Packet("192.168.2.3", "192.168.0.1", destPort=100, srcPort=80, proto="TCP")
-    src_net, dest_net, packet, action = module.check_packet(packet=packet)
-    print(Const.ENDPOINT_TP_PREFIX+str(module.find_zone("192.168.0.1")))
-    print(Const.ENDPOINT_TP_PREFIX+str(module.find_zone("192.168.2.3")))
-    print(Const.ENDPOINT_TP_PREFIX+str(dest_net))
-    print(Const.ENDPOINT_TP_PREFIX+str(src_net))
-    packet.print_packet()
-    print(Const.ENDPOINT_TP_PREFIX+str(action))
-    # TODO: Do some more extensive testing to rule out bugs!!!

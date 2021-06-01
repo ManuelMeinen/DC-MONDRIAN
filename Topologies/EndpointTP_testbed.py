@@ -18,10 +18,41 @@ class EndpointTPTestbed:
     def __init__(self):
         pass
 
+    topo = {
+        'Site 1':{
+            'tpAddr':'30.0.0.1',
+            'eTP_Port':6633, 
+            'default_gw':"10.0.0.1",
+            'Hosts':{
+                'h11':{
+                    'ip':'10.0.0.2'
+                },
+                'h12':{
+                    'ip':'10.0.0.3'
+                }
+            }
+        },
+        'Site 2':{
+            'tpAddr':'30.0.0.2',
+            'eTP_Port':6634,
+            'default_gw':"20.0.0.1",
+            'Hosts':{
+                'h21':{
+                    'ip':'20.0.0.2'
+                },
+                'h22':{
+                    'ip':'20.0.0.3'
+                }
+            }
+        }
+    }
+
     def topology(self):
         "Create a network."
         net = Mininet( controller=RemoteController, link=TCLink, switch=OVSKernelSwitch )
-        service.start_Endpoint_TP()
+        service.start_Endpoint_TP(endpointTPPort=6633)
+        service.start_Endpoint_TP(endpointTPPort=6634)
+        service.start_Mondrian_Controller()
 
         print ("*** Creating nodes")
         h1_ip = '10.0.0.2'
@@ -91,6 +122,7 @@ class EndpointTPTestbed:
     def stopNet(self):  
         print ("*** Stopping network")
         self.net.stop()
+        service.kill_processes()
 
 
 if __name__ == '__main__':
