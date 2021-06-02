@@ -50,11 +50,11 @@ class Fetcher:
         '''
         self.subnet_lock.acquire()
         try:
-            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock acquired")
+            #self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock acquired")
             subnets = self.subnets
         finally:
             self.subnet_lock.release()
-            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock released")
+            #self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock released")
             return subnets
     
     def get_policies(self):
@@ -63,11 +63,11 @@ class Fetcher:
         '''
         self.policy_lock.acquire()
         try:
-            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock acquired")
+            #self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock acquired")
             policies = self.policies
         finally:
             self.policy_lock.release()
-            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock released")
+            #self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock released")
             return policies
 
     def refresh_subnets(self):
@@ -76,7 +76,7 @@ class Fetcher:
         '''
         self.subnet_lock.acquire()
         try:
-            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock acquired")
+            #self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock acquired")
             fresh_subnets = self.fetch_subnets() 
             if fresh_subnets != None:
                 self.subnets = fresh_subnets
@@ -84,7 +84,7 @@ class Fetcher:
                 self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] WARNING! No new subnets fetched. Local version is preserved and might be out of date.")
         finally:
             self.subnet_lock.release()
-            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock released")
+            #self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] subnet lock released")
     
     def refresh_policies(self):
         '''
@@ -92,7 +92,7 @@ class Fetcher:
         '''
         self.policy_lock.acquire()
         try:
-            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock acquired")
+            #self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock acquired")
             fresh_policies = self.fetch_policies()
             if fresh_policies != None:
                 self.policies = fresh_policies
@@ -100,7 +100,7 @@ class Fetcher:
                 self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] WARNING! No new policies fetched. Local version is preserved and might be out of date.")
         finally:
             self.policy_lock.release()
-            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock released")
+            #self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Fetcher] policy lock released")
 
     def fetch_subnets(self):
         '''

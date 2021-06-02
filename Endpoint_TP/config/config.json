@@ -1,6 +1,6 @@
 {
     "controllerAddr": "localhost",
-    "tpAddr": "30.0.0.1",
+    "tpAddr": "30.0.0.2",
     "endpointTPPort": "6634",
     "controllerPort": "4433"
 }

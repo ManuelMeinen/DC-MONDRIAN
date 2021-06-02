@@ -1,4 +1,6 @@
 #from Endpoint_TP.code_base.transfer_module import TransferModule
+import os
+import time
 from ryu.base import app_manager
 from ryu.controller import ofp_event
 from ryu.controller.handler import CONFIG_DISPATCHER, MAIN_DISPATCHER
@@ -22,6 +24,7 @@ from ryu.app.simple_switch_stp_13 import SimpleSwitch13
 
 from code_base.types import Packet, proto_dict, Policy, Zone, Subnet
 from code_base.const import Const
+from code_base.sync import Synchronizer
 from code_base.transfer_module import TransferModule, ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT
 
 class EndpointTP(app_manager.RyuApp):
@@ -34,8 +37,13 @@ class EndpointTP(app_manager.RyuApp):
     def debug(self, string):
         self.logger.info("*** DEBUG INFO *** "+str(string))
 
+    _CONTEXTS = {
+    'synchronizer': Synchronizer
+    }
+
     def __init__(self, *args, **kwargs):
         super(EndpointTP, self).__init__(*args, **kwargs)
+        self.synchronizer = kwargs['synchronizer']
         c = Const(self.logger)
         self.module = TransferModule(tpAddr=Const.tpAddr, controllerAddr=Const.controllerAddr, controllerPort=Const.controllerPort, logger=self.logger)
         
@@ -56,6 +64,7 @@ class EndpointTP(app_manager.RyuApp):
         actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,
                                           ofproto.OFPCML_NO_BUFFER)]
         self.add_flow(datapath, 0, match, actions) # NOTE: This flow is not allowed to time out --> hard_timeout = idle_timeout = 0
+        
 
     @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)
     def packet_in_handler(self, ev): 
@@ -73,11 +82,13 @@ class EndpointTP(app_manager.RyuApp):
         dstport = None
         srcport = None
         proto = None
-
+        self.synchronizer.allow()
         if eth.ethertype == ether_types.ETH_TYPE_IP:
+            
             ip = pkt.get_protocol(ipv4.ipv4)
             if ip == None:
                 self.logger.info(Const.ENDPOINT_TP_PREFIX+"WARNING: Non IPv4 Packet detected. IPv6 is currently not supported.")
+                self.synchronizer.log_status(self.logger)
                 return
             srcip = ip.src
             dstip = ip.dst
@@ -104,6 +115,8 @@ class EndpointTP(app_manager.RyuApp):
             src_net, dest_net, packet_in, action = self.module.check_packet(packet=packet_in)
             if src_net == None or dest_net == None:
                 self.logger.info(Const.ENDPOINT_TP_PREFIX+"src_net or dest_net not found in the MONDRIAN Controller --> Packet can't be handled")
+                self.synchronizer.log_status(self.logger)
+                self.synchronizer.allow()
                 return
             
             match_dict = self.createMatchDict(in_port=in_port, src_net=src_net, dest_net=dest_net, packet_in=packet_in)
@@ -121,24 +134,18 @@ class EndpointTP(app_manager.RyuApp):
                 instructions = [parser.OFPInstructionGotoTable(table_id = self.TABLE_ID+1)]
                 self.logger.info(Const.ENDPOINT_TP_PREFIX+"Packet classification: "+str(action)+" --> GOTO next table")
 
-            # verify if we have a valid buffer_id, if yes avoid to send both
-            # flow_mod & packet_out
             if msg.buffer_id != ofproto.OFP_NO_BUFFER:
                 self.add_flow(datapath, 1, match, actions, msg.buffer_id, instructions=instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)
-                return
             else:
                 self.add_flow(datapath, 1, match, actions, instructions=instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)
-            # NOTE: The packet-out message is only needed if there was no switch after the Endpoint TP which handles that.
-            # actions = [ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT]
-            #if action == ESTABLISHED or action == FORWARDING or action == INTRA_ZONE:
-                #data = None
-                #if msg.buffer_id == ofproto.OFP_NO_BUFFER:
-                #    data = msg.data
-                #
-                #out = parser.OFPPacketOut(datapath=datapath, buffer_id=msg.buffer_id,
-                #                          in_port=in_port, actions=actions, data=data)
-                #datapath.send_msg(out)
-        
+            
+            if action == DROP or action == DEFAULT:
+                self.synchronizer.drop()
+                #self.synchronizer.log_status(self.logger)  
+            else:
+                self.synchronizer.allow()
+                #self.synchronizer.log_status(self.logger)
+  
 
     def add_flow(self, datapath, priority, match, actions, buffer_id=None, instructions=[], idle_timeout=0, hard_timeout=0):
         ofproto = datapath.ofproto
@@ -157,6 +164,7 @@ class EndpointTP(app_manager.RyuApp):
                                     match=match, instructions=inst, table_id=self.TABLE_ID, 
                                     idle_timeout=idle_timeout, hard_timeout=hard_timeout)
         datapath.send_msg(mod)
+    
 
     def createMatchDict(self, in_port, src_net, dest_net, packet_in):
         # Basic src and dest match

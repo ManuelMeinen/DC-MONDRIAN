@@ -157,6 +157,6 @@ class TransferModule:
                         longest_prefix = net.prefixlen
                         matching_subnet = subnet.netAddr
         if matching_zone == None:
-            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Transfer Module] ERROR: Zone not found")
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Transfer Module] ERROR: Zone not found for "+str(ip_addr))
         return matching_zone, matching_subnet
 
