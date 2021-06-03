@@ -20,7 +20,7 @@ class TestUtil:
         dest.sendCmd(listen_cmd)
         print(test_prefix+dest.name + ' ' + listen_cmd)
         # Wait such that nc is listening before something is sent
-        time.sleep(1)
+        time.sleep(3)
         send_cmd = "timeout 2 nc -t -p "+str(srcPort)+" "+dest.IP()+" "+str(destPort)+" < test_data/_test.in"
         src.sendCmd(send_cmd)
         print(test_prefix+src.name + ' ' + send_cmd)

@@ -116,13 +116,84 @@ class EndpointTPTestbed:
             s[0].start([c[0] for c in self.controllers if c[1]==s[1]])
         self.net =  net
 
+    def test_intra_zone(self):
+        '''
+        Test if all connections work for intra zone traffic (Zone 1)
+        both intra and inter domain for the protocols TCP, UDP and ICMP
+        '''
+        host_dict = self.get_host_dict()
+        success = True
+        print("*** Intra Zone Test started")
+        # ICMP
+        success = success and test.test_icmp(host_dict['h11'], host_dict['h12'])
+        success = success and test.test_icmp(host_dict['h11'], host_dict['h21'])
+        success = success and test.test_icmp(host_dict['h12'], host_dict['h11'])
+        success = success and test.test_icmp(host_dict['h12'], host_dict['h21'])
+        success = success and test.test_icmp(host_dict['h21'], host_dict['h11'])
+        success = success and test.test_icmp(host_dict['h21'], host_dict['h12'])
+        # TCP
+        success = success and test.test_tcp(host_dict['h11'], host_dict['h12'])
+        success = success and test.test_tcp(host_dict['h11'], host_dict['h21'])
+        success = success and test.test_tcp(host_dict['h12'], host_dict['h11'])
+        success = success and test.test_tcp(host_dict['h12'], host_dict['h21'])
+        success = success and test.test_tcp(host_dict['h21'], host_dict['h11'])
+        success = success and test.test_tcp(host_dict['h21'], host_dict['h12'])
+        # UDP
+        success = success and test.test_udp(host_dict['h11'], host_dict['h12'])
+        success = success and test.test_udp(host_dict['h11'], host_dict['h21'])
+        success = success and test.test_udp(host_dict['h12'], host_dict['h11'])
+        success = success and test.test_udp(host_dict['h12'], host_dict['h21'])
+        success = success and test.test_udp(host_dict['h21'], host_dict['h11'])
+        success = success and test.test_udp(host_dict['h21'], host_dict['h12'])
+        
+        if success:
+            print("*** Intra Zone Test passed")
+        else: 
+            print("*** Intra Zone Test failed")
+    
+    def test_inter_zone(self):
+        '''
+        Test if connections work for inter zone traffic for which
+        there is a policy allowing that kind of traffic and that
+        the don't if the policy disallows it.
+        '''
+        host_dict = self.get_host_dict()
+        success = True
+        print("*** Inter Zone Test started")
+        #"PolicyID": 1, "Src": 1, "Dest": 2,"SrcPort": 70, "DestPort": 90, "Proto": "TCP", "Action": "forwarding"
+        success = success and not(test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'], srcPort=70, destPort=90)) # Fail because for TCP established would be needed
+        #"PolicyID": 2, "Src": 2, "Dest": 1, "SrcPort": 70, "DestPort": 90, "Proto": "UDP", "Action": "forwarding"
+        success = success and test.test_udp(src=host_dict['h13'], dest=host_dict['h11'], srcPort=70, destPort=90) # OK
+        #"PolicyID": 3, "Src": 1, "Dest": 2, "SrcPort": 0, "DestPort": 0, "Proto": "TCP", "Action": "forwarding"
+        success = success and not(test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'])) # Fail because for TCP established would be needed
+        #"PolicyID": 4, "Src": 3, "Dest": 0, "SrcPort": 0, "DestPort": 0, "Proto": "", "Action": "drop"
+        success = success and not(test.test_udp(src=host_dict['h22'], dest=host_dict['h13'])) # Fail because of drop action
+        success = success and test.test_udp(src=host_dict['h22'], dest=host_dict['h11']) # Success because of policy 8 (established)
+        #"PolicyID": 5, "Src": 1, "Dest": 2, "SrcPort": 80, "DestPort": 100, "Proto": "TCP", "Action": "established"
+        success = success and test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'], srcPort=80, destPort=100)  #OK
+        # NOTE: To properly test the established rule uncomment the following 3 lines
+        #print("[INFO] Waiting for 60sec for the ports to be freed")
+        #time.sleep(60)
+        #success = success and test.test_tcp(src=host_dict['h13'], dest=host_dict['h11'], srcPort=100, destPort=80)  #OK NOTE: if the reverse connection was tested then we would need to wait for tcp_fin_timeout=60sec
+        #"PolicyID": 6, "Src": 1, "Dest": 2, "SrcPort": 80, "DestPort": 0, "Proto": "TCP", "Action": "drop"
+        success = success and not(test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'], srcPort=80)) # Fail because we drop
+        #"PolicyID": 7, "Src": 2, "Dest": 1, "SrcPort": 0, "DestPort": 100, "Proto": "UDP", "Action": "established"
+        success = success and test.test_udp(src=host_dict['h13'], dest=host_dict['h12'], destPort=100)
+        success = success and test.test_udp(src=host_dict['h12'], dest=host_dict['h13'], srcPort=100)
+        #"PolicyID": 8, "Src": 1, "Dest": 3, "SrcPort": 0, "DestPort": 0, "Proto": "", "Action": "established"
+        success = success and test.test_icmp(src=host_dict['h11'], dest=host_dict['h22'])
+        success = success and test.test_icmp(src=host_dict['h22'], dest=host_dict['h11'])
 
-        #test.test_udp(h1, h4)
-        #test.test_udp(h4, h1)
-        #test.test_tcp(h1, h4)
-        #test.test_tcp(h4, h1)
-        #test.test_icmp(h1, h4)
-        #test.test_icmp(h4, h1)
+        if success:
+            print("*** Inter Zone Test passed")
+        else: 
+            print("*** Inter Zone Test failed")
+    
+    def get_host_dict(self):
+        host_dict = {}
+        for host in self.hosts:
+            host_dict[host[0].name] = host[0]
+        return host_dict
 
 
     def startCLI(self): 
@@ -139,6 +210,9 @@ if __name__ == '__main__':
     setLogLevel( 'info' )
     topo = EndpointTPTestbed()
     topo.topology()
-    # TODO: Run some tests
+    #Make sure that everything is ready
+    time.sleep(3)
+    topo.test_intra_zone()
+    topo.test_inter_zone()
     topo.startCLI()
     topo.stopNet()

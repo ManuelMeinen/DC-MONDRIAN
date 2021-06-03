@@ -15,11 +15,19 @@ ACTIONS = [ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT]
 
 class TransferModule:
 
-    def __init__(self, tpAddr, controllerAddr, controllerPort, logger=None):
+    def __init__(self, tpAddr, controllerAddr, controllerPort, logger=None, verbose=True):
         self.tpAddr = tpAddr
         self.logger = logger
-        self.fetcher = Fetcher(tpAddr=tpAddr, controllerAddr=controllerAddr, controllerPort=controllerPort, logger=logger)
+        self.verbose = verbose
+        self.fetcher = Fetcher(tpAddr=tpAddr, controllerAddr=controllerAddr, controllerPort=controllerPort, logger=logger, verbose=self.verbose)
+        
     
+    def log(self, msg):
+        if self.verbose:
+            if self.logger == None:
+                print(str(msg))
+            else:
+                self.logger.info(Const.TRANSFER_MODULE_PREFIX+str(msg))
 
     def check_packet(self, packet):
         '''
@@ -32,6 +40,7 @@ class TransferModule:
         policies = self.fetcher.get_policies()
         src, src_net = self.find_zone(packet.srcIP)
         dest, dest_net = self.find_zone(packet.destIP)
+        self.log("Checking Packet: "+packet.to_string())
         if src == dest:
             # Same Zone traffic
             return src_net, dest_net, packet, INTRA_ZONE
@@ -40,36 +49,41 @@ class TransferModule:
         highest_priority = 0
         for policy in policies:
             priority = 0
-            policy.print_policy()
             match=False
             if policy.srcZoneID == None or policy.srcZoneID == src:
                 match = True
-                priority += 5
+                if policy.srcZoneID!=None:
+                    priority += 5
             else:
                 match = False
             if match==True and (policy.destZoneID == None or policy.destZoneID == dest):
                 match = True
-                priority += 5
+                if policy.destZoneID!=None:
+                    priority += 5
             else: 
                 match=False
             if match==True and (policy.srcPort == None or policy.srcPort == packet.srcPort):
                 match = True
-                priority += 1
+                if policy.srcPort!=None:
+                    priority += 1
             else: 
                 match=False
             if match==True and (policy.destPort == None or policy.destPort == packet.destPort):
                 match = True
-                priority += 2
+                if policy.destPort!=None:
+                    priority += 2
             else: 
                 match=False
             if match==True and (policy.proto == None or policy.proto == packet.proto):
                 match = True
-                priority += 1
+                if policy.proto!=None:
+                    priority += 1
             else: 
                 match=False
+                self.log("[NO MATCH] "+policy.to_string())
             if match:
-                policy.print_policy()
-                packet.print_packet()
+                
+                self.log("[MATCH] "+policy.to_string()+" priority="+str(priority))
                 if matching_policy == None or highest_priority <= priority:
                     if highest_priority == priority:
                         # Break ties
@@ -79,7 +93,7 @@ class TransferModule:
                     else:
                         matching_policy = policy
                         highest_priority = priority
-                        continue
+                        
             # check for established rule
             priority = 0
             if policy.action == "established":
@@ -88,32 +102,37 @@ class TransferModule:
                 match=False
             if match==True and (policy.srcZoneID == None or policy.srcZoneID == dest):
                 match = True
-                priority += 5
+                if policy.srcZoneID!=None:
+                    priority += 5
             else: 
                 match=False
             if match==True and (policy.destZoneID == None or policy.destZoneID == src):
                 match = True
-                priority += 5
+                if policy.destZoneID!=None:
+                    priority += 5
             else: 
                 match=False
             if match==True and (policy.srcPort == None or policy.srcPort == packet.destPort):
                 match = True
-                priority += 1
+                if policy.srcPort!=None:
+                    priority += 1
             else: 
                 match=False
             if match==True and (policy.destPort == None or policy.destPort == packet.srcPort):
                 match = True
-                priority += 2
+                if policy.destPort!=None:
+                    priority += 2
             else: 
                 match=False
             if match==True and (policy.proto == None or policy.proto == packet.proto):
                 match = True
-                priority += 1
+                if policy.proto!=None:
+                    priority += 1
             else: 
                 match=False
+                self.log("[NO MATCH] "+policy.to_string())
             if match:
-                policy.print_policy()
-                packet.print_packet()
+                self.log("[MATCH] "+policy.to_string()+" priority="+str(priority))
                 if matching_policy == None or highest_priority <= priority:
                     if highest_priority == priority:
                         # Break ties
@@ -123,14 +142,14 @@ class TransferModule:
                     else:
                         matching_policy = policy
                         highest_priority = priority
-                        continue
-            # Depending on the policy found (if any) return the right info
-            if matching_policy == None:
-                # No matching policy --> default
-                return src_net, dest_net, packet, DEFAULT
-            else:
-                # There is a match --> drop, forwarding, established
-                return src_net, dest_net, packet, matching_policy.action
+                        
+        # Depending on the policy found (if any) return the right info
+        if matching_policy == None:
+            # No matching policy --> default
+            return src_net, dest_net, packet, DEFAULT
+        else:
+            # There is a match --> drop, forwarding, established
+            return src_net, dest_net, packet, matching_policy.action
                 
             
 

@@ -16,6 +16,8 @@ class Const:
     UDP_PROTO = "UDP"
 
     ENDPOINT_TP_PREFIX = "[EndpointTP] "
+    TRANSFER_MODULE_PREFIX = ENDPOINT_TP_PREFIX+"[Transfer Module] "
+    FETCHER_PREFIX = ENDPOINT_TP_PREFIX+"[Fetcher] "
 
     @classmethod
     def init_const(self):

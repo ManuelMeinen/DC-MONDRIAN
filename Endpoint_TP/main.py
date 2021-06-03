@@ -32,10 +32,12 @@ class EndpointTP(app_manager.RyuApp):
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
     TABLE_ID = 0
     # Timeouts are in seconds and 0 menas it never times out
-    IDLE_TIMEOUT = 30
+    IDLE_TIMEOUT = 3*60
     HARD_TIMEOUT = 5*60
-    def debug(self, string):
-        self.logger.info("*** DEBUG INFO *** "+str(string))
+
+    def log(self, msg):
+        if self.verbose:
+            self.logger.info(Const.ENDPOINT_TP_PREFIX+str(msg))
 
     _CONTEXTS = {
     'synchronizer': Synchronizer
@@ -45,7 +47,9 @@ class EndpointTP(app_manager.RyuApp):
         super(EndpointTP, self).__init__(*args, **kwargs)
         self.synchronizer = kwargs['synchronizer']
         c = Const(self.logger)
-        self.module = TransferModule(tpAddr=Const.tpAddr, controllerAddr=Const.controllerAddr, controllerPort=Const.controllerPort, logger=self.logger)
+        self.verbose = True
+        self.module = TransferModule(tpAddr=Const.tpAddr, controllerAddr=Const.controllerAddr, 
+                                    controllerPort=Const.controllerPort, logger=self.logger, verbose=self.verbose)
         
     
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
@@ -87,7 +91,7 @@ class EndpointTP(app_manager.RyuApp):
             
             ip = pkt.get_protocol(ipv4.ipv4)
             if ip == None:
-                self.logger.info(Const.ENDPOINT_TP_PREFIX+"WARNING: Non IPv4 Packet detected. IPv6 is currently not supported.")
+                self.log("WARNING: Non IPv4 Packet detected. IPv6 is currently not supported.")
                 self.synchronizer.log_status(self.logger)
                 return
             srcip = ip.src
@@ -114,7 +118,7 @@ class EndpointTP(app_manager.RyuApp):
             packet_in = Packet(destIP=dstip, srcIP=srcip, destPort=dstport, srcPort=srcport, proto=l3_proto)
             src_net, dest_net, packet_in, action = self.module.check_packet(packet=packet_in)
             if src_net == None or dest_net == None:
-                self.logger.info(Const.ENDPOINT_TP_PREFIX+"src_net or dest_net not found in the MONDRIAN Controller --> Packet can't be handled")
+                self.log("src_net or dest_net not found in the MONDRIAN Controller --> Packet can't be handled")
                 self.synchronizer.log_status(self.logger)
                 self.synchronizer.allow()
                 return
@@ -127,12 +131,14 @@ class EndpointTP(app_manager.RyuApp):
                 # Drop the traffic (which is the default)
                 actions = []
                 instructions = []
-                self.logger.info(Const.ENDPOINT_TP_PREFIX+"Packet classification: "+str(action)+" --> DROP")
+                self.log("Packet classification: "+str(action)+" --> DROP")
+                self.log(packet_in.to_string())
             else:
                 # Let the VNF in the next flow table handle the traffic
                 actions = []
                 instructions = [parser.OFPInstructionGotoTable(table_id = self.TABLE_ID+1)]
-                self.logger.info(Const.ENDPOINT_TP_PREFIX+"Packet classification: "+str(action)+" --> GOTO next table")
+                self.log("Packet classification: "+str(action)+" --> GOTO next table")
+                self.log(packet_in.to_string())
 
             if msg.buffer_id != ofproto.OFP_NO_BUFFER:
                 self.add_flow(datapath, 1, match, actions, msg.buffer_id, instructions=instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)
