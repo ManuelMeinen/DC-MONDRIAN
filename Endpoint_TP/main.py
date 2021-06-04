@@ -49,7 +49,7 @@ class EndpointTP(app_manager.RyuApp):
         c = Const(self.logger)
         self.verbose = True
         self.module = TransferModule(tpAddr=Const.tpAddr, controllerAddr=Const.controllerAddr, 
-                                    controllerPort=Const.controllerPort, logger=self.logger, verbose=self.verbose)
+                                    controllerPort=Const.controllerPort, logger=None, verbose=self.verbose)
         
     
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
@@ -140,17 +140,47 @@ class EndpointTP(app_manager.RyuApp):
                 self.log("Packet classification: "+str(action)+" --> GOTO next table")
                 self.log(packet_in.to_string())
 
+            #if action==ESTABLISHED:
+            #    # Create match for reverse connection
+            #    reverse_match_dict = {}#match_dict
+            #    # swap src and dest net
+            #    reverse_match_dict['in_port'] = in_port#ofproto.OFPP_ANY
+            #    reverse_match_dict['eth_type'] = match_dict['eth_type']
+            #    reverse_match_dict['ipv4_src'] = match_dict['ipv4_dst']
+            #    reverse_match_dict['ipv4_dst'] = match_dict['ipv4_src']  
+            #    # swap ports
+            #    if match_dict['ip_proto'] == in_proto.IPPROTO_TCP:
+            #        reverse_match_dict['tcp_src'] = match_dict['tcp_dst']
+            #        reverse_match_dict['tcp_dst'] = match_dict['tcp_src']  
+            #    if match_dict['ip_proto'] == in_proto.IPPROTO_UDP:
+            #        reverse_match_dict['udp_src'] = match_dict['udp_dst']
+            #        reverse_match_dict['udp_dst'] = match_dict['udp_src']   
+            #    self.log(reverse_match_dict)
+            #    self.log(match_dict)
+            #    reverse_match = parser.OFPMatch(**reverse_match_dict)
+            #    reverse_actions = []
+            #    reverse_instructions = [parser.OFPInstructionGotoTable(table_id = self.TABLE_ID+1)] #TODO: somehow that's a drop...
+               
+
             if msg.buffer_id != ofproto.OFP_NO_BUFFER:
+                #self.log("####"+str(datapath))
                 self.add_flow(datapath, 1, match, actions, msg.buffer_id, instructions=instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)
+                #if action==ESTABLISHED:
+                #    self.log("####"+str(datapath))#TODO: somehow this flow doesn't get added
+                #    self.add_flow(datapath, 1, reverse_match, reverse_actions, msg.buffer_id, instructions=reverse_instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)    
             else:
+                #self.log("####"+str(datapath))
                 self.add_flow(datapath, 1, match, actions, instructions=instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)
-            
+                #if action==ESTABLISHED:
+                #    self.log("####"+str(datapath))#TODO: somehow this flow doesn't get added
+                #    self.add_flow(datapath, 1, reverse_match, reverse_actions, instructions=reverse_instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)
             if action == DROP or action == DEFAULT:
                 self.synchronizer.drop()
                 #self.synchronizer.log_status(self.logger)  
             else:
                 self.synchronizer.allow()
                 #self.synchronizer.log_status(self.logger)
+            
   
 
     def add_flow(self, datapath, priority, match, actions, buffer_id=None, instructions=[], idle_timeout=0, hard_timeout=0):
@@ -170,6 +200,7 @@ class EndpointTP(app_manager.RyuApp):
                                     match=match, instructions=inst, table_id=self.TABLE_ID, 
                                     idle_timeout=idle_timeout, hard_timeout=hard_timeout)
         datapath.send_msg(mod)
+        
     
 
     def createMatchDict(self, in_port, src_net, dest_net, packet_in):

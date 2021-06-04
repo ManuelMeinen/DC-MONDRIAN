@@ -168,9 +168,9 @@ class EndpointTPTestbed:
         success = success and not(test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'])) # Fail because for TCP established would be needed
         #"PolicyID": 4, "Src": 3, "Dest": 0, "SrcPort": 0, "DestPort": 0, "Proto": "", "Action": "drop"
         success = success and not(test.test_udp(src=host_dict['h22'], dest=host_dict['h13'])) # Fail because of drop action
-        success = success and test.test_udp(src=host_dict['h22'], dest=host_dict['h11']) # Success because of policy 8 (established)
+        success = success and test.test_udp(src=host_dict['h22'], dest=host_dict['h11']) # Should Fail because of drop action but because of weak established implementation it succeeds
         #"PolicyID": 5, "Src": 1, "Dest": 2, "SrcPort": 80, "DestPort": 100, "Proto": "TCP", "Action": "established"
-        success = success and test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'], srcPort=80, destPort=100)  #OK
+        success = success and test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'], srcPort=80, destPort=100)  #OK 
         # NOTE: To properly test the established rule uncomment the following 3 lines
         #print("[INFO] Waiting for 60sec for the ports to be freed")
         #time.sleep(60)
@@ -188,6 +188,16 @@ class EndpointTPTestbed:
             print("*** Inter Zone Test passed")
         else: 
             print("*** Inter Zone Test failed")
+        
+    def test(self):
+        '''
+        just test only one thing
+        '''
+        host_dict = self.get_host_dict()
+        success = test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'], srcPort=80, destPort=100)
+        #time.sleep(60)
+        #success = test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'], srcPort=80, destPort=100)
+        
     
     def get_host_dict(self):
         host_dict = {}
@@ -214,5 +224,6 @@ if __name__ == '__main__':
     time.sleep(3)
     topo.test_intra_zone()
     topo.test_inter_zone()
+    #topo.test()
     topo.startCLI()
     topo.stopNet()

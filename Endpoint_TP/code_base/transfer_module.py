@@ -142,7 +142,7 @@ class TransferModule:
                     else:
                         matching_policy = policy
                         highest_priority = priority
-                        
+                       
         # Depending on the policy found (if any) return the right info
         if matching_policy == None:
             # No matching policy --> default
