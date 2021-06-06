@@ -25,15 +25,16 @@ from ryu.app.simple_switch_stp_13 import SimpleSwitch13
 from code_base.types import Packet, proto_dict, Policy, Zone, Subnet
 from code_base.const import Const
 from code_base.sync import Synchronizer
-from code_base.transfer_module import TransferModule, ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT
+from code_base.conn_state import ConnectionState
+from code_base.transfer_module import ESTABLISHED_RESPONSE, TransferModule, ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT
 
 class EndpointTP(app_manager.RyuApp):
 
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
     TABLE_ID = 0
     # Timeouts are in seconds and 0 menas it never times out
-    IDLE_TIMEOUT = 3*60
-    HARD_TIMEOUT = 5*60
+    IDLE_TIMEOUT = 10*60
+    HARD_TIMEOUT = 60*60
 
     def log(self, msg):
         if self.verbose:
@@ -50,6 +51,7 @@ class EndpointTP(app_manager.RyuApp):
         self.verbose = True
         self.module = TransferModule(tpAddr=Const.tpAddr, controllerAddr=Const.controllerAddr, 
                                     controllerPort=Const.controllerPort, logger=None, verbose=self.verbose)
+        self.conn_state = ConnectionState(logger=self.logger, verbose=self.verbose)
         
     
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
@@ -88,7 +90,7 @@ class EndpointTP(app_manager.RyuApp):
         proto = None
         self.synchronizer.allow()
         if eth.ethertype == ether_types.ETH_TYPE_IP:
-            
+            self.log(30*'-'+" New Packet-In "+30*'-')
             ip = pkt.get_protocol(ipv4.ipv4)
             if ip == None:
                 self.log("WARNING: Non IPv4 Packet detected. IPv6 is currently not supported.")
@@ -116,7 +118,7 @@ class EndpointTP(app_manager.RyuApp):
                 l3_proto = proto
             
             packet_in = Packet(destIP=dstip, srcIP=srcip, destPort=dstport, srcPort=srcport, proto=l3_proto)
-            src_net, dest_net, packet_in, action = self.module.check_packet(packet=packet_in)
+            src_net, dest_net, packet_in, action, established_resp = self.module.check_packet(packet=packet_in)
             if src_net == None or dest_net == None:
                 self.log("src_net or dest_net not found in the MONDRIAN Controller --> Packet can't be handled")
                 self.synchronizer.log_status(self.logger)
@@ -125,61 +127,44 @@ class EndpointTP(app_manager.RyuApp):
             
             match_dict = self.createMatchDict(in_port=in_port, src_net=src_net, dest_net=dest_net, packet_in=packet_in)
             match = parser.OFPMatch(**match_dict)
-            
-            # actions = [ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT]
-            if action == DROP or action == DEFAULT:
-                # Drop the traffic (which is the default)
-                actions = []
-                instructions = []
-                self.log("Packet classification: "+str(action)+" --> DROP")
-                self.log(packet_in.to_string())
-            else:
-                # Let the VNF in the next flow table handle the traffic
+            # actions = [ESTABLISHED, ESTABLISHED_RESPONSE, FORWARDING, DROP, INTRA_ZONE, DEFAULT]
+            if established_resp !=None and self.conn_state.check_with_state(init_net=dest_net, resp_net=src_net, init_port=packet_in.destPort, 
+                                                    resp_port=packet_in.srcPort, proto=packet_in.proto):
+                # This packet belongs to an established connection
                 actions = []
                 instructions = [parser.OFPInstructionGotoTable(table_id = self.TABLE_ID+1)]
-                self.log("Packet classification: "+str(action)+" --> GOTO next table")
+                self.log("Packet classification: "+str(established_resp)+" --> GOTO next table")
                 self.log(packet_in.to_string())
-
-            #if action==ESTABLISHED:
-            #    # Create match for reverse connection
-            #    reverse_match_dict = {}#match_dict
-            #    # swap src and dest net
-            #    reverse_match_dict['in_port'] = in_port#ofproto.OFPP_ANY
-            #    reverse_match_dict['eth_type'] = match_dict['eth_type']
-            #    reverse_match_dict['ipv4_src'] = match_dict['ipv4_dst']
-            #    reverse_match_dict['ipv4_dst'] = match_dict['ipv4_src']  
-            #    # swap ports
-            #    if match_dict['ip_proto'] == in_proto.IPPROTO_TCP:
-            #        reverse_match_dict['tcp_src'] = match_dict['tcp_dst']
-            #        reverse_match_dict['tcp_dst'] = match_dict['tcp_src']  
-            #    if match_dict['ip_proto'] == in_proto.IPPROTO_UDP:
-            #        reverse_match_dict['udp_src'] = match_dict['udp_dst']
-            #        reverse_match_dict['udp_dst'] = match_dict['udp_src']   
-            #    self.log(reverse_match_dict)
-            #    self.log(match_dict)
-            #    reverse_match = parser.OFPMatch(**reverse_match_dict)
-            #    reverse_actions = []
-            #    reverse_instructions = [parser.OFPInstructionGotoTable(table_id = self.TABLE_ID+1)] #TODO: somehow that's a drop...
-               
+            else:    
+                # From here on it's for sure not an established response
+                if action == DROP or action == DEFAULT:
+                    # Drop the traffic (which is the default)
+                    actions = []
+                    instructions = []
+                    self.log("Packet classification: "+str(action)+" --> DROP")
+                    self.log(packet_in.to_string())
+                elif action == ESTABLISHED:
+                    # Let the VNF in the next flow table handle the traffic
+                    actions = []
+                    instructions = [parser.OFPInstructionGotoTable(table_id = self.TABLE_ID+1)]
+                    self.log("Packet classification: "+str(action)+" --> GOTO next table")
+                    self.log(packet_in.to_string())
+                    self.conn_state.add_to_state(init_net=src_net, resp_net=dest_net, init_port=packet_in.srcPort, resp_port=packet_in.destPort, proto=packet_in.proto)
+                else:
+                     # Let the VNF in the next flow table handle the traffic
+                    actions = []
+                    instructions = [parser.OFPInstructionGotoTable(table_id = self.TABLE_ID+1)]
+                    self.log("Packet classification: "+str(action)+" --> GOTO next table")
+                    self.log(packet_in.to_string()) 
 
             if msg.buffer_id != ofproto.OFP_NO_BUFFER:
-                #self.log("####"+str(datapath))
                 self.add_flow(datapath, 1, match, actions, msg.buffer_id, instructions=instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)
-                #if action==ESTABLISHED:
-                #    self.log("####"+str(datapath))#TODO: somehow this flow doesn't get added
-                #    self.add_flow(datapath, 1, reverse_match, reverse_actions, msg.buffer_id, instructions=reverse_instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)    
             else:
-                #self.log("####"+str(datapath))
                 self.add_flow(datapath, 1, match, actions, instructions=instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)
-                #if action==ESTABLISHED:
-                #    self.log("####"+str(datapath))#TODO: somehow this flow doesn't get added
-                #    self.add_flow(datapath, 1, reverse_match, reverse_actions, instructions=reverse_instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)
             if action == DROP or action == DEFAULT:
                 self.synchronizer.drop()
-                #self.synchronizer.log_status(self.logger)  
             else:
                 self.synchronizer.allow()
-                #self.synchronizer.log_status(self.logger)
             
   
 

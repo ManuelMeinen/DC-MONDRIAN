@@ -7,6 +7,7 @@ from code_base.const import Const
 from ipaddress import ip_network, ip_address
 
 ESTABLISHED = "established"
+ESTABLISHED_RESPONSE = "established_response"
 FORWARDING = "forwarding"
 DROP = "drop"
 INTRA_ZONE = "intra_zone"
@@ -35,7 +36,7 @@ class TransferModule:
         The match can be reconstructed using the src and dest subnet address, the packet 
         (for protocol and port) and an ACTION (drop, forwarding, established, intra_zone, default)
         Priority: srcZone +5, destZone +5, srcPort +1, destPort +2, proto +1
-        return src_net, dest_net, packet, ACTION
+        return src_net, dest_net, packet, ACTION, (ESTABLISHED_RESPONSE or None)
         '''
         policies = self.fetcher.get_policies()
         src, src_net = self.find_zone(packet.srcIP)
@@ -43,10 +44,13 @@ class TransferModule:
         self.log("Checking Packet: "+packet.to_string())
         if src == dest:
             # Same Zone traffic
-            return src_net, dest_net, packet, INTRA_ZONE
+            return src_net, dest_net, packet, INTRA_ZONE, None
         # Iterate over all policies and check for the match with the highest policyID
+        matching_policy_er = None
+        highest_priority_er = 0
         matching_policy = None
         highest_priority = 0
+        matching_action = ""
         for policy in policies:
             priority = 0
             match=False
@@ -90,9 +94,11 @@ class TransferModule:
                         if matching_policy.policyID < policy.policyID:
                             matching_policy = policy
                             highest_priority = priority
+                            matching_action = policy.action
                     else:
                         matching_policy = policy
                         highest_priority = priority
+                        matching_action = policy.action
                         
             # check for established rule
             priority = 0
@@ -133,23 +139,32 @@ class TransferModule:
                 self.log("[NO MATCH] "+policy.to_string())
             if match:
                 self.log("[MATCH] "+policy.to_string()+" priority="+str(priority))
-                if matching_policy == None or highest_priority <= priority:
-                    if highest_priority == priority:
+                if matching_policy_er == None or highest_priority_er <= priority:
+                    if highest_priority_er == priority:
                         # Break ties
-                        if matching_policy.policyID < policy.policyID:
-                            matching_policy = policy
-                            highest_priority = priority
+                        if matching_policy_er.policyID < policy.policyID:
+                            matching_policy_er = policy
+                            highest_priority_er = priority
                     else:
-                        matching_policy = policy
-                        highest_priority = priority
+                        matching_policy_er = policy
+                        highest_priority_er = priority
                        
         # Depending on the policy found (if any) return the right info
         if matching_policy == None:
             # No matching policy --> default
-            return src_net, dest_net, packet, DEFAULT
+            return src_net, dest_net, packet, DEFAULT, ESTABLISHED_RESPONSE
         else:
             # There is a match --> drop, forwarding, established
-            return src_net, dest_net, packet, matching_policy.action
+            if highest_priority>highest_priority_er:
+                return src_net, dest_net, packet, matching_action, None
+            elif highest_priority==highest_priority_er:
+                if matching_policy.policyID > matching_policy_er.policyID:
+                    return src_net, dest_net, packet, matching_action, None
+                else:
+                    return src_net, dest_net, packet, matching_action, ESTABLISHED_RESPONSE
+            else:
+                return src_net, dest_net, packet, matching_action, ESTABLISHED_RESPONSE
+            
                 
             
 
@@ -176,6 +191,6 @@ class TransferModule:
                         longest_prefix = net.prefixlen
                         matching_subnet = subnet.netAddr
         if matching_zone == None:
-            self.logger.info(Const.ENDPOINT_TP_PREFIX+"[Transfer Module] ERROR: Zone not found for "+str(ip_addr))
+            self.log(Const.ENDPOINT_TP_PREFIX+"[Transfer Module] ERROR: Zone not found for "+str(ip_addr))
         return matching_zone, matching_subnet
 

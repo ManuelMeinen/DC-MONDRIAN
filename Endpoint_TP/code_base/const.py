@@ -18,6 +18,7 @@ class Const:
     ENDPOINT_TP_PREFIX = "[EndpointTP] "
     TRANSFER_MODULE_PREFIX = ENDPOINT_TP_PREFIX+"[Transfer Module] "
     FETCHER_PREFIX = ENDPOINT_TP_PREFIX+"[Fetcher] "
+    CONNECTION_STATE = ENDPOINT_TP_PREFIX+"[Connection State] "
 
     @classmethod
     def init_const(self):

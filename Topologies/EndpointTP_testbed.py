@@ -121,6 +121,7 @@ class EndpointTPTestbed:
         Test if all connections work for intra zone traffic (Zone 1)
         both intra and inter domain for the protocols TCP, UDP and ICMP
         '''
+        test.prefix = "[Intra Zone Test] "
         host_dict = self.get_host_dict()
         success = True
         print("*** Intra Zone Test started")
@@ -150,6 +151,7 @@ class EndpointTPTestbed:
             print("*** Intra Zone Test passed")
         else: 
             print("*** Intra Zone Test failed")
+        test.prefix = ""
     
     def test_inter_zone(self):
         '''
@@ -157,6 +159,7 @@ class EndpointTPTestbed:
         there is a policy allowing that kind of traffic and that
         the don't if the policy disallows it.
         '''
+        test.prefix = "[Inter Zone Test] "
         host_dict = self.get_host_dict()
         success = True
         print("*** Inter Zone Test started")
@@ -168,18 +171,15 @@ class EndpointTPTestbed:
         success = success and not(test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'])) # Fail because for TCP established would be needed
         #"PolicyID": 4, "Src": 3, "Dest": 0, "SrcPort": 0, "DestPort": 0, "Proto": "", "Action": "drop"
         success = success and not(test.test_udp(src=host_dict['h22'], dest=host_dict['h13'])) # Fail because of drop action
-        success = success and test.test_udp(src=host_dict['h22'], dest=host_dict['h11']) # Should Fail because of drop action but because of weak established implementation it succeeds
+        success = success and not(test.test_udp(src=host_dict['h22'], dest=host_dict['h11'])) # Fail because of drop action
         #"PolicyID": 5, "Src": 1, "Dest": 2, "SrcPort": 80, "DestPort": 100, "Proto": "TCP", "Action": "established"
         success = success and test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'], srcPort=80, destPort=100)  #OK 
-        # NOTE: To properly test the established rule uncomment the following 3 lines
-        #print("[INFO] Waiting for 60sec for the ports to be freed")
-        #time.sleep(60)
-        #success = success and test.test_tcp(src=host_dict['h13'], dest=host_dict['h11'], srcPort=100, destPort=80)  #OK NOTE: if the reverse connection was tested then we would need to wait for tcp_fin_timeout=60sec
+        success = success and test.test_tcp(src=host_dict['h13'], dest=host_dict['h11'], srcPort=100, destPort=80)  #OK 
         #"PolicyID": 6, "Src": 1, "Dest": 2, "SrcPort": 80, "DestPort": 0, "Proto": "TCP", "Action": "drop"
         success = success and not(test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'], srcPort=80)) # Fail because we drop
         #"PolicyID": 7, "Src": 2, "Dest": 1, "SrcPort": 0, "DestPort": 100, "Proto": "UDP", "Action": "established"
-        success = success and test.test_udp(src=host_dict['h13'], dest=host_dict['h12'], destPort=100)
-        success = success and test.test_udp(src=host_dict['h12'], dest=host_dict['h13'], srcPort=100)
+        success = success and test.test_udp(src=host_dict['h13'], dest=host_dict['h12'], srcPort=123, destPort=100)
+        success = success and test.test_udp(src=host_dict['h12'], dest=host_dict['h13'], srcPort=100, destPort=123)
         #"PolicyID": 8, "Src": 1, "Dest": 3, "SrcPort": 0, "DestPort": 0, "Proto": "", "Action": "established"
         success = success and test.test_icmp(src=host_dict['h11'], dest=host_dict['h22'])
         success = success and test.test_icmp(src=host_dict['h22'], dest=host_dict['h11'])
@@ -188,15 +188,22 @@ class EndpointTPTestbed:
             print("*** Inter Zone Test passed")
         else: 
             print("*** Inter Zone Test failed")
+        test.prefix = ""
         
     def test(self):
         '''
         just test only one thing
         '''
+        test.prefix = "[Test] "
         host_dict = self.get_host_dict()
-        success = test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'], srcPort=80, destPort=100)
-        #time.sleep(60)
-        #success = test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'], srcPort=80, destPort=100)
+       
+          #"PolicyID": 5, "Src": 1, "Dest": 2, "SrcPort": 80, "DestPort": 100, "Proto": "TCP", "Action": "established"
+        success = test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'], srcPort=80, destPort=100)  #OK 
+        success = test.test_tcp(src=host_dict['h13'], dest=host_dict['h11'], srcPort=100, destPort=80)  #OK 
+
+
+
+        test.prefix = ""
         
     
     def get_host_dict(self):
