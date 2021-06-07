@@ -14,6 +14,12 @@ instantiating app ryu.controller.ofp_handler of OFPHandler
 [EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
@@ -33,6 +39,14 @@ instantiating app ryu.controller.ofp_handler of OFPHandler
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: 120, Src Port: 160, Proto: TCP>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
@@ -67,6 +81,18 @@ instantiating app ryu.controller.ofp_handler of OFPHandler
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: 120, Src Port: 160, Proto: TCP>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: 160, Src Port: 120, Proto: TCP>
@@ -76,10 +102,6 @@ instantiating app ryu.controller.ofp_handler of OFPHandler
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: 140, Src Port: 120, Proto: UDP>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: 140, Src Port: 120, Proto: UDP>
@@ -92,13 +114,13 @@ instantiating app ryu.controller.ofp_handler of OFPHandler
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: 140, Src Port: 120, Proto: UDP>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: 140, Src Port: 120, Proto: UDP>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: forwarding --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: 90, Src Port: 70, Proto: TCP>
@@ -139,6 +161,10 @@ instantiating app ryu.controller.ofp_handler of OFPHandler
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: drop --> DROP
 [EndpointTP] Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: 160, Src Port: 80, Proto: TCP>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: established --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.2.0.4, Dest Port: 100, Src Port: 123, Proto: UDP>
@@ -147,10 +173,6 @@ instantiating app ryu.controller.ofp_handler of OFPHandler
 [EndpointTP] [Connection State] Conn in state: ('10.2.0.0/16', '10.1.0.0/16', 123, 100, 'UDP')
 [EndpointTP] Packet classification: established_response --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.2.0.4, Src IP: 10.1.0.3, Dest Port: 123, Src Port: 100, Proto: UDP>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: established --> GOTO next table
 [EndpointTP] Packet <Dest IP: 20.2.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
