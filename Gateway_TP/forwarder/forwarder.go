@@ -1,134 +1,113 @@
 package forwarder
 
 import (
-	//"gateway_tp/config"
+	"gateway_tp/config"
 	"gateway_tp/fetcher"
-	//"gateway_tp/chain"
-	"net"
 
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/pcap"
-	
 
-	//"github.com/google/gopacket/layers"
-	"fmt"
-	"time"
 	"log"
+	"time"
 )
 
-//var (
-//	iface   string = "lo" //config.HostName+"-eth0"
-//	snaplen int32  = 65535
-//	promisc bool   = true
-//	err     error
-//	timeout time.Duration = -1 * time.Second
-//	handle  *pcap.Handle
-//)
-
-type Iface struct{
-	name string
+type Iface struct {
+	name    string
 	snaplen int32
 	promisc bool
 	timeout time.Duration
-	handle *pcap.Handle
+	handle  *pcap.Handle
 }
 
-func NewIface(name string)*Iface{
+func NewIface(name string) *Iface {
 	snaplen := int32(65535)
 	promisc := true
 	timeout := -1 * time.Second
 	handle, err := pcap.OpenLive(name, snaplen, promisc, timeout)
-	if err != nil{
+	if err != nil {
 		log.Println(err)
 	}
-	i :=  &Iface{
-		name:      	name,
-		snaplen: 	snaplen,
-		promisc:	promisc,
-		timeout: 	timeout,
-		handle: 	handle,			
+	i := &Iface{
+		name:    name,
+		snaplen: snaplen,
+		promisc: promisc,
+		timeout: timeout,
+		handle:  handle,
 	}
 	return i
 }
 
-func (i *Iface) Close(){
+func (i *Iface) Close() {
 	i.handle.Close()
 }
 
-func (i *Iface) Process_Packets(other *Iface){
-	
-	log.Println("Interface Ok")
+func (i *Iface) Process_Egress_Traffic(other *Iface) {
+
+	log.Println("[Forwarder] Started processing Egress Traffic")
 	packetSource := gopacket.NewPacketSource(i.handle, i.handle.LinkType())
 	defer i.Close()
 	for packet := range packetSource.Packets() {
-		log.Println(i.name+" received packet --> "+other.name)
+		log.Println(i.name + " received packet --> " + other.name)
 		log.Println(packet)
-		other.Send_Packet(packet.Data())
+		outPacket := toMonfiran(packet)
+		other.Send_Packet(outPacket.Data())
 	}
-		
+
 }
 
-func (i *Iface) Send_Packet(pkt []byte){
+func (i *Iface) Process_Ingress_Traffic(other *Iface) {
+
+	log.Println("[Forwarder] Started processing Ingress Traffic")
+	packetSource := gopacket.NewPacketSource(i.handle, i.handle.LinkType())
+	defer i.Close()
+	for packet := range packetSource.Packets() {
+		log.Println(i.name + " received packet --> " + other.name)
+		log.Println(packet)
+		outPacket := fromMonfiran(packet)
+		other.Send_Packet(outPacket.Data())
+	}
+}
+
+func toMonfiran(pkt gopacket.Packet) gopacket.Packet {
+	//TODO: Transform pkt into a Mondrian packet and return it
+	return pkt
+}
+
+func fromMonfiran(pkt gopacket.Packet) gopacket.Packet {
+	//TODO: Transform pkt from a Mondrian packet into an IP packet and return it
+	return pkt
+}
+
+func (i *Iface) Send_Packet(pkt []byte) {
 	i.handle.WritePacketData(pkt)
 }
 
-type Forwarder struct{
-	fetcher fetcher.Fetcher
-	site_conns map[string]*net.UDPConn
+type Forwarder struct {
+	fetcher            *fetcher.Fetcher
+	internal_interface *Iface
+	external_interface *Iface
 }
 
-func NewForwarder(fetcher *fetcher.Fetcher)*Forwarder{
-	var site_conns map[string]*net.UDPConn
-	var conn *net.UDPConn
-	site_conns = make(map[string]*net.UDPConn)
-	sites := fetcher.GetSites()
-	dest_port := "1234" // TODO: put in some config file
-	for _, site := range sites{
-		if string(fetcher.LocalAddr) != string(site.TPAddr){
-			udpAddr, err := net.ResolveUDPAddr("udp4", site.TPAddr+":"+dest_port)
-			if err != nil{
-				fmt.Println("ERROR: Unable to resolve UDP Address to remote site")
-			}
-			conn, err = net.DialUDP("udp", nil, udpAddr)
-			site_conns[site.TPAddr]=conn	
-		}	
+func NewForwarder() *Forwarder {
+	f := fetcher.NewFetcher(config.TPAddr, 10)
+	int_iface := NewIface(config.HostName + "-eth0")
+	ext_iface := NewIface(config.HostName + "-eth1")
+	fwd := &Forwarder{
+		fetcher:            f,
+		internal_interface: int_iface,
+		external_interface: ext_iface,
 	}
-	f :=  &Forwarder{
-		fetcher:      *fetcher,
-		site_conns: site_conns,
-			
-	}
-
-	return f
+	return fwd
 }
 
-func (f *Forwarder) Close_conns(){
-	for _, conn := range f.site_conns{
-		conn.Close()
-		fmt.Println("Conn closed")
-	} 
+func (f *Forwarder) Start() {
+	log.Println("[Forwarder] Forwarder started")
+	go f.internal_interface.Process_Egress_Traffic(f.external_interface)
+	go f.external_interface.Process_Ingress_Traffic(f.internal_interface)
 }
 
-//func Test() {
-//	handle, err = pcap.OpenLive(iface, snaplen, promisc, timeout)
-//	if err != nil {
-//		fmt.Println("Ooops")
-//		fmt.Println(err)
-//	}
-//	defer handle.Close()
-//	//packetSource := gopacket.NewPacketSource(handle, handle.LinkType())
-//	//for packet := range packetSource.Packets() {
-//	//	handle_packet(packet)
-//	//	//break
-//	//}
-//	var data []byte = make([]byte, 4)
-//	for{
-//		handle.WritePacketData(data)
-//	}
-//	
-//}
-
-func handle_packet(packet gopacket.Packet) {
-	fmt.Println(packet)
-
+func (f *Forwarder) Stop() {
+	log.Println("[Forwarder] Forwarder stopped")
+	f.internal_interface.Close()
+	f.external_interface.Close()
 }

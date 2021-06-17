@@ -33,16 +33,14 @@ func Init(config_path string){
 	if err!=nil{
 		fmt.Println("[2] Failed to read "+config_path)
 	}
-
 	 // json data
 	 var config Cfg
-
 	 // unmarshall it
-	 fmt.Println(data)
 	 err = json.Unmarshal(data, &config)
 	 if err != nil {
 		 fmt.Println("error:", err)
 	 }
+	 // Set it as var such that we don't need to access the struct every time
 	 HostName = config.Hostname
 	 LogDir = config.LogDir
 	 TPAddr = config.TPAddr

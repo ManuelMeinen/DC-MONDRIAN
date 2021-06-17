@@ -18,10 +18,6 @@ var sites types.Sites = nil
 var sites_lock sync.RWMutex
 
 type Fetcher struct {
-	// TODO: local address is sent to the controller to identify the right TP
-	// This is hack, the controller should read the remote address itself but
-	// the dumbed down shttp package doesn't allow to set the local address on the client side
-	// instead it always uses 127.0.0.1
 	LocalAddr      string
 	controllerAddr string
 	controllerPort string
