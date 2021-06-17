@@ -1,0 +1,1689 @@
+2021/06/17 14:12:01 test
+2021/06/17 14:12:02 Interface Ok
+2021/06/17 14:12:02 Interface Ok
+2021/06/17 14:12:14 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:14 PACKET: 70 bytes, wire length 70 cap length 70 @ 2021-06-17 14:12:13.593461 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..56..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=33:33:00:00:00:02 EthernetType=IPv6 Length=0}
+- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..16..] Version=6 TrafficClass=0 FlowLabel=0 Length=16 NextHeader=ICMPv6 HopLimit=255 SrcIP=fe80::8472:5fff:fec2:f754 DstIP=ff02::2 HopByHop=nil}
+- Layer 3 (04 bytes) = ICMPv6	{Contents=[133, 0, 196, 26] Payload=[..12..] TypeCode=RouterSolicitation Checksum=50202 TypeBytes=[]}
+- Layer 4 (00 bytes) = ICMPv6RouterSolicitation	{Contents=[] Payload=[] Options=[ICMPv6Option(SourceAddress:86:72:5f:c2:f7:54)]}
+
+2021/06/17 14:12:29 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:29 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:12:29.247463 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:12:30 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:30 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:12:30.257004 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:12:31 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:31 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:12:31.433494 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:12:31 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:31 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:12:31.276604 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:12:32 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:32 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:31.86281 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=58406 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:32 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:32 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:12:32.453465 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:12:33 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:33 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:12:33.462648 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:12:34 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:34 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:34.607319 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=62 Protocol=ICMPv4 Checksum=58662 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:35 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:35 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:34.897735 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=61 Protocol=ICMPv4 Checksum=58918 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:38 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:38 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:37.587027 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=60 Protocol=ICMPv4 Checksum=59174 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:39 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:39 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:38.006297 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=59 Protocol=ICMPv4 Checksum=59430 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:40 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:40 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:12:39.653805 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:12:40 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:40 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:39.254112 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=36270 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:41 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:41 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:12:40.065669 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:12:41 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:41 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:12:40.890224 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:12:42 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:42 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:41.108193 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=58 Protocol=ICMPv4 Checksum=59686 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:42 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:42 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:12:41.743946 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:12:42 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:42 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:41.744854 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=62 Protocol=ICMPv4 Checksum=36526 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:42 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:42 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:12:41.19206 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:12:43 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:43 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:42.139911 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=57 Protocol=ICMPv4 Checksum=59942 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:43 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:43 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:12:42.159687 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:12:43 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:43 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:42.227392 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=61 Protocol=ICMPv4 Checksum=36782 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:45 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:45 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:44.883798 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=56 Protocol=ICMPv4 Checksum=60198 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:45 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:45 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:44.910054 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=60 Protocol=ICMPv4 Checksum=37038 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:46 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:46 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:45.157464 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=55 Protocol=ICMPv4 Checksum=60454 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:46 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:46 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:45.1604 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=59 Protocol=ICMPv4 Checksum=37294 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:46 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:46 PACKET: 70 bytes, wire length 70 cap length 70 @ 2021-06-17 14:12:45.580491 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..56..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=33:33:00:00:00:02 EthernetType=IPv6 Length=0}
+- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..16..] Version=6 TrafficClass=0 FlowLabel=0 Length=16 NextHeader=ICMPv6 HopLimit=255 SrcIP=fe80::8472:5fff:fec2:f754 DstIP=ff02::2 HopByHop=nil}
+- Layer 3 (04 bytes) = ICMPv6	{Contents=[133, 0, 196, 26] Payload=[..12..] TypeCode=RouterSolicitation Checksum=50202 TypeBytes=[]}
+- Layer 4 (00 bytes) = ICMPv6RouterSolicitation	{Contents=[] Payload=[] Options=[ICMPv6Option(SourceAddress:86:72:5f:c2:f7:54)]}
+
+2021/06/17 14:12:48 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:48 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:47.859437 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=54 Protocol=ICMPv4 Checksum=60710 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:48 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:48 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:47.860445 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=58 Protocol=ICMPv4 Checksum=37550 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:49 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:49 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:48.224008 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=53 Protocol=ICMPv4 Checksum=60966 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:49 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:49 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:48.227481 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=57 Protocol=ICMPv4 Checksum=37806 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:50 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:50 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:49.300778 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=58325 Flags=DF FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=14801 SrcIP=10.0.0.2 DstIP=20.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=38754 Id=42873 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:51 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:51 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:50.993505 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=52 Protocol=ICMPv4 Checksum=61222 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:51 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:51 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:50.99652 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=56 Protocol=ICMPv4 Checksum=38062 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:52 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:52 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:51.319659 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=51 Protocol=ICMPv4 Checksum=61478 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:52 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:52 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:51.336681 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=55 Protocol=ICMPv4 Checksum=38318 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:52 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:52 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:51.997848 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=29196 Flags= FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=60058 SrcIP=20.0.0.1 DstIP=10.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoReply Checksum=40802 Id=42873 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:52 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:52 PACKET: 70 bytes, wire length 70 cap length 70 @ 2021-06-17 14:12:52.001121 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..56..] SrcMAC=86:fb:e7:10:19:3b DstMAC=33:33:00:00:00:02 EthernetType=IPv6 Length=0}
+- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..16..] Version=6 TrafficClass=0 FlowLabel=0 Length=16 NextHeader=ICMPv6 HopLimit=255 SrcIP=fe80::84fb:e7ff:fe10:193b DstIP=ff02::2 HopByHop=nil}
+- Layer 3 (04 bytes) = ICMPv6	{Contents=[133, 0, 112, 159] Payload=[..12..] TypeCode=RouterSolicitation Checksum=28831 TypeBytes=[]}
+- Layer 4 (00 bytes) = ICMPv6RouterSolicitation	{Contents=[] Payload=[] Options=[ICMPv6Option(SourceAddress:86:fb:e7:10:19:3b)]}
+
+2021/06/17 14:12:53 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:53 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:52.456647 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=49231 Flags=DF FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=23894 SrcIP=10.0.0.2 DstIP=20.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=53126 Id=36084 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:54 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:54 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:53.966917 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=50 Protocol=ICMPv4 Checksum=61734 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:54 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:54 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:54.056841 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=54 Protocol=ICMPv4 Checksum=38574 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:55 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:55 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:55.024868 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=26109 Flags= FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=63400 SrcIP=20.0.0.2 DstIP=10.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoReply Checksum=55174 Id=36084 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:55 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:55 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:54.406079 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=49 Protocol=ICMPv4 Checksum=61990 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:55 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:55 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:54.513176 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=53 Protocol=ICMPv4 Checksum=38830 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:56 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:56 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:55.468335 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=39603 Flags=DF FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=23028 SrcIP=30.0.0.1 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=46016 Id=62860 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:57 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:57 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:57.122592 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=48 Protocol=ICMPv4 Checksum=62246 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:57 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:57 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:57.123412 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=52 Protocol=ICMPv4 Checksum=39086 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:58 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:58 PACKET: 126 bytes, wire length 126 cap length 126 @ 2021-06-17 14:12:58.125543 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..112..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..92..] Version=4 IHL=5 TOS=192 Length=112 Id=7755 Flags= FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=8064 SrcIP=30.0.0.2 DstIP=30.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..84..] TypeCode=Redirect(Host) Checksum=56573 Id=7680 Seq=1}
+- Layer 4 (84 bytes) = Payload	84 byte(s)
+
+2021/06/17 14:12:58 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:12:58 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:58.208248 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=39603 Flags=DF FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=23284 SrcIP=30.0.0.1 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=46016 Id=62860 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:58 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:58 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:57.427784 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=47 Protocol=ICMPv4 Checksum=62502 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:12:58 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:12:58 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:12:57.519132 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=51 Protocol=ICMPv4 Checksum=39342 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:00 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:00 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:00.153737 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=46 Protocol=ICMPv4 Checksum=62758 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:00 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:00 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:00.154726 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=50 Protocol=ICMPv4 Checksum=39598 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:01 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:01 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:00.566215 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=45 Protocol=ICMPv4 Checksum=63014 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:01 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:01 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:00.56717 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=49 Protocol=ICMPv4 Checksum=39854 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:03 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:03 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:03.222483 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=44 Protocol=ICMPv4 Checksum=63270 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:03 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:03 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:03.22346 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=48 Protocol=ICMPv4 Checksum=40110 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:04 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:04 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:03.633062 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=43 Protocol=ICMPv4 Checksum=63526 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:04 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:04 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:03.637488 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=47 Protocol=ICMPv4 Checksum=40366 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:06 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:06 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:05.6845 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31460 Flags=DF FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=31169 SrcIP=30.0.0.1 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=57061 Id=21787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:06 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:06 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:06.275921 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=42 Protocol=ICMPv4 Checksum=63782 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:06 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:06 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:06.276862 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=46 Protocol=ICMPv4 Checksum=40622 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:07 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:07 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:06.662643 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=41 Protocol=ICMPv4 Checksum=64038 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:07 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:07 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:06.752001 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=45 Protocol=ICMPv4 Checksum=40878 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:08 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:08 PACKET: 126 bytes, wire length 126 cap length 126 @ 2021-06-17 14:13:08.45937 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..112..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..92..] Version=4 IHL=5 TOS=192 Length=112 Id=8332 Flags= FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=7487 SrcIP=30.0.0.2 DstIP=30.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..84..] TypeCode=Redirect(Host) Checksum=56573 Id=7680 Seq=1}
+- Layer 4 (84 bytes) = Payload	84 byte(s)
+
+2021/06/17 14:13:08 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:08 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:08.532767 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31460 Flags=DF FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=31425 SrcIP=30.0.0.1 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=57061 Id=21787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:09 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:09 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:09.363439 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=40 Protocol=ICMPv4 Checksum=64294 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:09 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:09 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:09.364532 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=44 Protocol=ICMPv4 Checksum=41134 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:10 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:10 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:09.768137 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=39 Protocol=ICMPv4 Checksum=64550 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:10 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:10 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:09.88497 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=43 Protocol=ICMPv4 Checksum=41390 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:12 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:12 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:12.532077 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=38 Protocol=ICMPv4 Checksum=64806 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:12 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:13 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:12.67435 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=42 Protocol=ICMPv4 Checksum=41646 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:13 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:13 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:12.969249 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=37 Protocol=ICMPv4 Checksum=65062 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:13 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:13 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:13.10611 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=41 Protocol=ICMPv4 Checksum=41902 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:15 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:15 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:15.704165 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=52830 Flags=DF FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=14921 SrcIP=30.0.0.1 DstIP=20.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=7292 Id=16440 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:15 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:15 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:15.498218 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=36 Protocol=ICMPv4 Checksum=65318 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:15 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:15 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:15.601697 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=40 Protocol=ICMPv4 Checksum=42158 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:16 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:16 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:15.908258 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=35 Protocol=ICMPv4 Checksum=39 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:16 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:16 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:16.001559 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=39 Protocol=ICMPv4 Checksum=42414 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:17 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:17 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:17.661825 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31367 Flags= FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=52768 SrcIP=20.0.0.1 DstIP=30.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoReply Checksum=9340 Id=16440 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:19 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:19 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:18.588149 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=34 Protocol=ICMPv4 Checksum=295 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:19 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:19 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:18.589179 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=38 Protocol=ICMPv4 Checksum=42670 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:19 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:19 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:18.019038 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9118 Flags=DF FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=58632 SrcIP=30.0.0.1 DstIP=20.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13646 Id=33754 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:19 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:19 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:18.088567 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:13:19 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:19 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:19.012685 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=33 Protocol=ICMPv4 Checksum=551 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:19 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:20 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:19.085309 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=37 Protocol=ICMPv4 Checksum=42926 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:20 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:20 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:19.120564 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:13:20 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:20 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:20.142084 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:13:20 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:20 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:20.80255 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=29918 Flags= FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=54472 SrcIP=20.0.0.2 DstIP=30.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoReply Checksum=15694 Id=33754 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:20 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:21 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:20.873613 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:13:22 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:22 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:21.692036 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=32 Protocol=ICMPv4 Checksum=807 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:22 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:22 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:21.701584 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=36 Protocol=ICMPv4 Checksum=43182 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:22 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:22 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:21.787172 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:13:23 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:23 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:22.735334 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:13:23 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:23 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:22.035952 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=31 Protocol=ICMPv4 Checksum=1063 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:23 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:23 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:22.039639 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=35 Protocol=ICMPv4 Checksum=43438 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:25 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:25 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:24.751649 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=30 Protocol=ICMPv4 Checksum=1319 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:25 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:25 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:24.763985 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=34 Protocol=ICMPv4 Checksum=43694 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:26 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:26 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:25.133281 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=29 Protocol=ICMPv4 Checksum=1575 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:26 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:26 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:25.134226 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=33 Protocol=ICMPv4 Checksum=43950 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:28 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:28 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:27.921221 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=28 Protocol=ICMPv4 Checksum=1831 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:28 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:28 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:27.965166 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=32 Protocol=ICMPv4 Checksum=44206 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:29 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:29 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:28.202659 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=27 Protocol=ICMPv4 Checksum=2087 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:29 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:29 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:28.275559 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=31 Protocol=ICMPv4 Checksum=44462 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:30 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:30 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:30.016609 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:13:31 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:31 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:30.855713 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=26 Protocol=ICMPv4 Checksum=2343 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:31 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:31 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:30.860945 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:13:31 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:31 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:30.918517 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=30 Protocol=ICMPv4 Checksum=44718 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:31 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:31 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:30.23956 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:13:32 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:32 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:31.874212 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:13:32 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:32 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:31.274796 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=25 Protocol=ICMPv4 Checksum=2599 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:32 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:32 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:31.286225 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:13:32 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:32 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:31.287606 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=29 Protocol=ICMPv4 Checksum=44974 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:33 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:33 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:32.289209 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:13:34 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:34 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:33.991875 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=24 Protocol=ICMPv4 Checksum=2855 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:34 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:34 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:34.090574 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=28 Protocol=ICMPv4 Checksum=45230 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:35 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:35 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:34.337418 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=23 Protocol=ICMPv4 Checksum=3111 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:35 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:35 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:34.343559 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=27 Protocol=ICMPv4 Checksum=45486 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:37 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:37 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:37.052834 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=22 Protocol=ICMPv4 Checksum=3367 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:37 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:37 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:37.160177 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=26 Protocol=ICMPv4 Checksum=45742 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:38 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:38 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:37.385238 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=21 Protocol=ICMPv4 Checksum=3623 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:38 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:38 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:37.393279 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=25 Protocol=ICMPv4 Checksum=45998 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:40 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:40 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:40.076117 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=20 Protocol=ICMPv4 Checksum=3879 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:40 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:40 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:40.171551 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=24 Protocol=ICMPv4 Checksum=46254 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:41 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:41 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:40.459398 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=19 Protocol=ICMPv4 Checksum=4135 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:41 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:41 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:40.499419 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=23 Protocol=ICMPv4 Checksum=46510 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:41 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:41 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:41.215894 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=36:9a:41:c3:be:6c DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[40, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[40, 0, 0, 3]}
+
+2021/06/17 14:13:42 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:42 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:42.216544 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=36:9a:41:c3:be:6c DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[40, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[40, 0, 0, 3]}
+
+2021/06/17 14:13:42 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:42 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:41.480241 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=f6:72:5d:66:29:9b DstMAC=36:9a:41:c3:be:6c EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[40, 0, 0, 3] DstHwAddress=[..6..] DstProtAddress=[40, 0, 0, 1]}
+
+2021/06/17 14:13:43 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:43 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:42.490119 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=f6:72:5d:66:29:9b DstMAC=36:9a:41:c3:be:6c EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[40, 0, 0, 3] DstHwAddress=[..6..] DstProtAddress=[40, 0, 0, 1]}
+
+2021/06/17 14:13:43 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:43 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:43.171989 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=18 Protocol=ICMPv4 Checksum=4391 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:43 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:43 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:43.189826 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=22 Protocol=ICMPv4 Checksum=46766 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:43 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:43 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:43.24554 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=36:9a:41:c3:be:6c DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[40, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[40, 0, 0, 3]}
+
+2021/06/17 14:13:44 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:44 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:43.627131 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=17 Protocol=ICMPv4 Checksum=4647 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:44 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:44 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:43.628109 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=21 Protocol=ICMPv4 Checksum=47022 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:44 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:44 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:13:43.631928 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=f6:72:5d:66:29:9b DstMAC=36:9a:41:c3:be:6c EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[40, 0, 0, 3] DstHwAddress=[..6..] DstProtAddress=[40, 0, 0, 1]}
+
+2021/06/17 14:13:46 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:46 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:46.310198 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=16 Protocol=ICMPv4 Checksum=4903 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:46 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:46 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:46.392829 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=20 Protocol=ICMPv4 Checksum=47278 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:47 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:47 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:46.576357 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=15 Protocol=ICMPv4 Checksum=5159 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:47 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:47 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:46.750806 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=19 Protocol=ICMPv4 Checksum=47534 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:49 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:49 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:49 PACKET: 70 bytes, wire length 70 cap length 70 @ 2021-06-17 14:13:49.069643 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..56..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=33:33:00:00:00:02 EthernetType=IPv6 Length=0}
+- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..16..] Version=6 TrafficClass=0 FlowLabel=0 Length=16 NextHeader=ICMPv6 HopLimit=255 SrcIP=fe80::8472:5fff:fec2:f754 DstIP=ff02::2 HopByHop=nil}
+- Layer 3 (04 bytes) = ICMPv6	{Contents=[133, 0, 196, 26] Payload=[..12..] TypeCode=RouterSolicitation Checksum=50202 TypeBytes=[]}
+- Layer 4 (00 bytes) = ICMPv6RouterSolicitation	{Contents=[] Payload=[] Options=[ICMPv6Option(SourceAddress:86:72:5f:c2:f7:54)]}
+
+2021/06/17 14:13:49 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:49.402977 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=14 Protocol=ICMPv4 Checksum=5415 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:49 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:49 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:49.489239 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=18 Protocol=ICMPv4 Checksum=47790 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:50 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:50 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:49.755294 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=13 Protocol=ICMPv4 Checksum=5671 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:50 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:50 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:49.832859 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=17 Protocol=ICMPv4 Checksum=48046 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:52 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:52 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:52.374784 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=12 Protocol=ICMPv4 Checksum=5927 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:52 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:52 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:52.573702 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=16 Protocol=ICMPv4 Checksum=48302 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:53 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:53 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:52.766552 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=11 Protocol=ICMPv4 Checksum=6183 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:53 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:53 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:52.85367 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=15 Protocol=ICMPv4 Checksum=48558 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:55 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:55 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:55.404572 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=10 Protocol=ICMPv4 Checksum=6439 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:55 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:55 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:55.504615 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=14 Protocol=ICMPv4 Checksum=48814 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:56 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:56 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:55.801617 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=9 Protocol=ICMPv4 Checksum=6695 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:56 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:56 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:55.807984 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=13 Protocol=ICMPv4 Checksum=49070 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:58 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:58 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:58.534145 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=8 Protocol=ICMPv4 Checksum=6951 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:59 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:13:59 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:58.535115 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=12 Protocol=ICMPv4 Checksum=49326 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:59 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:59 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:59.016447 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=7 Protocol=ICMPv4 Checksum=7207 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:13:59 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:13:59 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:13:59.017497 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=11 Protocol=ICMPv4 Checksum=49582 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:01 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:01 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:01.579373 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=6 Protocol=ICMPv4 Checksum=7463 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:01 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:01 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:01.584415 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=10 Protocol=ICMPv4 Checksum=49838 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:02 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:02 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:01.995366 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=5 Protocol=ICMPv4 Checksum=7719 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:02 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:02 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:02.072844 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=9 Protocol=ICMPv4 Checksum=50094 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:03 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:03 PACKET: 70 bytes, wire length 70 cap length 70 @ 2021-06-17 14:14:03.606595 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..56..] SrcMAC=86:fb:e7:10:19:3b DstMAC=33:33:00:00:00:02 EthernetType=IPv6 Length=0}
+- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..16..] Version=6 TrafficClass=0 FlowLabel=0 Length=16 NextHeader=ICMPv6 HopLimit=255 SrcIP=fe80::84fb:e7ff:fe10:193b DstIP=ff02::2 HopByHop=nil}
+- Layer 3 (04 bytes) = ICMPv6	{Contents=[133, 0, 112, 159] Payload=[..12..] TypeCode=RouterSolicitation Checksum=28831 TypeBytes=[]}
+- Layer 4 (00 bytes) = ICMPv6RouterSolicitation	{Contents=[] Payload=[] Options=[ICMPv6Option(SourceAddress:86:fb:e7:10:19:3b)]}
+
+2021/06/17 14:14:05 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:05 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:04.694022 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=4 Protocol=ICMPv4 Checksum=7975 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:05 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:05 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:04.695071 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=8 Protocol=ICMPv4 Checksum=50350 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:06 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:06 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:05.098594 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=3 Protocol=ICMPv4 Checksum=8231 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:06 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:06 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:05.099767 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=7 Protocol=ICMPv4 Checksum=50606 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:08 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:08 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:07.748106 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=2 Protocol=ICMPv4 Checksum=8487 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:08 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:08 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:07.816461 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=6 Protocol=ICMPv4 Checksum=50862 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:08 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:08 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:07.242682 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:14:09 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:09 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:08.070924 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=9600 Flags=DF FragOffset=0 TTL=1 Protocol=ICMPv4 Checksum=8743 SrcIP=10.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=13679 Id=27965 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:09 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:09 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:08.086595 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=5 Protocol=ICMPv4 Checksum=51118 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:09 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:09 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:08.264621 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:14:10 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:10 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:09.744866 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:14:10 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:10 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:09.294276 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:14:11 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:11 PACKET: 126 bytes, wire length 126 cap length 126 @ 2021-06-17 14:14:10.765703 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..112..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..92..] Version=4 IHL=5 TOS=192 Length=112 Id=9896 Flags= FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=11042 SrcIP=30.0.0.2 DstIP=10.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..84..] TypeCode=TimeExceeded(TTLExceeded) Checksum=62719 Id=0 Seq=0}
+- Layer 4 (84 bytes) = Payload	84 byte(s)
+
+2021/06/17 14:14:11 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:11 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:10.766683 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=4 Protocol=ICMPv4 Checksum=51374 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:11 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:11 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:10.786079 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:14:12 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:12 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:11.960623 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:14:12 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:12 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:11.394676 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=3 Protocol=ICMPv4 Checksum=51630 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:14 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:14 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:13.930843 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=2 Protocol=ICMPv4 Checksum=51886 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:15 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:15 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:14.89766 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=8e:32:36:83:3e:8e DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[40, 0, 0, 3] DstHwAddress=[..6..] DstProtAddress=[40, 0, 0, 1]}
+
+2021/06/17 14:14:15 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:15 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:14.89788 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=2a:ff:3d:6f:c9:6d DstMAC=8e:32:36:83:3e:8e EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[40, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[40, 0, 0, 3]}
+
+2021/06/17 14:14:15 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:15 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:14.245344 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31734 Flags=DF FragOffset=0 TTL=1 Protocol=ICMPv4 Checksum=52142 SrcIP=10.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=35479 Id=1787 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:16 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:16 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:15.920908 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=8e:32:36:83:3e:8e DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[40, 0, 0, 3] DstHwAddress=[..6..] DstProtAddress=[40, 0, 0, 1]}
+
+2021/06/17 14:14:16 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:16 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:15.921098 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=2a:ff:3d:6f:c9:6d DstMAC=8e:32:36:83:3e:8e EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[40, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[40, 0, 0, 3]}
+
+2021/06/17 14:14:17 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:17 PACKET: 126 bytes, wire length 126 cap length 126 @ 2021-06-17 14:14:16.94464 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..112..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..92..] Version=4 IHL=5 TOS=192 Length=112 Id=10183 Flags= FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=10755 SrcIP=30.0.0.2 DstIP=10.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..84..] TypeCode=TimeExceeded(TTLExceeded) Checksum=62719 Id=0 Seq=0}
+- Layer 4 (84 bytes) = Payload	84 byte(s)
+
+2021/06/17 14:14:17 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:17 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:17.032125 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=8e:32:36:83:3e:8e DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[40, 0, 0, 3] DstHwAddress=[..6..] DstProtAddress=[40, 0, 0, 1]}
+
+2021/06/17 14:14:17 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:17 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:17.032137 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=2a:ff:3d:6f:c9:6d DstMAC=8e:32:36:83:3e:8e EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[40, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[40, 0, 0, 3]}
+
+2021/06/17 14:14:19 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:19 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:19.005984 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:14:20 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:20 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:20.098981 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:14:20 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:20 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:19.478383 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:14:21 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:21 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:21.040846 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:14:21 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:21 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:20.382327 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:14:22 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:22 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:21.488182 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:14:28 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:28 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:28.29913 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=11580 Flags=DF FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=58729 SrcIP=30.0.0.2 DstIP=10.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=36662 Id=10727 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:29 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:29 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:28.567934 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=43003 Flags= FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=43946 SrcIP=10.0.0.2 DstIP=30.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoReply Checksum=38710 Id=10727 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:31 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:31 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:31.266562 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=3421 Flags=DF FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=1354 SrcIP=30.0.0.2 DstIP=10.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=41759 Id=38221 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:32 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:32 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:31.651881 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=31220 Flags= FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=55474 SrcIP=10.0.0.1 DstIP=30.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoReply Checksum=43807 Id=38221 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:34 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:34 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:34.430971 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=316 Flags=DF FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=62314 SrcIP=30.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=54987 Id=9437 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:35 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:35 PACKET: 126 bytes, wire length 126 cap length 126 @ 2021-06-17 14:14:34.74615 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..112..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..92..] Version=4 IHL=5 TOS=192 Length=112 Id=23043 Flags= FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=58311 SrcIP=30.0.0.1 DstIP=30.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..84..] TypeCode=Redirect(Host) Checksum=56572 Id=7680 Seq=2}
+- Layer 4 (84 bytes) = Payload	84 byte(s)
+
+2021/06/17 14:14:35 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:35 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:34.746154 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=316 Flags=DF FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=62570 SrcIP=30.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=54987 Id=9437 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:44 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:44 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:44.597806 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=47748 Flags=DF FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=14880 SrcIP=30.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=6115 Id=56552 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:45 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:45 PACKET: 126 bytes, wire length 126 cap length 126 @ 2021-06-17 14:14:44.976968 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..112..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..92..] Version=4 IHL=5 TOS=192 Length=112 Id=23487 Flags= FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=57867 SrcIP=30.0.0.1 DstIP=30.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..84..] TypeCode=Redirect(Host) Checksum=56572 Id=7680 Seq=2}
+- Layer 4 (84 bytes) = Payload	84 byte(s)
+
+2021/06/17 14:14:46 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:46 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:44.976971 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=47748 Flags=DF FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=15136 SrcIP=30.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=6115 Id=56552 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:54 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:54 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:53.91943 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=38564 Flags=DF FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=34561 SrcIP=20.0.0.2 DstIP=10.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=53227 Id=37926 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:55 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:55 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:54.209669 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=59669 Flags= FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=29840 SrcIP=10.0.0.2 DstIP=20.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoReply Checksum=55275 Id=37926 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:57 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:14:57 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:56.928422 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=23609 Flags=DF FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=49517 SrcIP=20.0.0.2 DstIP=10.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=52047 Id=34998 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:14:58 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:14:58 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:57.244204 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=40652 Flags= FragOffset=0 TTL=64 Protocol=ICMPv4 Checksum=48602 SrcIP=10.0.0.1 DstIP=20.0.0.2 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoReply Checksum=54095 Id=34998 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:00 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:00 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:14:59.97009 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=18665 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:00 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:00 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:14:59.469306 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:15:01 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:01 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:00.363281 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=62 Protocol=ICMPv4 Checksum=18921 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:01 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:01 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:15:00.488709 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:15:02 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:02 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:15:01.519717 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:15:02 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:02 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:15:02.115719 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:15:03 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:03 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:03.000939 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=61 Protocol=ICMPv4 Checksum=19177 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:03 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:03 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:15:03.110672 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:15:04 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:04 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:03.420941 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=60 Protocol=ICMPv4 Checksum=19433 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:04 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:04 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:15:04.109243 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:15:06 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:06 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:06.139794 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=59 Protocol=ICMPv4 Checksum=19689 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:07 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:07 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:06.52376 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=58 Protocol=ICMPv4 Checksum=19945 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:08 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:08 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:15:08.237779 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:15:09 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:09 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:15:08.53856 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:15:09 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:09 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:09.18972 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=57 Protocol=ICMPv4 Checksum=20201 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:09 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:09 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:15:09.190647 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:15:10 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:10 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:09.635462 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=56 Protocol=ICMPv4 Checksum=20457 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:10 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:10 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:15:09.636366 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:15:10 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:10 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:10.190349 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=2061 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:10 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:10 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:15:10.192877 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+
+2021/06/17 14:15:11 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:11 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:10.552352 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=62 Protocol=ICMPv4 Checksum=2317 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:11 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:11 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-17 14:15:10.555225 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=ARP Length=0}
+- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+
+2021/06/17 14:15:12 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:12 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:12.356672 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=55 Protocol=ICMPv4 Checksum=20713 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:13 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:13 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:12.613614 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=54 Protocol=ICMPv4 Checksum=20969 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:13 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:13 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:13.233653 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=61 Protocol=ICMPv4 Checksum=2573 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:14 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:14 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:13.650239 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=60 Protocol=ICMPv4 Checksum=2829 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:15 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:15 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:15.378781 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=53 Protocol=ICMPv4 Checksum=21225 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:16 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:16 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:15.652521 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=52 Protocol=ICMPv4 Checksum=21481 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:16 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:16 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:16.484069 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=59 Protocol=ICMPv4 Checksum=3085 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:17 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:17 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:16.74974 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=58 Protocol=ICMPv4 Checksum=3341 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:18 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:18 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:18.38665 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=51 Protocol=ICMPv4 Checksum=21737 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:19 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:19 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:18.73248 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=50 Protocol=ICMPv4 Checksum=21993 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:19 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:19 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:19.439383 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=57 Protocol=ICMPv4 Checksum=3597 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:20 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:20 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:19.76253 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=56 Protocol=ICMPv4 Checksum=3853 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:21 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:21 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:21.455105 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=49 Protocol=ICMPv4 Checksum=22249 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:22 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:22 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:21.933021 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=48 Protocol=ICMPv4 Checksum=22505 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:22 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:22 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:22.505665 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=55 Protocol=ICMPv4 Checksum=4109 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:23 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:23 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:22.90965 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=54 Protocol=ICMPv4 Checksum=4365 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:24 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:24 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:24.527035 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=47 Protocol=ICMPv4 Checksum=22761 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:25 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:25 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:25.541074 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=53 Protocol=ICMPv4 Checksum=4621 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:25 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:25 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:24.912091 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=46 Protocol=ICMPv4 Checksum=23017 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:26 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:26 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:25.911625 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=52 Protocol=ICMPv4 Checksum=4877 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:27 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:27 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:27.59517 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=45 Protocol=ICMPv4 Checksum=23273 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:29 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:29 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:28.697733 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=51 Protocol=ICMPv4 Checksum=5133 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:29 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:29 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:28.054846 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=44 Protocol=ICMPv4 Checksum=23529 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:30 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:30 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:29.080217 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=50 Protocol=ICMPv4 Checksum=5389 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:31 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:31 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:30.67615 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=43 Protocol=ICMPv4 Checksum=23785 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:32 d1-eth1 received packet --> d1-eth0
+2021/06/17 14:15:32 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:31.879069 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:fb:e7:10:19:3b DstMAC=86:72:5f:c2:f7:54 EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=63383 Flags=DF FragOffset=0 TTL=49 Protocol=ICMPv4 Checksum=5645 SrcIP=20.0.0.2 DstIP=40.0.0.3 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=63751 Id=6971 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+
+2021/06/17 14:15:32 d1-eth0 received packet --> d1-eth1
+2021/06/17 14:15:32 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-17 14:15:31.083504 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=86:72:5f:c2:f7:54 DstMAC=86:fb:e7:10:19:3b EthernetType=IPv4 Length=0}
+- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=46781 Flags=DF FragOffset=0 TTL=42 Protocol=ICMPv4 Checksum=24041 SrcIP=20.0.0.2 DstIP=40.0.0.1 Options=[] Padding=[]}
+- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=5947 Id=53323 Seq=1}
+- Layer 4 (56 bytes) = Payload	56 byte(s)
+

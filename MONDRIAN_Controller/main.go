@@ -28,8 +28,10 @@ func startController() {
         http.HandleFunc(api, handler)
     }
 	fmt.Println("*** Controller Ready ***")
-	fmt.Println(fmt.Sprintf("Listening at: https://%s:%s/", config.ControllerAddr, config.ControllerPort))
-    log.Fatal(http.ListenAndServeTLS(*listen, config.ServerCert, config.ServerKey, nil))
+	fmt.Println(fmt.Sprintf("Listening at: https://%s%s/", config.ControllerAddr, config.ControllerPort))
+	//Note: if we don't specify the controller address then it listens and serves both on docker0 and lo
+    //log.Fatal(http.ListenAndServeTLS(config.ControllerAddr+config.ControllerPort, config.ServerCert, config.ServerKey, nil))
+	log.Fatal(http.ListenAndServeTLS(config.ControllerPort, config.ServerCert, config.ServerKey, nil))
 }
 
 func main() {

@@ -13,14 +13,15 @@ class ServicesUtil:
         self.proc = []
         self.log = {}
 
-    def start_Mondrian_Controller(self, controllerAddr="localhost", controllerPort=4433):
+    def start_Mondrian_Controller(self, controllerAddr="", controllerPort=4433):
         '''
         Start a Mondrian Controller in the background
         '''
         print(self.UTIL_PREFIX+"Start Mondrian Controller at: https://"+str(controllerAddr)+":"+str(controllerPort))
         try:
             cmd = "main"
-            cmd += " -controllerAddr "+str(controllerAddr)
+            #cmd += " -controllerAddr "+str(controllerAddr) 
+            #NOTE: We actually don't set the controller address in the MONDRIAN Controller --> like this it is reachable both via lo and docker0
             #cmd += " -controllerPort "+str(controllerPort) #TODO: why doesn't that work?...
             #print(cmd)
             if controllerPort != 4433:

@@ -1,0 +1,5 @@
+{
+    "tp_addr": "30.0.0.1",
+    "hostname": "dx",
+    "log_dir": "/vol1/log/"
+}
