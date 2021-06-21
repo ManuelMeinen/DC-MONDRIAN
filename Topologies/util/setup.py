@@ -57,9 +57,9 @@ class SetupUtil:
         print("[Set up default gw] "+str(host.name)+' '+cmd) 
         host.cmd(cmd) 
 
-    def start_gateway_TP(self, host, tp_addr):
+    def prepare_gateway_TP(self, host, tp_addr):
         '''
-        Compile and start /Gateway_TP/main
+        Compile and prepare /Gateway_TP/main
         '''
         cmd = "cd /Gateway_TP"
         print("[Start Gateway TP] "+str(host.name)+' '+cmd)
@@ -70,6 +70,11 @@ class SetupUtil:
         cmd = "go build main.go"+" >> /vol1/log/"+str(host.name)+".txt"
         print("[Start Gateway TP] "+str(host.name)+' '+cmd)
         host.cmd(cmd)
+    
+    def start_gateway_TP(self, host):
+        '''
+        Start /Gateway_TP/main
+        '''
         cmd = "/Gateway_TP/main >> /vol1/log/"+str(host.name)+".txt &"
         print("[Start Gateway TP] "+str(host.name)+' '+cmd)
         time.sleep(2) # Probably more reliable... sometimes it doesn't get started

@@ -9,5 +9,6 @@ if __name__=='__main__':
     config["hostname"]=hostname
     config["log_dir"]="/vol1/log/"
     config["tp_addr"]=tp_addr
+    config["base_path"]=""
     with open("config/config.json", "w") as f:
         f.write(json.dumps(config, indent=4))
