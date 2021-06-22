@@ -14,10 +14,7 @@ import (
 	"io/ioutil"
 	"log"
 	"strings"
-
 	"golang.org/x/crypto/pbkdf2"
-
-	//"net"
 	"net/http"
 	"strconv"
 	"sync"
@@ -27,6 +24,9 @@ import (
 var logPrefix = "[KeyMan] "
 
 var l0Salt = []byte("L0 Salt value")
+
+var egressL1Keys map[string]keyPld
+var ingressL1Keys map[string]keyPld
 
 // KeyPld is the payload sent to other TPs carrying the key and the key expiration time
 type keyPld struct {
@@ -66,7 +66,9 @@ type KeyMan struct {
 	l0Lock     	sync.RWMutex
 	listenIP   	string
 	listenPort 	int
-	reqLock    	sync.Mutex
+	reqLock		sync.Mutex
+	egressLock  sync.Mutex
+	ingressLock sync.Mutex
 	mac 		hash.Hash
 }
 
@@ -83,7 +85,9 @@ func NewKeyMan(masterSecret []byte) *KeyMan {
 	err := km.refreshL0()
 	if err!=nil{
 		log.Println(logPrefix+"ERROR: Did not refresh L0")
-	}
+	}	
+	egressL1Keys = make(map[string]keyPld)
+	ingressL1Keys = make(map[string]keyPld)
 	km.serveL1()
 	return km
 }
@@ -94,7 +98,9 @@ func (km *KeyMan) serveL1(){
 	http.HandleFunc("/", IndexHandler)
 	http.HandleFunc("/api/Get-L1-Key", km.L1ReqHandler)
 	log.Println(logPrefix+fmt.Sprintf("Listening at: https://%s/", addr))
-	go log.Fatal(http.ListenAndServeTLS(addr, config.ServerCert, config.ServerKey, nil))
+	go func(){
+		log.Fatal(http.ListenAndServeTLS(addr, config.ServerCert, config.ServerKey, nil))
+	}()
 }
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
@@ -108,7 +114,7 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, err)
 		return
 	}
-	fmt.Println(string(buf))
+	log.Println(logPrefix+string(buf))
 }
 
 // Handle Requests for L1 Keys
@@ -119,10 +125,21 @@ func (km *KeyMan)L1ReqHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, err)
 		return
 	}
-	l1_key, err := km.DeriveL1Key(string(buf))
-	if err != nil {
-		fmt.Fprint(w, err)
-		return
+	km.ingressLock.Lock()
+	defer km.ingressLock.Unlock()
+	var l1_key *keyPld
+	k, found := ingressL1Keys[string(buf)]
+	if found && k.Ttl.After(time.Now()){
+		log.Println(logPrefix+"Key in ingressL1Keys and not expired")
+		l1_key = &k
+	}else{
+		log.Println(logPrefix+"Key not in ingressL1Keys or expired")
+		l1_key, err = km.DeriveL1Key(string(buf))
+		if err!=nil{
+			log.Println(logPrefix+"ERROR: Failed to derive L1 Key")
+			return
+		}
+		ingressL1Keys[string(buf)] = *l1_key
 	}
 	encodeAndSend(l1_key, err, w)
 }
@@ -136,8 +153,7 @@ func encodeAndSend(data interface{}, err error, w http.ResponseWriter) {
 	w.Header().Set("Content-Type", "application/json")
 	enc := json.NewEncoder(w)
 	enc.SetIndent("", "    ") //TODO: remove after testing
-	enc.Encode(data)
-	
+	enc.Encode(data)	
 }
 
 func (km *KeyMan) getL0Key() ([]byte, time.Time, error) {
@@ -155,6 +171,53 @@ func (km *KeyMan) getL0Key() ([]byte, time.Time, error) {
 	return k, km.l0TTL, nil
 }
 
+func (km *KeyMan) GetKey(srcTP string, destTP string, zone uint32)([]byte, error){
+	/*
+	Use this function to create K_A->B:Z
+	*/
+	// Figure out if ingress or egress L1 key is needed
+	log.Println(logPrefix+"GetKey(srcTP="+srcTP+", destTP="+destTP+", zone="+strconv.Itoa(int(zone))+")")
+	if srcTP == config.TPAddr{
+		// Egress Key needed
+		k, found := egressL1Keys[destTP]
+		if found && k.Ttl.After(time.Now()){
+			log.Println(logPrefix+"Key in egressL1Keys and not expired")
+			return km.DeriveL2Key(k.Key, zone)
+		}else{
+			log.Println(logPrefix+"Key not in egressL1Keys or expired")
+			l1_key, err := km.FetchL1FromRemote(destTP)
+			if err!=nil{
+				log.Println(logPrefix+"ERROR: Failed to fetch L1 key from remote: "+destTP)
+				return nil, errors.New("Failed to fetch L1 key from remote: "+destTP)
+			}
+			km.egressLock.Lock()
+			egressL1Keys[destTP] = *l1_key
+			km.egressLock.Unlock()
+			return km.DeriveL2Key(l1_key.Key, zone)
+		}
+	}else if destTP ==config.TPAddr{
+		// Ingress Key needed
+		k, found := ingressL1Keys[srcTP]
+		if found && k.Ttl.After(time.Now()){
+			log.Println(logPrefix+"Key in ingressL1Keys and not expired")
+			return km.DeriveL2Key(k.Key, zone)
+		}else{
+			log.Println(logPrefix+"Key not in ingressL1Keys or expired")
+			l1_key, err := km.DeriveL1Key(srcTP)
+			if err!=nil{
+				log.Println(logPrefix+"ERROR: Failed to derive L1 Key")
+				return nil, errors.New("Failed to derive L1 Key")
+			}
+			ingressL1Keys[srcTP] = *l1_key
+			return km.DeriveL2Key(l1_key.Key, zone)
+		}
+	}else{
+		// Not a key this TP can derive
+		log.Println(logPrefix+"Src nor Dest are this TP --> can'g derive L2 Key")
+		return nil, errors.New("Src nor Dest are this TP --> can'g derive L2 Key")
+	}
+}
+
 func (km *KeyMan) refreshL0() error {
 	log.Println(logPrefix+"Refresh L0")
 	km.l0Lock.Lock()
@@ -164,7 +227,6 @@ func (km *KeyMan) refreshL0() error {
 		log.Println(logPrefix+"Didn't refresh L0")
 		return nil
 	}
-
 	if len(km.ms) == 0 {
 		return errors.New("master secret cannot be empty")
 	}
@@ -192,7 +254,6 @@ func (km *KeyMan) DeriveL1Key(remote string) (*keyPld, error) {
 		Key: sum,
 		Ttl: t,
 	}
-	log.Println(key)
 	return key, nil
 }
 
@@ -206,7 +267,7 @@ func (km *KeyMan) FetchL1FromRemote(remote string) (*keyPld, error) {
 	}
 	client := &http.Client{Transport: tr}
 	key_server_addr := tpAddrToKeyServerAddr(remote)
-	resp, err := client.Post(fmt.Sprintf("https://%s:%s/api/Get-L1-Key", key_server_addr, strconv.Itoa(config.ServerPort)), "text/plain", strings.NewReader(remote))
+	resp, err := client.Post(fmt.Sprintf("https://%s:%s/api/Get-L1-Key", key_server_addr, strconv.Itoa(config.ServerPort)), "text/plain", strings.NewReader(config.TPAddr))
 	if err != nil {
 		log.Println(err)
 		return nil, errors.New("ERROR")
@@ -222,7 +283,7 @@ func (km *KeyMan) FetchL1FromRemote(remote string) (*keyPld, error) {
 	return key, nil
 }
 
-func (km *KeyMan) DeriveL2(l1 []byte, zone uint32) ([]byte, error) {
+func (km *KeyMan) DeriveL2Key(l1 []byte, zone uint32) ([]byte, error) {
 	log.Println(logPrefix+"Deriving L2 Key for zone "+strconv.Itoa(int(zone)))
 	mac, err := crypto.InitMac(l1)
 	if err != nil {

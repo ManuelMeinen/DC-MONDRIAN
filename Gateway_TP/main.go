@@ -44,41 +44,22 @@ func main() {
 	defer fwd.Stop()
 
 	km := keyman.NewKeyMan([]byte("master_secret"))
-	log.Println("waiting...")
+	log.Println("waiting for 20 sec so the other Gateway TPs are started too before running tests...")
 	time.Sleep(20*time.Second)
 	log.Println("... done waiting")
 
-	//TODO only works if invoked the second time ... --> fix the bug
-	log.Println("Derive L1 Key for 30.0.0.2")
-	key, err := km.DeriveL1Key("30.0.0.2")
 	
+	finalkey, err := km.GetKey("30.0.0.2", "30.0.0.3", 1)
 	if err!=nil{
 		log.Println(err)
 	}
-	log.Println(key)
-	log.Println("Derive L2 Key for Zone 1")
-	l2_key, err := km.DeriveL2(key.Key, 1)
+	log.Println(finalkey)
+
+	finalkey, err = km.GetKey("30.0.0.2", "30.0.0.3", 1)
 	if err!=nil{
 		log.Println(err)
 	}
-	log.Println(l2_key)
-	
-	log.Println("Fetch L1 from Remote")
-	key, err = km.FetchL1FromRemote("30.0.0.2")
-	
-	if err!=nil{
-		log.Println(err)
-	}
-	log.Println("Fetching resulted in:")
-	log.Println(key)
-	
-	log.Println("Derive L2 key with fetched key")
-	l2_key, err = km.DeriveL2(key.Key, 1)
-	if err!=nil{
-		log.Println(err)
-	}
-	log.Println(l2_key)
-	
+	log.Println(finalkey)
 
 
 
