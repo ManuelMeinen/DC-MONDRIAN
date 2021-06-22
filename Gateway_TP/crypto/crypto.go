@@ -4,9 +4,17 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 	"hash"
-
+	"math/rand"
 	"github.com/dchest/cmac"
 )
+
+// Note: this is only a hacky solution
+func Nonce()([]byte){
+	token := make([]byte, NonceSize())
+    rand.Read(token)
+	return token
+}
+
 
 func NewAEAD(key []byte) (cipher.AEAD, error) {
 	block, err := aes.NewCipher(key)

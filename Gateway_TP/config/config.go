@@ -23,6 +23,7 @@ var KeyLength int = 16
 var KeyTTL time.Duration = 24 * time.Hour
 var MaxTimeDiff time.Duration = 1 * time.Second
 var ServerPort = 9090
+var MasterSecret = []byte("master_secret")
 
 
 type Cfg struct{

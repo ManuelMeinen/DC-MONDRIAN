@@ -33,12 +33,12 @@ class GatewayTPTestbed:
        # c0 = net.addController('c0')
 
         info('*** Adding hosts and docker containers\n')
-        h11 = net.addHost('h11', ip='10.0.0.2')
+        h11 = net.addHost('h11', ip='10.0.1.2')
         h1 = net.addHost('h1', ip='10.0.0.1')
         d1 = net.addDocker('d1', ip='40.0.0.1', dimage="gateway_tp:1.0", volumes=["/home/mmeinen/polybox/code/DC-MONDRIAN:/vol1"])
         d2 = net.addDocker('d2', ip='40.0.0.3', dimage="gateway_tp:1.0", volumes=["/home/mmeinen/polybox/code/DC-MONDRIAN:/vol1"])
         h2 = net.addHost('h2', ip='20.0.0.1')
-        h21 = net.addHost('h21', ip='20.0.0.2')
+        h21 = net.addHost('h21', ip='20.0.1.2')
         # Act as a router for controll traffic between Gateway TPs
         hctl = net.addHost('hctl', ip='100.0.0.1')
         info( '*** Add switches\n')
@@ -62,28 +62,28 @@ class GatewayTPTestbed:
         
 
         info('*** Configuring stuff')
-        setup.set_up_interface(h11, 'eth0','10.0.0.2', '255.0.0.0')
+        setup.set_up_interface(h11, 'eth0','10.0.1.2', '255.0.0.0')
         setup.set_up_interface(h1, 'eth0','10.0.0.1', '255.0.0.0')
-        setup.set_up_interface(h1, 'eth1','30.0.0.2', '255.0.0.0')
+        setup.set_up_interface(h1, 'eth1','30.0.0.1', '255.0.0.0')
         setup.set_up_interface(d1, 'eth0','40.0.0.1', '255.0.0.0')
         setup.set_up_interface(d1, 'eth1','40.0.0.2', '255.0.0.0')
         setup.set_up_interface(d2, 'eth0','40.0.0.3', '255.0.0.0')
         setup.set_up_interface(d2, 'eth1','40.0.0.4', '255.0.0.0')
         setup.set_up_interface(h2, 'eth0','20.0.0.1', '255.0.0.0')
-        setup.set_up_interface(h2, 'eth1','30.0.0.3', '255.0.0.0')
-        setup.set_up_interface(h21, 'eth0', '20.0.0.2', '255.0.0.0')
-        setup.set_up_interface(hctl, 'eth0','100.0.0.1', '255.0.0.0')
-        setup.set_up_interface(d1, 'eth2', '100.0.0.2', '255.0.0.0')
-        setup.set_up_interface(d2, 'eth2', '100.0.0.3', '255.0.0.0')
+        setup.set_up_interface(h2, 'eth1','30.0.0.2', '255.0.0.0')
+        setup.set_up_interface(h21, 'eth0', '20.0.1.2', '255.0.0.0')
+        setup.set_up_interface(hctl, 'eth0','100.0.0.10', '255.0.0.0')
+        setup.set_up_interface(d1, 'eth2', '100.0.0.1', '255.0.0.0')
+        setup.set_up_interface(d2, 'eth2', '100.0.0.2', '255.0.0.0')
 
-        setup.set_up_default_gw(h1, '30.0.0.3')
-        setup.set_up_default_gw(h2, '30.0.0.2')
+        setup.set_up_default_gw(h1, '30.0.0.2')
+        setup.set_up_default_gw(h2, '30.0.0.1')
 
-        setup.set_up_default_gw(d1, '100.0.0.1')
-        setup.set_up_default_gw(d2, '100.0.0.1')
+        setup.set_up_default_gw(d1, '100.0.0.100')
+        setup.set_up_default_gw(d2, '100.0.0.100')
 
-        setup.set_up_route(h1, '20.0.0.0/8', '30.0.0.3')
-        setup.set_up_route(h2, '10.0.0.0/8', '30.0.0.2')
+        setup.set_up_route(h1, '20.0.0.0/8', '30.0.0.2')
+        setup.set_up_route(h2, '10.0.0.0/8', '30.0.0.1')
 
         setup.set_up_route(d1, '40.0.0.0/8', '40.0.0.2')
         setup.set_up_route(d2, '40.0.0.0/8', '40.0.0.3')
@@ -99,8 +99,8 @@ class GatewayTPTestbed:
         setup.set_up_default_gw(h21, '20.0.0.1')
 
         info("*** Starting the Gateway TPs")
-        setup.prepare_gateway_TP(d1, "30.0.0.2")
-        setup.prepare_gateway_TP(d2, "30.0.0.3")
+        setup.prepare_gateway_TP(d1, "30.0.0.1")
+        setup.prepare_gateway_TP(d2, "30.0.0.2")
         setup.start_gateway_TP(d1)
         setup.start_gateway_TP(d2)
         self.net = net
