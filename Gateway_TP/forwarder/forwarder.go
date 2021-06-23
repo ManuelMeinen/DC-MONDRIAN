@@ -50,7 +50,12 @@ func (i *Iface) Close() {
 }
 
 func (fwd *Forwarder)getMondrianInfoEgress(pkt gopacket.Packet)(string, string, uint, []byte, error){
+	/*
+	Fetch the info used to transform an IPv4 packet into a Mondrian packet
+	return localTP, remoteTP, zone, key, err
+	*/
 	if ipLayer := pkt.Layer(layers.LayerTypeIPv4); ipLayer != nil {
+		log.Println(logPrefix+"IP layer detected")
 		ipv4, _ := ipLayer.(*layers.IPv4)
 		src_ip :=ipv4.SrcIP
 		dest_ip := ipv4.DstIP
@@ -78,8 +83,12 @@ func (fwd *Forwarder)getMondrianInfoEgress(pkt gopacket.Packet)(string, string, 
 }
 
 func (fwd *Forwarder)getMondrianInfoIngress(pkt gopacket.Packet)(string, string, uint, []byte, error){
+	/*
+	Parse and fetch the info used to transform a Mondrian packet into an IPv4 packet
+	return localTP, remoteTP, zone, key, err
+	*/
 	if ipLayer := pkt.Layer(layers.LayerTypeIPv4); ipLayer != nil {
-		log.Println("IP layer detected")
+		log.Println(logPrefix+"IP layer detected")
 		ipv4, _ := ipLayer.(*layers.IPv4)
 		src_ip :=ipv4.SrcIP
 		dest_ip := ipv4.DstIP
@@ -87,7 +96,7 @@ func (fwd *Forwarder)getMondrianInfoIngress(pkt gopacket.Packet)(string, string,
 		localTP := dest_ip.String()
 		var zone uint32
 		if mLayer := pkt.Layer(mondrian.MondrianLayerType); mLayer != nil {
-			log.Println("Mondrian layer detected")
+			log.Println(logPrefix+"Mondrian layer detected")
 			mondrian := mLayer.(*mondrian.MondrianLayer)
 			zone = mondrian.ZoneID
 		}else{
@@ -105,15 +114,15 @@ func (fwd *Forwarder)getMondrianInfoIngress(pkt gopacket.Packet)(string, string,
 }
 
 func (i *Iface) Process_Egress_Traffic(other *Iface, fwd *Forwarder) {
-
+	/*
+	Process packets from inside the DC (ariving on interface i) 
+	going into the internet (via interface other)
+	*/
 	log.Println(logPrefix+"Started processing Egress Traffic")
 	packetSource := gopacket.NewPacketSource(i.handle, i.handle.LinkType())
 	defer i.Close()
-	//var ip4 layers.IPv4
-	//egressParser := gopacket.NewDecodingLayerParser(layers.LayerTypeIPv4, &ip4)
-	//decodedLayers := []gopacket.LayerType{}
 	for packet := range packetSource.Packets() {
-		log.Println(i.name + " received packet --> " + other.name)
+		log.Println(logPrefix+i.name + " received packet --> " + other.name)
 		log.Println(packet)
 		outPacket := fwd.toMondiran(packet)
 		other.Send_Packet(outPacket.Data())
@@ -122,12 +131,15 @@ func (i *Iface) Process_Egress_Traffic(other *Iface, fwd *Forwarder) {
 }
 
 func (i *Iface) Process_Ingress_Traffic(other *Iface, fwd *Forwarder) {
-
+	/*
+	Process packets from the internet (ariving on interface i) 
+	going into the DC (via interface other)
+	*/
 	log.Println(logPrefix+"Started processing Ingress Traffic")
 	packetSource := gopacket.NewPacketSource(i.handle, i.handle.LinkType())
 	defer i.Close()
 	for packet := range packetSource.Packets() {
-		log.Println(i.name + " received packet --> " + other.name)
+		log.Println(logPrefix+i.name + " received packet --> " + other.name)
 		log.Println(packet)
 		outPacket := fwd.fromMondiran(packet)
 		other.Send_Packet(outPacket.Data())
@@ -137,141 +149,94 @@ func (i *Iface) Process_Ingress_Traffic(other *Iface, fwd *Forwarder) {
 
 
 func (fwd *Forwarder)toMondiran(pkt gopacket.Packet) gopacket.Packet {
-	//TODO: Transform pkt into a Mondrian packet and return it
+	/*
+	Convert an IPv4 packet into a Mondrian packet
+	Note: If it's not an IPv4 Packet then just return pkt (like this ARP still works)
+	*/
 	srcTP, destTP, zone, key, err := fwd.getMondrianInfoEgress(pkt)
 	if err!=nil{
-		log.Println(err)
+		log.Println(logPrefix+err.Error())
 		return pkt
 	}
-	//log.Println(srcTP)
-	//log.Println(destTP)
-	//log.Println(zone)
-	//log.Println(key)
 	srcTP_ip, _, _ := net.ParseCIDR(srcTP+"/8")
 	destTP_ip, _, _ := net.ParseCIDR(destTP+"/8")
+
 	// Get eth header to restore it afterwards
 	var eth layers.Ethernet
 	eth_parser := gopacket.NewDecodingLayerParser(layers.LayerTypeEthernet, &eth)
 	eth_decoded := []gopacket.LayerType{}
 	eth_parser.DecodeLayers(pkt.Data(), &eth_decoded)
-	//log.Println(eth)
-
+	// Create outer IPv4 header
 	ip := layers.IPv4{
 		SrcIP:    srcTP_ip,
 		DstIP:    destTP_ip,
 		Version:  4,
-		//Length:   103, //Note: No idea why this was set in the example
 		IHL:      5,
 		Protocol: 112, // VRRP
 	}
-
+	// Create Mondrian header
 	m := mondrian.MondrianLayer{
 		Type:      1,
 		ZoneID:    uint32(zone),
 		TimeStamp: time.Now(),
 		Nonce:     crypto.Nonce(),
 	}
-
-	//rawBytes := pkt.Data()
+	// Payload = original IPv4 Packet (for now unencrypted)
 	pld := gopacket.Payload(pkt.Data())
 	buf := gopacket.NewSerializeBuffer()
-	opts := gopacket.SerializeOptions{} // See SerializeOptions for more details.
+	opts := gopacket.SerializeOptions{}
+	// Create intermediate packet stored in buf
 	err = gopacket.SerializeLayers(buf, opts, &eth, &ip, &m, &pld)
-
 	if err != nil {
-		log.Println(err)
+		log.Println(logPrefix+err.Error())
 	}
-	var eth_new layers.Ethernet
-	var ip_new layers.IPv4
-	var m_new mondrian.MondrianLayer
-	var pld_new gopacket.Payload
-
-	parser := gopacket.NewDecodingLayerParser(layers.LayerTypeEthernet, &eth_new, &ip_new, &m_new, &pld_new)	
-	decoded := []gopacket.LayerType{}
-	err = parser.DecodeLayers(buf.Bytes(), &decoded)
-
-	if err != nil {
-		log.Println(err)
-
-	}
-
-	out_pkt := gopacket.NewPacket(buf.Bytes(), layers.LayerTypeEthernet, gopacket.Default)
-	//log.Println("############################")
-	//log.Println(out_pkt)
-
-	
-	mlayer := out_pkt.Layer(mondrian.MondrianLayerType).(*mondrian.MondrianLayer)
-	//log.Println(mlayer)
-	log.Println(key)
-	log.Println("Unencrypted Payload:")
-	log.Println(mlayer.LayerPayload())
-	log. Println(pkt.Data())
-	log.Println(mlayer.MAC)
-	log.Println(mlayer.Nonce)
-	log.Println(mlayer.Contents) // Contents is the reason why authentication fails.. second part is wrong...
+	tmp_pkt := gopacket.NewPacket(buf.Bytes(), layers.LayerTypeEthernet, gopacket.Default)
+	// Get Mondrian Layer from tmp_pkt
+	mlayer := tmp_pkt.Layer(mondrian.MondrianLayerType).(*mondrian.MondrianLayer)
+	// Transfor Mondrian Layer into encrypted/authenticated state
 	err = mlayer.Encrypt(key[:])
 	if err != nil {
-		log.Println(err)
+		log.Println(logPrefix+err.Error())
 		return pkt
 	}
-	log.Println("Encrypted Payload:")
-	log.Println(mlayer.LayerPayload())
-	log.Println(mlayer.MAC)
-	log.Println(mlayer.Nonce)
-	log.Println(mlayer.Contents)
-	//out_pkt = gopacket.NewPacket(mlayer.LayerPayload(), layers.LayerTypeEthernet, gopacket.Default)
+	// Create final (encrypted) Mondrian out-packet
 	pld = gopacket.Payload(mlayer.LayerPayload())
 	buf = gopacket.NewSerializeBuffer()
-	opts = gopacket.SerializeOptions{} // See SerializeOptions for more details.
+	opts = gopacket.SerializeOptions{}
 	err = gopacket.SerializeLayers(buf, opts, &eth, &ip, mlayer, &pld)
-	out_pkt = gopacket.NewPacket(buf.Bytes(), layers.LayerTypeEthernet, gopacket.Default)
-
-	//out_pkt = gopacket.NewPacket(mlayer.LayerPayload(), layers.LayerTypeEthernet, gopacket.Default)
-	log.Println("Mondiran Packet:")
-	log.Println(out_pkt)
-
-	//log.Println(ip)
-	//log.Println(m)
-
-	//TODO: When the other side is implemented then change with return out_pkt
+	out_pkt := gopacket.NewPacket(buf.Bytes(), layers.LayerTypeEthernet, gopacket.Default)
+	// Return Mondrian packet
 	return out_pkt
 }
 
 func (fwd *Forwarder)fromMondiran(pkt gopacket.Packet) gopacket.Packet {
-	//TODO: Transform pkt from a Mondrian packet into an IP packet and return it
-	log.Println("Parsing info from Mondrian packet")
-	srcTP, destTP, zone, key, err := fwd.getMondrianInfoIngress(pkt)
+	/*
+	Convert a Mondrian packet into an IPv4 packet
+	Note: If it's not a Mondrian Packet then just return pkt (like this ARP still works)
+	*/
+	// Get the key for decryption
+	_, _, _, key, err := fwd.getMondrianInfoIngress(pkt)
 	if err!=nil{
-		log.Println(err)
+		log.Println(logPrefix+err.Error())
 		return pkt
 	}
-	log.Println(srcTP)
-	log.Println(destTP)
-	log.Println(zone)
-	log.Println(key)
+	// Get Mondrian layer
 	mlayer := pkt.Layer(mondrian.MondrianLayerType).(*mondrian.MondrianLayer)
-	log.Println("Encrypted Payload:")
-	log.Println(mlayer.LayerPayload())
-	log.Println(mlayer.MAC)
-	log.Println(mlayer.Nonce)
-	log.Println(mlayer.Contents)
+	// Decrypt/verify the packet
 	err = mlayer.Decrypt(key[:])
 	if err != nil {
-		log.Println(err)
+		log.Println(logPrefix+err.Error())
 		return pkt
 	}
-	log.Println("Unencrypted Payload:")
-	log.Println(mlayer.LayerPayload())
-	log.Println(mlayer.MAC)
-	log.Println(mlayer.Nonce)
-	log.Println(mlayer.Contents)
-
-	out_pkt := gopacket.NewPacket(mlayer.LayerPayload(), layers.LayerTypeEthernet, gopacket.Default) // TODO: Size doesn't match (payload of ICMP msg is shorter)
-	log.Println(out_pkt)
+	// Return the Mondrian packet's payload as IPv4 packet
+	out_pkt := gopacket.NewPacket(mlayer.LayerPayload(), layers.LayerTypeEthernet, gopacket.Default)
 	return out_pkt
 }
 
 func (i *Iface) Send_Packet(pkt []byte) {
+	/*
+	Send a packet on a wire via interface i
+	*/
 	i.handle.WritePacketData(pkt)
 }
 
@@ -297,12 +262,18 @@ func NewForwarder() *Forwarder {
 }
 
 func (f *Forwarder) Start() {
+	/*
+	Start gorutines processing ingress and egress traffic
+	*/
 	log.Println(logPrefix+"Forwarder started")
 	go f.internal_interface.Process_Egress_Traffic(f.external_interface, f)
 	go f.external_interface.Process_Ingress_Traffic(f.internal_interface, f)
 }
 
 func (f *Forwarder) Stop() {
+	/*
+	Close the interfaces
+	*/
 	log.Println(logPrefix+"Forwarder stopped")
 	f.internal_interface.Close()
 	f.external_interface.Close()
