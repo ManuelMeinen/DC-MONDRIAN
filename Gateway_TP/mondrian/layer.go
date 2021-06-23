@@ -5,6 +5,7 @@ import (
 	"crypto/cipher"
 	"encoding/binary"
 	"fmt"
+	//"log"
 	"time"
 
 	"github.com/google/gopacket"
@@ -80,7 +81,7 @@ func (m *MondrianLayer) Encrypt(key []byte) error {
 	if err != nil {
 		return err
 	}
-	res := aead.Seal(nil, m.Nonce, m.Payload, m.Contents)
+	res := aead.Seal(nil, m.Nonce, m.Payload, m.Contents[:20])
 	m.Payload = res[:len(m.Payload)]
 	m.MAC = res[len(m.Payload):]
 
@@ -93,7 +94,7 @@ func (m *MondrianLayer) Decrypt(key []byte) error {
 		return err
 	}
 	buf := append(m.Payload, m.MAC...)
-	m.Payload, err = aead.Open(nil, m.Nonce, buf, m.Contents)
+	m.Payload, err = aead.Open(nil, m.Nonce, buf, m.Contents[:20])
 	if err != nil {
 		return err
 	}
