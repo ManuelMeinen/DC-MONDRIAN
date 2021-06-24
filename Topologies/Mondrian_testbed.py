@@ -179,6 +179,9 @@ class MondrianTestbed:
         test.prefix = "[Intra Zone Test] "
         host_dict = self.get_host_dict()
         success = True
+        zone1 = ['h11', 'h12', 'h13', 'h21', 'h31']
+        zone2 = ['h22', 'h23', 'h32']
+        zone3 = ['h33']
         print("*** Intra Zone Test started")
         # ICMP
         success = success and test.test_icmp(host_dict['h11'], host_dict['h12'])

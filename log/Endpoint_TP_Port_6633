@@ -9,4 +9,148 @@ instantiating app /home/mmeinen/polybox/code/DC-MONDRIAN/Endpoint_TP/main.py of 
   warnings.warn(
 instantiating app /home/mmeinen/polybox/code/DC-MONDRIAN/Other_RYU_Services/simple_switch_13.py of SimpleSwitch13
 instantiating app ryu.controller.ofp_handler of OFPHandler
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: 160, Src Port: 120, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: 120, Src Port: 160, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: 160, Src Port: 120, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: 120, Src Port: 160, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: 160, Src Port: 120, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: 120, Src Port: 160, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: 160, Src Port: 120, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: 120, Src Port: 160, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: 160, Src Port: 120, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: 120, Src Port: 160, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: 160, Src Port: 120, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: 120, Src Port: 160, Proto: TCP>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: 140, Src Port: 120, Proto: UDP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: 140, Src Port: 120, Proto: UDP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: 140, Src Port: 120, Proto: UDP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: 140, Src Port: 120, Proto: UDP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: 140, Src Port: 120, Proto: UDP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: 140, Src Port: 120, Proto: UDP>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: forwarding --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: 90, Src Port: 70, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', 70, 90, 'TCP')
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', 70, 90, 'TCP')
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: forwarding --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.2.0.4, Dest Port: 90, Src Port: 70, Proto: UDP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: forwarding --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: 160, Src Port: 120, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', 120, 160, 'TCP')
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', 120, 160, 'TCP')
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: established --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: 100, Src Port: 80, Proto: TCP>
+[EndpointTP] [Connection State] Conn added to state: ('10.0.1.0/24', '10.2.0.0/16', 80, 100, 'TCP')
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn in state: ('10.0.1.0/24', '10.2.0.0/16', 80, 100, 'TCP')
+[EndpointTP] Packet classification: established_response --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.2.0.4, Dest Port: 80, Src Port: 100, Proto: TCP>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: drop --> DROP
+[EndpointTP] Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: 160, Src Port: 80, Proto: TCP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: established --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.2.0.4, Dest Port: 100, Src Port: 123, Proto: UDP>
+[EndpointTP] [Connection State] Conn added to state: ('10.2.0.0/16', '10.1.0.0/16', 123, 100, 'UDP')
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn in state: ('10.2.0.0/16', '10.1.0.0/16', 123, 100, 'UDP')
+[EndpointTP] Packet classification: established_response --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.2.0.4, Src IP: 10.1.0.3, Dest Port: 123, Src Port: 100, Proto: UDP>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: established --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.2.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Connection State] Conn added to state: ('10.0.1.0/24', '20.2.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn in state: ('10.0.1.0/24', '20.2.0.0/16', None, None, 1)
+[EndpointTP] Packet classification: established_response --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.2.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
 Killed
