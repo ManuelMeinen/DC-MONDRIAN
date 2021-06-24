@@ -128,13 +128,18 @@ class EndpointTP(app_manager.RyuApp):
             match_dict = self.createMatchDict(in_port=in_port, src_net=src_net, dest_net=dest_net, packet_in=packet_in)
             match = parser.OFPMatch(**match_dict)
             # actions = [ESTABLISHED, ESTABLISHED_RESPONSE, FORWARDING, DROP, INTRA_ZONE, DEFAULT]
-            if established_resp !=None and self.conn_state.check_with_state(init_net=dest_net, resp_net=src_net, init_port=packet_in.destPort, 
+            if established_resp !=None: 
+                if self.conn_state.check_with_state(init_net=dest_net, resp_net=src_net, init_port=packet_in.destPort, 
                                                     resp_port=packet_in.srcPort, proto=packet_in.proto):
-                # This packet belongs to an established connection
-                actions = []
-                instructions = [parser.OFPInstructionGotoTable(table_id = self.TABLE_ID+1)]
-                self.log("Packet classification: "+str(established_resp)+" --> GOTO next table")
-                self.log(packet_in.to_string())
+                    # This packet belongs to an established connection
+                    actions = []
+                    instructions = [parser.OFPInstructionGotoTable(table_id = self.TABLE_ID+1)]
+                    self.log("Packet classification: "+str(established_resp)+" --> GOTO next table")
+                    self.log(packet_in.to_string())
+                else:
+                    # Connection not in state --> contact the controller for following packets to not miss a connection setup
+                    self.synchronizer.drop()
+                    return
             else:    
                 # From here on it's for sure not an established response
                 if action == DROP or action == DEFAULT:

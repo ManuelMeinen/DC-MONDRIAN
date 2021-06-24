@@ -49,7 +49,8 @@ class SetupUtil:
         cmd = 'ifconfig '+str(if_name)+' '+str(ip_addr)+' netmask '+str(net_mask)+' up'
         print("[Set up interface] "+str(host.name)+' '+cmd)
         host.cmd(cmd)
-        gw = ip_addr[:-1]+"1"
+        parts = ip_addr.split(".")
+        gw = parts[0]+"."+parts[1]+"."+parts[2]+"."+"1"
         cmd = 'ip route add default via '+str(gw)
         print("[Set up default gw] "+str(host.name)+' '+cmd)
         host.cmd(cmd) 

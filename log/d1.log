@@ -1,92 +1,62 @@
-2021/06/23 13:43:57 [KeyMan] Refresh L0
-2021/06/23 13:43:57 [KeyMan] *** Key Server Ready ***
-2021/06/23 13:43:57 [KeyMan] Listening at: https://100.0.0.1:9090/
-2021/06/23 13:43:57 [Forwarder] Forwarder started
-2021/06/23 13:43:57 [Forwarder] Started processing Ingress Traffic
-2021/06/23 13:43:57 [Forwarder] Started processing Egress Traffic
-2021/06/23 13:44:10 [Forwarder] d1-eth0 received packet --> d1-eth1
-2021/06/23 13:44:10 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-23 13:44:09.33556 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=62:93:68:5a:40:36 DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
-- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+2021/06/24 13:27:24 [KeyMan] Refresh L0
+2021/06/24 13:27:24 [KeyMan] *** Key Server Ready ***
+2021/06/24 13:27:24 [KeyMan] Listening at: https://100.0.0.1:9090/
+2021/06/24 13:27:24 [Forwarder] Forwarder started
+2021/06/24 13:27:24 [Forwarder] Started processing Ingress Traffic
+2021/06/24 13:27:24 [Forwarder] Started processing Egress Traffic
+2021/06/24 13:27:34 [Forwarder] d1-eth1 received packet --> d1-eth0
+2021/06/24 13:27:34 PACKET: 70 bytes, wire length 70 cap length 70 @ 2021-06-24 13:27:33.646126 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..56..] SrcMAC=8a:dc:11:de:68:89 DstMAC=33:33:00:00:00:02 EthernetType=IPv6 Length=0}
+- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..16..] Version=6 TrafficClass=0 FlowLabel=0 Length=16 NextHeader=ICMPv6 HopLimit=255 SrcIP=fe80::88dc:11ff:fede:6889 DstIP=ff02::2 HopByHop=nil}
+- Layer 3 (04 bytes) = ICMPv6	{Contents=[133, 0, 116, 166] Payload=[..12..] TypeCode=RouterSolicitation Checksum=29862 TypeBytes=[]}
+- Layer 4 (00 bytes) = ICMPv6RouterSolicitation	{Contents=[] Payload=[] Options=[ICMPv6Option(SourceAddress:8a:dc:11:de:68:89)]}
 
-2021/06/23 13:44:10 [Forwarder] No IPv4 Layer decoded
-2021/06/23 13:44:11 [Forwarder] d1-eth0 received packet --> d1-eth1
-2021/06/23 13:44:11 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-23 13:44:10.340522 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=62:93:68:5a:40:36 DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
-- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+2021/06/24 13:27:34 [Forwarder] No IPv4 Layer decoded
+2021/06/24 13:27:35 [Forwarder] d1-eth1 received packet --> d1-eth0
+2021/06/24 13:27:35 PACKET: 70 bytes, wire length 70 cap length 70 @ 2021-06-24 13:27:35.661667 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..56..] SrcMAC=86:3f:07:53:bf:a8 DstMAC=33:33:00:00:00:02 EthernetType=IPv6 Length=0}
+- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..16..] Version=6 TrafficClass=0 FlowLabel=0 Length=16 NextHeader=ICMPv6 HopLimit=255 SrcIP=fe80::843f:7ff:fe53:bfa8 DstIP=ff02::2 HopByHop=nil}
+- Layer 3 (04 bytes) = ICMPv6	{Contents=[133, 0, 228, 183] Payload=[..12..] TypeCode=RouterSolicitation Checksum=58551 TypeBytes=[]}
+- Layer 4 (00 bytes) = ICMPv6RouterSolicitation	{Contents=[] Payload=[] Options=[ICMPv6Option(SourceAddress:86:3f:07:53:bf:a8)]}
 
-2021/06/23 13:44:11 [Forwarder] No IPv4 Layer decoded
-2021/06/23 13:44:12 [Forwarder] d1-eth1 received packet --> d1-eth0
-2021/06/23 13:44:12 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-23 13:44:12.266687 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=f2:bf:11:61:ee:06 DstMAC=62:93:68:5a:40:36 EthernetType=ARP Length=0}
-- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+2021/06/24 13:27:35 [Forwarder] No IPv4 Layer decoded
+2021/06/24 13:28:21 [Forwarder] d1-eth1 received packet --> d1-eth0
+2021/06/24 13:28:21 PACKET: 107 bytes, wire length 107 cap length 107 @ 2021-06-24 13:28:20.88081 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..93..] SrcMAC=8a:2a:d5:f9:92:03 DstMAC=33:33:00:00:00:fb EthernetType=IPv6 Length=0}
+- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..53..] Version=6 TrafficClass=0 FlowLabel=307917 Length=53 NextHeader=UDP HopLimit=255 SrcIP=fe80::882a:d5ff:fef9:9203 DstIP=ff02::fb HopByHop=nil}
+- Layer 3 (08 bytes) = UDP	{Contents=[..8..] Payload=[..45..] SrcPort=5353(mdns) DstPort=5353(mdns) Length=53 Checksum=60908}
+- Layer 4 (45 bytes) = Payload	45 byte(s)
 
-2021/06/23 13:44:12 [Forwarder] No IPv4 Layer decoded
-2021/06/23 13:44:12 [Forwarder] d1-eth0 received packet --> d1-eth1
-2021/06/23 13:44:12 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-23 13:44:11.36666 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=62:93:68:5a:40:36 DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
-- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
+2021/06/24 13:28:21 [Forwarder] No IPv4 Layer decoded
+2021/06/24 13:28:24 [Forwarder] d1-eth0 received packet --> d1-eth1
+2021/06/24 13:28:24 PACKET: 70 bytes, wire length 70 cap length 70 @ 2021-06-24 13:28:24.395841 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..56..] SrcMAC=d6:7e:3d:e1:48:a1 DstMAC=33:33:00:00:00:02 EthernetType=IPv6 Length=0}
+- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..16..] Version=6 TrafficClass=0 FlowLabel=0 Length=16 NextHeader=ICMPv6 HopLimit=255 SrcIP=fe80::d47e:3dff:fee1:48a1 DstIP=ff02::2 HopByHop=nil}
+- Layer 3 (04 bytes) = ICMPv6	{Contents=[133, 0, 197, 43] Payload=[..12..] TypeCode=RouterSolicitation Checksum=50475 TypeBytes=[]}
+- Layer 4 (00 bytes) = ICMPv6RouterSolicitation	{Contents=[] Payload=[] Options=[ICMPv6Option(SourceAddress:d6:7e:3d:e1:48:a1)]}
 
-2021/06/23 13:44:12 [Forwarder] No IPv4 Layer decoded
-2021/06/23 13:44:13 [Forwarder] d1-eth0 received packet --> d1-eth1
-2021/06/23 13:44:13 PACKET: 98 bytes, wire length 98 cap length 98 @ 2021-06-23 13:44:12.293276 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..84..] SrcMAC=62:93:68:5a:40:36 DstMAC=f2:bf:11:61:ee:06 EthernetType=IPv4 Length=0}
-- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..64..] Version=4 IHL=5 TOS=0 Length=84 Id=60416 Flags=DF FragOffset=0 TTL=63 Protocol=ICMPv4 Checksum=12197 SrcIP=10.0.1.2 DstIP=20.0.1.2 Options=[] Padding=[]}
-- Layer 3 (08 bytes) = ICMPv4	{Contents=[..8..] Payload=[..56..] TypeCode=EchoRequest Checksum=44516 Id=32397 Seq=1}
-- Layer 4 (56 bytes) = Payload	56 byte(s)
+2021/06/24 13:28:24 [Forwarder] No IPv4 Layer decoded
+2021/06/24 13:28:28 [Forwarder] d1-eth1 received packet --> d1-eth0
+2021/06/24 13:28:28 PACKET: 70 bytes, wire length 70 cap length 70 @ 2021-06-24 13:28:28.491826 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..56..] SrcMAC=8a:2a:d5:f9:92:03 DstMAC=33:33:00:00:00:02 EthernetType=IPv6 Length=0}
+- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..16..] Version=6 TrafficClass=0 FlowLabel=0 Length=16 NextHeader=ICMPv6 HopLimit=255 SrcIP=fe80::882a:d5ff:fef9:9203 DstIP=ff02::2 HopByHop=nil}
+- Layer 3 (04 bytes) = ICMPv6	{Contents=[133, 0, 154, 222] Payload=[..12..] TypeCode=RouterSolicitation Checksum=39646 TypeBytes=[]}
+- Layer 4 (00 bytes) = ICMPv6RouterSolicitation	{Contents=[] Payload=[] Options=[ICMPv6Option(SourceAddress:8a:2a:d5:f9:92:03)]}
 
-2021/06/23 13:44:13 [Forwarder] IP layer detected
-2021/06/23 13:44:13 [KeyMan] GetKey(srcTP=30.0.0.1, destTP=30.0.0.2, zone=1)
-2021/06/23 13:44:13 [KeyMan] Key not in egressL1Keys or expired
-2021/06/23 13:44:13 [Forwarder] d1-eth1 received packet --> d1-eth0
-2021/06/23 13:44:13 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-23 13:44:13.284579 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=f2:bf:11:61:ee:06 DstMAC=62:93:68:5a:40:36 EthernetType=ARP Length=0}
-- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+2021/06/24 13:28:28 [Forwarder] No IPv4 Layer decoded
+2021/06/24 13:28:37 [Forwarder] d1-eth1 received packet --> d1-eth0
+2021/06/24 13:28:37 PACKET: 70 bytes, wire length 70 cap length 70 @ 2021-06-24 13:28:37.102103 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..56..] SrcMAC=86:3f:07:53:bf:a8 DstMAC=33:33:00:00:00:02 EthernetType=IPv6 Length=0}
+- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..16..] Version=6 TrafficClass=0 FlowLabel=0 Length=16 NextHeader=ICMPv6 HopLimit=255 SrcIP=fe80::843f:7ff:fe53:bfa8 DstIP=ff02::2 HopByHop=nil}
+- Layer 3 (04 bytes) = ICMPv6	{Contents=[133, 0, 228, 183] Payload=[..12..] TypeCode=RouterSolicitation Checksum=58551 TypeBytes=[]}
+- Layer 4 (00 bytes) = ICMPv6RouterSolicitation	{Contents=[] Payload=[] Options=[ICMPv6Option(SourceAddress:86:3f:07:53:bf:a8)]}
 
-2021/06/23 13:44:13 [Forwarder] No IPv4 Layer decoded
-2021/06/23 13:44:13 [KeyMan] Deriving L2 Key for zone 1
-2021/06/23 13:44:14 [Forwarder] d1-eth1 received packet --> d1-eth0
-2021/06/23 13:44:14 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-23 13:44:14.312791 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=f2:bf:11:61:ee:06 DstMAC=62:93:68:5a:40:36 EthernetType=ARP Length=0}
-- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
+2021/06/24 13:28:37 [Forwarder] No IPv4 Layer decoded
+2021/06/24 13:28:46 [Forwarder] d1-eth1 received packet --> d1-eth0
+2021/06/24 13:28:46 PACKET: 70 bytes, wire length 70 cap length 70 @ 2021-06-24 13:28:45.325288 +0000 UTC
+- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..56..] SrcMAC=8a:dc:11:de:68:89 DstMAC=33:33:00:00:00:02 EthernetType=IPv6 Length=0}
+- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..16..] Version=6 TrafficClass=0 FlowLabel=0 Length=16 NextHeader=ICMPv6 HopLimit=255 SrcIP=fe80::88dc:11ff:fede:6889 DstIP=ff02::2 HopByHop=nil}
+- Layer 3 (04 bytes) = ICMPv6	{Contents=[133, 0, 116, 166] Payload=[..12..] TypeCode=RouterSolicitation Checksum=29862 TypeBytes=[]}
+- Layer 4 (00 bytes) = ICMPv6RouterSolicitation	{Contents=[] Payload=[] Options=[ICMPv6Option(SourceAddress:8a:dc:11:de:68:89)]}
 
-2021/06/23 13:44:14 [Forwarder] No IPv4 Layer decoded
-2021/06/23 13:44:15 [KeyMan] L1ReqHandler triggered
-2021/06/23 13:44:15 [KeyMan] Key not in ingressL1Keys or expired
-2021/06/23 13:44:15 [KeyMan] Deriving L1 Key for 30.0.0.2
-2021/06/23 13:44:16 [Forwarder] d1-eth1 received packet --> d1-eth0
-2021/06/23 13:44:16 PACKET: 168 bytes, wire length 168 cap length 168 @ 2021-06-23 13:44:15.407604 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..154..] SrcMAC=f2:bf:11:61:ee:06 DstMAC=62:93:68:5a:40:36 EthernetType=IPv4 Length=0}
-- Layer 2 (20 bytes) = IPv4	{Contents=[..20..] Payload=[..134..] Version=4 IHL=5 TOS=0 Length=154 Id=0 Flags= FragOffset=0 TTL=0 Protocol=VRRP Checksum=0 SrcIP=30.0.0.2 DstIP=30.0.0.1 Options=[] Padding=[]}
-- Layer 3 (36 bytes) = Mondrian	{Contents=[..36..] Payload=[..98..] Type=1 ZoneID=1 TimeStamp=2021-06-23 13:44:15 +0000 UTC Nonce=[..12..] MAC=[..16..]}
-- Layer 4 (98 bytes) = Payload	98 byte(s)
-
-2021/06/23 13:44:16 [Forwarder] IP layer detected
-2021/06/23 13:44:16 [Forwarder] Mondrian layer detected
-2021/06/23 13:44:16 [KeyMan] GetKey(srcTP=30.0.0.2, destTP=30.0.0.1, zone=1)
-2021/06/23 13:44:16 [KeyMan] Key in ingressL1Keys and not expired
-2021/06/23 13:44:16 [KeyMan] Deriving L2 Key for zone 1
-2021/06/23 13:44:20 [Forwarder] d1-eth1 received packet --> d1-eth0
-2021/06/23 13:44:20 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-23 13:44:20.44827 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=f2:bf:11:61:ee:06 DstMAC=62:93:68:5a:40:36 EthernetType=ARP Length=0}
-- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
-
-2021/06/23 13:44:20 [Forwarder] No IPv4 Layer decoded
-2021/06/23 13:44:21 [Forwarder] d1-eth0 received packet --> d1-eth1
-2021/06/23 13:44:21 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-23 13:44:20.480639 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=62:93:68:5a:40:36 DstMAC=f2:bf:11:61:ee:06 EthernetType=ARP Length=0}
-- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
-
-2021/06/23 13:44:21 [Forwarder] No IPv4 Layer decoded
-2021/06/23 13:44:21 [Forwarder] d1-eth1 received packet --> d1-eth0
-2021/06/23 13:44:21 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-23 13:44:21.476716 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=f2:bf:11:61:ee:06 DstMAC=62:93:68:5a:40:36 EthernetType=ARP Length=0}
-- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 2] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 1]}
-
-2021/06/23 13:44:21 [Forwarder] No IPv4 Layer decoded
-2021/06/23 13:44:22 [Forwarder] d1-eth0 received packet --> d1-eth1
-2021/06/23 13:44:22 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-23 13:44:21.51372 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=62:93:68:5a:40:36 DstMAC=f2:bf:11:61:ee:06 EthernetType=ARP Length=0}
-- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=2 SourceHwAddress=[..6..] SourceProtAddress=[30, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[30, 0, 0, 2]}
-
-2021/06/23 13:44:22 [Forwarder] No IPv4 Layer decoded
+2021/06/24 13:28:46 [Forwarder] No IPv4 Layer decoded
