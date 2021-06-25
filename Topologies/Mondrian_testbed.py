@@ -171,47 +171,156 @@ class MondrianTestbed:
             s[0].start([c[0] for c in self.controllers if c[1]==s[1]])
         self.net =  net
 
-    def test_intra_zone(self):
+
+    def test_intra_zone_icmp(self):
         '''
-        Test if all connections work for intra zone traffic (Zone 1)
-        both intra and inter domain for the protocols TCP, UDP and ICMP
+        Test if all connections work for intra zone traffic
+        both intra and inter domain for ICMP
         '''
-        test.prefix = "[Intra Zone Test] "
+        test.prefix = test.prefix+"[ICMP Intra Zone Test] "
         host_dict = self.get_host_dict()
         success = True
         zone1 = ['h11', 'h12', 'h13', 'h21', 'h31']
         zone2 = ['h22', 'h23', 'h32']
         zone3 = ['h33']
-        print("*** Intra Zone Test started")
+        print("*** ICMP Intra Zone Test started")
         # ICMP
-        success = success and test.test_icmp(host_dict['h11'], host_dict['h12'])
-        success = success and test.test_icmp(host_dict['h11'], host_dict['h21'])
-        success = success and test.test_icmp(host_dict['h12'], host_dict['h11'])
-        success = success and test.test_icmp(host_dict['h12'], host_dict['h21'])
-        success = success and test.test_icmp(host_dict['h21'], host_dict['h11'])
-        success = success and test.test_icmp(host_dict['h21'], host_dict['h12'])
-        # TCP
-        success = success and test.test_tcp(host_dict['h11'], host_dict['h12'])
-        success = success and test.test_tcp(host_dict['h11'], host_dict['h21'])
-        success = success and test.test_tcp(host_dict['h12'], host_dict['h11'])
-        success = success and test.test_tcp(host_dict['h12'], host_dict['h21'])
-        success = success and test.test_tcp(host_dict['h21'], host_dict['h11'])
-        success = success and test.test_tcp(host_dict['h21'], host_dict['h12'])
-        # UDP
-        success = success and test.test_udp(host_dict['h11'], host_dict['h12'])
-        success = success and test.test_udp(host_dict['h11'], host_dict['h21'])
-        success = success and test.test_udp(host_dict['h12'], host_dict['h11'])
-        success = success and test.test_udp(host_dict['h12'], host_dict['h21'])
-        success = success and test.test_udp(host_dict['h21'], host_dict['h11'])
-        success = success and test.test_udp(host_dict['h21'], host_dict['h12'])
-        
+        # Zone 1
+        for h1 in zone1:
+            for h2 in zone1:
+                if h1!=h2:
+                    success = success and test.test_icmp(host_dict[h1], host_dict[h2])
+        # Zone 2
+        for h1 in zone2:
+            for h2 in zone2:
+                if h1!=h2:
+                    success = success and test.test_icmp(host_dict[h1], host_dict[h2])
+        # Zone 3
+        for h1 in zone3:
+            for h2 in zone3:
+                if h1!=h2:
+                    success = success and test.test_icmp(host_dict[h1], host_dict[h2])
         if success:
-            print("*** Intra Zone Test passed")
-        else: 
-            print("*** Intra Zone Test failed")
+            print("*** ICMP Intra Zone SUCCESS")
+        else:
+            print("*** ICMP Intra Zone FAIL")
         test.prefix = ""
+        return success
+
+    def test_intra_zone_tcp(self):
+        '''
+        Test if all connections work for intra zone traffic
+        both intra and inter domain for TCP
+        '''
+        test.prefix = test.prefix+"[TCP Intra Zone Test] "
+        host_dict = self.get_host_dict()
+        success = True
+        zone1 = ['h11', 'h12', 'h13', 'h21', 'h31']
+        zone2 = ['h22', 'h23', 'h32']
+        zone3 = ['h33']
+        print("*** TCP Intra Zone Test started")
+        # TCP
+        # Zone 1
+        for h1 in zone1:
+            for h2 in zone1:
+                if h1!=h2:
+                    success = success and test.test_tcp(host_dict[h2], host_dict[h1], listen_timeout=60)
+                    if not success:
+                        # Try again on failure to check if the test is just shitty
+                        success = test.test_tcp(host_dict[h2], host_dict[h1], listen_timeout=120)
+                        if success:
+                            print("TCP Test was just instable")
+        # Zone 2
+        for h1 in zone2:
+            for h2 in zone2:
+                if h1!=h2:
+                    success = success and test.test_tcp(host_dict[h2], host_dict[h1], listen_timeout=60)
+                    if not success:
+                        # Try again on failure to check if the test is just shitty
+                        success = test.test_tcp(host_dict[h2], host_dict[h1], listen_timeout=120)
+                        if success:
+                            print("TCP Test was just instable")
+        # Zone 3
+        for h1 in zone3:
+            for h2 in zone3:
+                if h1!=h2:
+                    success = success and test.test_tcp(host_dict[h2], host_dict[h1], listen_timeout=60)
+                    if not success:
+                        # Try again on failure to check if the test is just shitty
+                        success = test.test_tcp(host_dict[h2], host_dict[h1], listen_timeout=120)
+                        if success:
+                            print("TCP Test was just instable")
+        if success:
+            print("*** TCP Intra Zone SUCCESS")
+        else:
+            print("*** TCP Intra Zone FAIL")
+        test.prefix = ""
+        return success
+
+    def test_intra_zone_udp(self):
+        '''
+        Test if all connections work for intra zone traffic
+        both intra and inter domain for UDP
+        '''
+        test.prefix = test.prefix+"[UDP Intra Zone Test] "
+        host_dict = self.get_host_dict()
+        success = True
+        zone1 = ['h11', 'h12', 'h13', 'h21', 'h31']
+        zone2 = ['h22', 'h23', 'h32']
+        zone3 = ['h33']
+        print("*** UDP Intra Zone Test started")
+        # UDP
+        # Zone 1
+        for h1 in zone1:
+            for h2 in zone1:
+                if h1!=h2:
+                    success = success and test.test_udp(host_dict[h2], host_dict[h1])
+        # Zone 2
+        for h1 in zone2:
+            for h2 in zone2:
+                if h1!=h2:
+                    success = success and test.test_udp(host_dict[h2], host_dict[h1])
+        # Zone 3
+        for h1 in zone3:
+            for h2 in zone3:
+                if h1!=h2:
+                    success = success and test.test_udp(host_dict[h2], host_dict[h1])
+        if success:
+            print("*** UDP Intra Zone SUCCESS")
+        else:
+            print("*** UDP Intra Zone FAIL")
+        test.prefix = ""
+        return success
+
+
+    def test_intra_zone(self):
+        '''
+        Test if all connections work for intra zone traffic (Zone 1)
+        both intra and inter domain for the protocols TCP, UDP and ICMP
+        '''
+
+        icmp_result = self.test_intra_zone_icmp()
+        udp_result = self.test_intra_zone_udp()
+        tcp_result = self.test_intra_zone_tcp()
+        test.prefix = "[Intra Zone Test] "
+        print(test.prefix+"Intra Zone Test Results:")
+        if icmp_result:
+            print(test.prefix+"     "+"ICMP Intra Zone Test: SUCCESS")
+        else:
+            print(test.prefix+"     "+"ICMP Intra Zone Test: FAIL")
+        if udp_result:
+            print(test.prefix+"     "+"UDP Intra Zone Test: SUCCESS")
+        else:
+            print(test.prefix+"     "+"UDP Intra Zone Test: FAIL")
+        if tcp_result:
+            print(test.prefix+"     "+"TCP Intra Zone Test: SUCCESS")
+        else:
+            print(test.prefix+"     "+"TCP Intra Zone Test: FAIL")
+        test.prefix = ""
+
     
     def test_inter_zone(self):
+        #TODO: This is still the old code --> not valid now
         '''
         Test if connections work for inter zone traffic for which
         there is a policy allowing that kind of traffic and that
@@ -287,7 +396,7 @@ if __name__ == '__main__':
     topo.topology()
     #Make sure that everything is ready
     time.sleep(3)
-    #topo.test_intra_zone()
+    topo.test_intra_zone()
     #topo.test_inter_zone()
     #topo.test()
     topo.startCLI()

@@ -6,12 +6,12 @@ class TestUtil:
     def __init__(self, prefix=""):
         self.prefix = prefix
 
-    def test_tcp(self, src, dest, srcPort=None, destPort=None):
+    def test_tcp(self, src, dest, srcPort=None, destPort=None, listen_timeout=20):
         '''
         Send a file using nc from src to dest via TCP
         return success
         '''
-        max_no_runs = 2
+        max_no_runs = 3
         no_runs = 0
         if srcPort == None:
             str_srcPort = "120"
@@ -26,39 +26,37 @@ class TestUtil:
         print(self.prefix+"*** Running TCP Test")
         while max_no_runs>no_runs:
             no_runs += 1
-            print(test_prefix+"src: "+str(src.IP())+" dest: "+str(dest.IP())+" srcPort: "+str_srcPort+" destPort: "+str_destPort)
+            print(test_prefix+"src: "+str(src.IP())+" dest: "+str(dest.IP())+" srcPort: "+str_srcPort+" destPort: "+str_destPort+" listen_timeout = "+str(listen_timeout))
             with open("test_data/_test.out", "w") as f:
                 f.write("FAIL")
-            listen_cmd = "timeout 5 nc -t -l "+str_destPort+" > test_data/_test.out"
-            dest.sendCmd(listen_cmd)
+            listen_cmd = "timeout "+str(listen_timeout)+" nc -t -l "+str_destPort+" > test_data/_test.out &"
+            dest.cmd(listen_cmd)
             print(test_prefix+dest.name + ' ' + listen_cmd)
             # Wait such that nc is listening before something is sent
             time.sleep(3)
-            send_cmd = "timeout 2 nc -t -p "+str_srcPort+" "+dest.IP()+" "+str_destPort+" < test_data/_test.in"
-            src.sendCmd(send_cmd)
+            send_cmd = "timeout 10 nc -t -p "+str_srcPort+" "+dest.IP()+" "+str_destPort+" < test_data/_test.in &"
+            src.cmd(send_cmd)
             print(test_prefix+src.name + ' ' + send_cmd)
-            src_out = src.waitOutput()
-            dest_out = dest.waitOutput()
-            if src_out != "" or dest_out != "":
-                if src_out != "":
-                    print(test_prefix+src.name+": "+src_out[0:-2])
+            time.sleep(listen_timeout-3)
+            with open("test_data/_test.out", "r") as f:
+                line = f.readline()
+                if line=="SUCCESS":
+                    print(test_prefix+"Test successfull!")
+                    return True
                 else:
-                    print(test_prefix+dest.name+": "+dest_out[0:-2])
+                    print(test_prefix+"Test failed!")
+            if no_runs>=1:
+                if srcPort==None and destPort==None:
+                    print(test_prefix+"Try with other ports")
+                    str_srcPort = str(int(str_srcPort)+1)
+                    str_destPort = str(int(str_destPort)+1)
+                else:
                 #NOTE: if the reverse connection was tested then we would need to wait for tcp_fin_timeout=60sec
-                print(test_prefix+"Waiting for 60sec for the port to be released")
-                time.sleep(60)
-                continue
-            else:
-                with open("test_data/_test.out", "r") as f:
-                    line = f.readline()
-                    if line=="SUCCESS":
-                        print(test_prefix+"Test successfull!")
-                        return True
-                    else:
-                        print(test_prefix+"Test failed!")
-                        return False
+                    print(test_prefix+"Waiting for 60sec for the port to be released")
+                    time.sleep(60)        
+        return False
 
-    def test_udp(self, src, dest, srcPort=None, destPort=None):
+    def test_udp(self, src, dest, srcPort=None, destPort=None, listen_timeout=20):
         '''
         Send a file using nc from src to dest via UDP
         return success
@@ -81,14 +79,15 @@ class TestUtil:
         with open("test_data/_test.out", "w") as f:
             f.write("FAIL")
         while max_no_runs>no_runs: 
-            listen_cmd = "timeout 5 nc -u -l "+str_destPort+" > test_data/_test.out"
+            listen_cmd = "timeout "+str(listen_timeout)+" nc -u -l "+str_destPort+" > test_data/_test.out"
             dest.sendCmd(listen_cmd)
             print(test_prefix+dest.name + ' ' + listen_cmd)
             # Wait such that nc is listening before something is sent
-            time.sleep(1)
-            send_cmd = "timeout 2 nc -u -p "+str_srcPort+" "+dest.IP()+" "+str_destPort+" < test_data/_test.in"
+            time.sleep(3)
+            send_cmd = "timeout 5 nc -u -p "+str_srcPort+" "+dest.IP()+" "+str_destPort+" < test_data/_test.in"
             src.sendCmd(send_cmd)
             print(test_prefix+src.name + ' ' + send_cmd)
+            time.sleep(listen_timeout-3)
             src.waitOutput()
             dest.waitOutput()
             with open("test_data/_test.out", "r") as f:
