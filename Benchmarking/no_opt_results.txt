@@ -1,0 +1,71 @@
+goos: linux
+goarch: amd64
+pkg: gateway_tp/gateway_test
+BenchmarkFromMondrian
+forwarder ready
+.BenchmarkFromMondrian/packet_size_119
+BenchmarkFromMondrian/packet_size_119         	    2654	   4998396 ns/op	   0.02 MB/s
+BenchmarkFromMondrian/packet_size_124
+BenchmarkFromMondrian/packet_size_124         	    2542	   4909157 ns/op	   0.03 MB/s
+BenchmarkFromMondrian/packet_size_136
+BenchmarkFromMondrian/packet_size_136         	    2540	   4951981 ns/op	   0.03 MB/s
+BenchmarkFromMondrian/packet_size_143
+BenchmarkFromMondrian/packet_size_143         	    2608	   4814193 ns/op	   0.03 MB/s
+BenchmarkFromMondrian/packet_size_144
+BenchmarkFromMondrian/packet_size_144         	    2703	   4864471 ns/op	   0.03 MB/s
+BenchmarkFromMondrian/packet_size_168
+BenchmarkFromMondrian/packet_size_168         	    2812	   4867429 ns/op	   0.03 MB/s
+BenchmarkToMondrian
+BenchmarkToMondrian/packet_size_49
+BenchmarkToMondrian/packet_size_49            	    3655	   3199258 ns/op	   0.02 MB/s
+BenchmarkToMondrian/packet_size_54
+BenchmarkToMondrian/packet_size_54            	    3879	   3223645 ns/op	   0.02 MB/s
+BenchmarkToMondrian/packet_size_66
+BenchmarkToMondrian/packet_size_66            	    3722	   3192151 ns/op	   0.02 MB/s
+BenchmarkToMondrian/packet_size_73
+BenchmarkToMondrian/packet_size_73            	    3925	   3241693 ns/op	   0.02 MB/s
+BenchmarkToMondrian/packet_size_74
+BenchmarkToMondrian/packet_size_74            	    3658	   3300353 ns/op	   0.02 MB/s
+BenchmarkToMondrian/packet_size_98
+BenchmarkToMondrian/packet_size_98            	    3730	   3237223 ns/op	   0.03 MB/s
+BenchmarkID
+BenchmarkID/packet_size_49
+BenchmarkID/packet_size_49                    	1000000000	         0.841 ns/op	58285.11 MB/s
+BenchmarkID/packet_size_54
+BenchmarkID/packet_size_54                    	1000000000	         0.840 ns/op	64305.69 MB/s
+BenchmarkID/packet_size_66
+BenchmarkID/packet_size_66                    	1000000000	         0.697 ns/op	94755.96 MB/s
+BenchmarkID/packet_size_73
+BenchmarkID/packet_size_73                    	1000000000	         0.618 ns/op	118104.25 MB/s
+BenchmarkID/packet_size_74
+BenchmarkID/packet_size_74                    	1000000000	         0.640 ns/op	115714.64 MB/s
+BenchmarkID/packet_size_98
+BenchmarkID/packet_size_98                    	1000000000	         0.677 ns/op	144681.77 MB/s
+BenchmarkEncryption
+BenchmarkEncryption/packet_size_49
+BenchmarkEncryption/packet_size_49            	 1858504	      5818 ns/op	   8.42 MB/s
+BenchmarkEncryption/packet_size_54
+BenchmarkEncryption/packet_size_54            	 1842559	      5598 ns/op	   9.65 MB/s
+BenchmarkEncryption/packet_size_66
+BenchmarkEncryption/packet_size_66            	 1827525	      5761 ns/op	  11.46 MB/s
+BenchmarkEncryption/packet_size_73
+BenchmarkEncryption/packet_size_73            	 2000736	      5921 ns/op	  12.33 MB/s
+BenchmarkEncryption/packet_size_74
+BenchmarkEncryption/packet_size_74            	 2050798	      5750 ns/op	  12.87 MB/s
+BenchmarkEncryption/packet_size_98
+BenchmarkEncryption/packet_size_98            	 1462113	      7074 ns/op	  13.85 MB/s
+BenchmarkDecryption
+BenchmarkDecryption/packet_size_119
+BenchmarkDecryption/packet_size_119           	 1287903	      9066 ns/op	  13.13 MB/s
+BenchmarkDecryption/packet_size_124
+BenchmarkDecryption/packet_size_124           	 1328931	      8685 ns/op	  14.28 MB/s
+BenchmarkDecryption/packet_size_136
+BenchmarkDecryption/packet_size_136           	 1187397	      9722 ns/op	  13.99 MB/s
+BenchmarkDecryption/packet_size_143
+BenchmarkDecryption/packet_size_143           	 1200362	      9225 ns/op	  15.50 MB/s
+BenchmarkDecryption/packet_size_144
+BenchmarkDecryption/packet_size_144           	 1200330	      9299 ns/op	  15.49 MB/s
+BenchmarkDecryption/packet_size_168
+BenchmarkDecryption/packet_size_168           	  799348	     14054 ns/op	  11.95 MB/s
+PASS
+ok  	gateway_tp/gateway_test	416.008s

@@ -2,7 +2,6 @@ package main
 
 // go test -v -bench=.
 import (
-	"encoding/json"
 	"fmt"
 	"gateway_tp/config"
 	"gateway_tp/crypto"
