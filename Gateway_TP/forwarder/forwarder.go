@@ -49,7 +49,7 @@ func (i *Iface) Close() {
 	i.handle.Close()
 }
 
-func (fwd *Forwarder)getMondrianInfoEgress(pkt gopacket.Packet)(string, string, uint, []byte, error){
+func (fwd *Forwarder)GetMondrianInfoEgress(pkt gopacket.Packet)(string, string, uint, []byte, error){
 	/*
 	Fetch the info used to transform an IPv4 packet into a Mondrian packet
 	return localTP, remoteTP, zone, key, err
@@ -82,7 +82,7 @@ func (fwd *Forwarder)getMondrianInfoEgress(pkt gopacket.Packet)(string, string, 
 	}
 }
 
-func (fwd *Forwarder)getMondrianInfoIngress(pkt gopacket.Packet)(string, string, uint, []byte, error){
+func (fwd *Forwarder)GetMondrianInfoIngress(pkt gopacket.Packet)(string, string, uint, []byte, error){
 	/*
 	Parse and fetch the info used to transform a Mondrian packet into an IPv4 packet
 	return localTP, remoteTP, zone, key, err
@@ -122,10 +122,12 @@ func (i *Iface) Process_Egress_Traffic(other *Iface, fwd *Forwarder) {
 	packetSource := gopacket.NewPacketSource(i.handle, i.handle.LinkType())
 	defer i.Close()
 	for packet := range packetSource.Packets() {
-		log.Println(logPrefix+i.name + " received packet --> " + other.name)
-		log.Println(packet)
-		outPacket := fwd.ToMondrian(packet)
-		other.Send_Packet(outPacket.Data())
+		//go func() {
+			log.Println(logPrefix+i.name + " received packet --> " + other.name)
+			log.Println(packet)
+			outPacket := fwd.ToMondrian(packet)
+			other.Send_Packet(outPacket.Data())
+		//}()	
 	}
 
 }
@@ -139,13 +141,22 @@ func (i *Iface) Process_Ingress_Traffic(other *Iface, fwd *Forwarder) {
 	packetSource := gopacket.NewPacketSource(i.handle, i.handle.LinkType())
 	defer i.Close()
 	for packet := range packetSource.Packets() {
-		log.Println(logPrefix+i.name + " received packet --> " + other.name)
-		log.Println(packet)
-		outPacket := fwd.FromMondrian(packet)
-		other.Send_Packet(outPacket.Data())
+		//go func(){
+			log.Println(logPrefix+i.name + " received packet --> " + other.name)
+			log.Println(packet)
+			outPacket := fwd.FromMondrian(packet)
+			other.Send_Packet(outPacket.Data())
+		//}()
 	}
 }
 
+func (fwd *Forwarder) ID(pkt gopacket.Packet) gopacket.Packet{
+	/*
+	Just return the packet that was passed in 
+	(Used to compare the overhead of transforming packets)
+	*/
+	return pkt
+}
 
 
 func (fwd *Forwarder)ToMondrian(pkt gopacket.Packet) gopacket.Packet {
@@ -153,7 +164,7 @@ func (fwd *Forwarder)ToMondrian(pkt gopacket.Packet) gopacket.Packet {
 	Convert an IPv4 packet into a Mondrian packet
 	Note: If it's not an IPv4 Packet then just return pkt (like this ARP still works)
 	*/
-	srcTP, destTP, zone, key, err := fwd.getMondrianInfoEgress(pkt)
+	srcTP, destTP, zone, key, err := fwd.GetMondrianInfoEgress(pkt)
 	if err!=nil{
 		log.Println(logPrefix+err.Error())
 		return pkt
@@ -215,7 +226,7 @@ func (fwd *Forwarder)FromMondrian(pkt gopacket.Packet) gopacket.Packet {
 	Note: If it's not a Mondrian Packet then just return pkt (like this ARP still works)
 	*/
 	// Get the key for decryption
-	_, _, _, key, err := fwd.getMondrianInfoIngress(pkt)
+	_, _, _, key, err := fwd.GetMondrianInfoIngress(pkt)
 	if err!=nil{
 		log.Println(logPrefix+err.Error())
 		return pkt
@@ -248,7 +259,7 @@ type Forwarder struct {
 }
 
 func NewForwarder() *Forwarder {
-	f := fetcher.NewFetcher(config.TPAddr, 10)
+	f := fetcher.NewFetcher(config.TPAddr, 60*60) //Refresh Interval = 1h (in reality this will be smaller)
 	int_iface := NewIface(config.HostName + "-eth0")
 	ext_iface := NewIface(config.HostName + "-eth1")
 	km := keyman.NewKeyMan(config.MasterSecret)

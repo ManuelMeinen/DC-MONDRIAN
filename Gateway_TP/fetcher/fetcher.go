@@ -2,6 +2,7 @@ package fetcher
 
 import (
 	"fmt"
+	"log"
 	"gateway_tp/config"
 	"gateway_tp/types"
 	"gateway_tp/api"
@@ -10,7 +11,7 @@ import (
 	"errors"
 	"sync"
 )
-
+var logPrefix = "[Fetcher] "
 var subnets types.Subnets = nil
 var subnets_lock sync.RWMutex
 
@@ -36,6 +37,7 @@ func NewFetcher(tpAddr string, refresh_interval int) *Fetcher {
 			conn: *api.GetConn(config.ControllerAddr, config.ControllerPort),	
 		}
 	f.start()
+	log.Println(logPrefix+"New Fetcher Started for "+tpAddr)
 	return f
 }
 

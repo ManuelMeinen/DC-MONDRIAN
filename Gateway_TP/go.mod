@@ -23,7 +23,7 @@ replace gateway_tp/mondrian => ./mondrian
 require (
 	gateway_tp/api v0.0.0-00010101000000-000000000000 // indirect
 	gateway_tp/config v0.0.0-00010101000000-000000000000
-	gateway_tp/crypto v0.0.0-00010101000000-000000000000 // indirect
+	gateway_tp/crypto v0.0.0-00010101000000-000000000000
 	gateway_tp/fetcher v0.0.0-00010101000000-000000000000 // indirect
 	gateway_tp/forwarder v0.0.0-00010101000000-000000000000
 	gateway_tp/keyman v0.0.0-00010101000000-000000000000 // indirect
@@ -31,4 +31,5 @@ require (
 	gateway_tp/mondrian v0.0.0-00010101000000-000000000000
 	gateway_tp/types v0.0.0-00010101000000-000000000000 // indirect
 	github.com/google/gopacket v1.1.19
+	github.com/jinzhu/copier v0.3.2
 )
