@@ -28,6 +28,7 @@ require (
 	gateway_tp/forwarder v0.0.0-00010101000000-000000000000
 	gateway_tp/keyman v0.0.0-00010101000000-000000000000 // indirect
 	gateway_tp/logger v0.0.0-00010101000000-000000000000
-	gateway_tp/mondrian v0.0.0-00010101000000-000000000000 // indirect
+	gateway_tp/mondrian v0.0.0-00010101000000-000000000000
 	gateway_tp/types v0.0.0-00010101000000-000000000000 // indirect
+	github.com/google/gopacket v1.1.19
 )

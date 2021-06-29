@@ -124,7 +124,7 @@ func (i *Iface) Process_Egress_Traffic(other *Iface, fwd *Forwarder) {
 	for packet := range packetSource.Packets() {
 		log.Println(logPrefix+i.name + " received packet --> " + other.name)
 		log.Println(packet)
-		outPacket := fwd.toMondiran(packet)
+		outPacket := fwd.ToMondrian(packet)
 		other.Send_Packet(outPacket.Data())
 	}
 
@@ -141,14 +141,14 @@ func (i *Iface) Process_Ingress_Traffic(other *Iface, fwd *Forwarder) {
 	for packet := range packetSource.Packets() {
 		log.Println(logPrefix+i.name + " received packet --> " + other.name)
 		log.Println(packet)
-		outPacket := fwd.fromMondiran(packet)
+		outPacket := fwd.FromMondrian(packet)
 		other.Send_Packet(outPacket.Data())
 	}
 }
 
 
 
-func (fwd *Forwarder)toMondiran(pkt gopacket.Packet) gopacket.Packet {
+func (fwd *Forwarder)ToMondrian(pkt gopacket.Packet) gopacket.Packet {
 	/*
 	Convert an IPv4 packet into a Mondrian packet
 	Note: If it's not an IPv4 Packet then just return pkt (like this ARP still works)
@@ -209,7 +209,7 @@ func (fwd *Forwarder)toMondiran(pkt gopacket.Packet) gopacket.Packet {
 	return out_pkt
 }
 
-func (fwd *Forwarder)fromMondiran(pkt gopacket.Packet) gopacket.Packet {
+func (fwd *Forwarder)FromMondrian(pkt gopacket.Packet) gopacket.Packet {
 	/*
 	Convert a Mondrian packet into an IPv4 packet
 	Note: If it's not a Mondrian Packet then just return pkt (like this ARP still works)

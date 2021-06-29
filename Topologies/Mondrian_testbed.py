@@ -160,9 +160,9 @@ class MondrianTestbed:
                     setup.set_up_interface(g[0], if_name='eth2', ip_addr=site_info['key_net_addr'], net_mask='255.0.0.0')
                     setup.set_up_inet(g[0], if_name='eth0', ip_addr=site_info['gw_ctl_addr'], net_mask=site_info['gw_ctl_mask'])
                     setup.prepare_gateway_TP(g[0], site_info['tpAddr'])
-        print("*** Start Gateway TPs")
-        for g in self.gatewayTPs:
-            setup.start_gateway_TP(g[0])
+        #print("*** Start Gateway TPs")
+        #for g in self.gatewayTPs:
+        #    setup.start_gateway_TP(g[0])
         print("*** Start Controllers")
         for c in self.controllers:
             c[0].start()
@@ -373,6 +373,28 @@ class MondrianTestbed:
         test.prefix = ""
         
     
+    def capture_traffic(self):
+        d = self.gatewayTPs[0][0]
+        cmd = "tcpdump -w /vol1/egress.pcap -i "+str(d.name)+"-eth0 &"
+        print(cmd)
+        #print(d.cmd(cmd))
+        cmd = "tcpdump -w /vol1/ingress.pcap -i "+str(d.name)+"-eth1 &"
+        print(cmd)
+        #print(d.cmd(cmd))
+        self.startCLI()
+        # Generate some traffic
+        host_dict = self.get_host_dict()
+        test.test_icmp(src=host_dict['h11'], dest=host_dict['h21'])
+        test.test_icmp(src=host_dict['h21'], dest=host_dict['h11'])
+        test.test_udp(src=host_dict['h11'], dest=host_dict['h21'])
+        test.test_udp(src=host_dict['h21'], dest=host_dict['h11'])
+        test.test_tcp(src=host_dict['h11'], dest=host_dict['h21'])
+        test.test_tcp(src=host_dict['h21'], dest=host_dict['h11'])
+
+
+        
+
+
     def get_host_dict(self):
         host_dict = {}
         for host in self.hosts:
@@ -396,8 +418,9 @@ if __name__ == '__main__':
     topo.topology()
     #Make sure that everything is ready
     time.sleep(3)
-    topo.test_intra_zone()
+    #topo.test_intra_zone()
     #topo.test_inter_zone()
     #topo.test()
+    #topo.capture_traffic()
     topo.startCLI()
     topo.stopNet()

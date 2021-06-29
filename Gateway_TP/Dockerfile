@@ -9,6 +9,7 @@ RUN tar -C /usr/local -xzf go1.14.7.linux-amd64.tar.gz
 RUN apt-get install -y libpcap-dev
 RUN apt-get install -y libc6 libc6-dev
 RUN apt-get install -y curl
+RUN apt-get install -y tcpdump
 # Set up the env variables
 ENV GOPATH=$HOME/work
 ENV GOBIN=$GOPATH/bin
