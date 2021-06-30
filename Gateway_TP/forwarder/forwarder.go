@@ -55,7 +55,7 @@ func (fwd *Forwarder)GetMondrianInfoEgress(pkt gopacket.Packet)(string, string, 
 	return localTP, remoteTP, zone, key, err
 	*/
 	if ipLayer := pkt.Layer(layers.LayerTypeIPv4); ipLayer != nil {
-		log.Println(logPrefix+"IP layer detected")
+		//log.Println(logPrefix+"IP layer detected")
 		ipv4, _ := ipLayer.(*layers.IPv4)
 		src_ip :=ipv4.SrcIP
 		dest_ip := ipv4.DstIP
@@ -88,7 +88,7 @@ func (fwd *Forwarder)GetMondrianInfoIngress(pkt gopacket.Packet)(string, string,
 	return localTP, remoteTP, zone, key, err
 	*/
 	if ipLayer := pkt.Layer(layers.LayerTypeIPv4); ipLayer != nil {
-		log.Println(logPrefix+"IP layer detected")
+		//log.Println(logPrefix+"IP layer detected")
 		ipv4, _ := ipLayer.(*layers.IPv4)
 		src_ip :=ipv4.SrcIP
 		dest_ip := ipv4.DstIP
@@ -96,7 +96,7 @@ func (fwd *Forwarder)GetMondrianInfoIngress(pkt gopacket.Packet)(string, string,
 		localTP := dest_ip.String()
 		var zone uint32
 		if mLayer := pkt.Layer(mondrian.MondrianLayerType); mLayer != nil {
-			log.Println(logPrefix+"Mondrian layer detected")
+			//log.Println(logPrefix+"Mondrian layer detected")
 			mondrian := mLayer.(*mondrian.MondrianLayer)
 			zone = mondrian.ZoneID
 		}else{
@@ -125,6 +125,7 @@ func (i *Iface) Process_Egress_Traffic(other *Iface, fwd *Forwarder) {
 		//go func() {
 			log.Println(logPrefix+i.name + " received packet --> " + other.name)
 			log.Println(packet)
+			//outPacket := fwd.ID(packet)
 			outPacket := fwd.ToMondrian(packet)
 			other.Send_Packet(outPacket.Data())
 		//}()	
@@ -144,6 +145,7 @@ func (i *Iface) Process_Ingress_Traffic(other *Iface, fwd *Forwarder) {
 		//go func(){
 			log.Println(logPrefix+i.name + " received packet --> " + other.name)
 			log.Println(packet)
+			//outPacket := fwd.ID(packet)
 			outPacket := fwd.FromMondrian(packet)
 			other.Send_Packet(outPacket.Data())
 		//}()
@@ -158,8 +160,83 @@ func (fwd *Forwarder) ID(pkt gopacket.Packet) gopacket.Packet{
 	return pkt
 }
 
-
 func (fwd *Forwarder)ToMondrian(pkt gopacket.Packet) gopacket.Packet {
+	/*
+	Convert an IPv4 packet into a Mondrian packet
+	Note: If it's not an IPv4 Packet then just return pkt (like this ARP still works)
+	*/
+	
+
+	// Get eth header to restore it afterwards
+	var eth layers.Ethernet
+	var ip_internal layers.IPv4
+	parser := gopacket.NewDecodingLayerParser(layers.LayerTypeEthernet, &eth, &ip_internal)
+	decoded := []gopacket.LayerType{}
+	parser.DecodeLayers(pkt.Data(), &decoded)
+	zone, remoteTP, err := fwd.fetcher.GetZoneAndSite(ip_internal.DstIP)
+	if err!=nil{
+		log.Println(logPrefix+"ERROR: Finding Zone and Site failed")
+		log.Println(err)
+		return pkt
+	}
+	_, localTP, err := fwd.fetcher.GetZoneAndSite(ip_internal.SrcIP)
+	if err!=nil{
+		log.Println(logPrefix+"ERROR: Finding Zone and Site failed")
+		log.Println(err)
+		return pkt
+	}
+	key, err := fwd.km.GetKey(localTP, remoteTP, uint32(zone))
+	if err!=nil{
+		log.Println(logPrefix+"ERROR: Getting the key failed")
+		return pkt
+	}
+	srcTP_ip, _, _ := net.ParseCIDR(localTP+"/8")
+	destTP_ip, _, _ := net.ParseCIDR(remoteTP+"/8")
+	// Create outer IPv4 header
+	ip := layers.IPv4{
+		SrcIP:    srcTP_ip,
+		DstIP:    destTP_ip,
+		Version:  4,
+		IHL:      5,
+		Protocol: 112, // VRRP
+	}
+	// Create Mondrian header
+	m := mondrian.MondrianLayer{
+		Type:      1,
+		ZoneID:    uint32(zone),
+		TimeStamp: time.Now(),
+		Nonce:     crypto.Nonce(),
+	}
+	// Payload = original IPv4 Packet (for now unencrypted)
+	pld := gopacket.Payload(pkt.Data())
+	buf := gopacket.NewSerializeBuffer()
+	opts := gopacket.SerializeOptions{}
+	// Create intermediate packet stored in buf
+	err = gopacket.SerializeLayers(buf, opts, &eth, &ip, &m, &pld)
+	if err != nil {
+		log.Println(logPrefix+err.Error())
+	}
+	tmp_pkt := gopacket.NewPacket(buf.Bytes(), layers.LayerTypeEthernet, gopacket.Default)
+	// Get Mondrian Layer from tmp_pkt
+	mlayer := tmp_pkt.Layer(mondrian.MondrianLayerType).(*mondrian.MondrianLayer)
+	// Transfor Mondrian Layer into encrypted/authenticated state
+	err = mlayer.Encrypt(key[:])
+	if err != nil {
+		log.Println(logPrefix+err.Error())
+		return pkt
+	}
+	// Create final (encrypted) Mondrian out-packet
+	pld = gopacket.Payload(mlayer.LayerPayload())
+	buf = gopacket.NewSerializeBuffer()
+	opts = gopacket.SerializeOptions{}
+	err = gopacket.SerializeLayers(buf, opts, &eth, &ip, mlayer, &pld)
+	out_pkt := gopacket.NewPacket(buf.Bytes(), layers.LayerTypeEthernet, gopacket.Default)
+	// Return Mondrian packet
+	return out_pkt
+}
+
+
+func (fwd *Forwarder)ToMondrianOld(pkt gopacket.Packet) gopacket.Packet {
 	/*
 	Convert an IPv4 packet into a Mondrian packet
 	Note: If it's not an IPv4 Packet then just return pkt (like this ARP still works)

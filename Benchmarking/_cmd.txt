@@ -1,0 +1,1 @@
+d1 go test -bench=. -benchtime 10s -benchmem -memprofile /vol1/Benchmarking/mem.prof -cpuprofile /vol1/Benchmarking/cpu.prof > /vol1/Benchmarking/NO.bench

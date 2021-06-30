@@ -120,3 +120,27 @@ class TestUtil:
         else:
             print(test_prefix+"Test failed!")
             return False
+
+    def test_bandwidth(self, server, client, proto=None, timeout=None):
+        print(self.prefix+"*** Running ICMP Test")
+        test_prefix = self.prefix+"[ICMP Test] "
+        cmd = "iperf -s"
+        if proto=="TCP":
+            cmd = cmd+" -t"
+        if proto=="UDP":
+            cmd = cmd+" -u"
+        if timeout != None:
+            cmd = "timeout "+str(timeout)+" "+cmd
+        cmd = cmd+" &"
+        print(test_prefix+str(server.name)+" "+cmd)
+        server.cmd(cmd)
+        cmd = "iperf -c "+str(server.IP())
+        if proto=="TCP":
+            cmd = cmd+" -t"
+        if proto=="UDP":
+            cmd = cmd+" -u"
+        print(test_prefix+str(client.name)+" "+cmd)
+        res = client.cmd(cmd)
+        if timeout != None:
+            time.sleep(timeout)
+        

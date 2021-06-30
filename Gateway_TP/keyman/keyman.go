@@ -176,12 +176,12 @@ func (km *KeyMan) GetKey(srcTP string, destTP string, zone uint32)([]byte, error
 	Use this function to create K_A->B:Z
 	*/
 	// Figure out if ingress or egress L1 key is needed
-	log.Println(logPrefix+"GetKey(srcTP="+srcTP+", destTP="+destTP+", zone="+strconv.Itoa(int(zone))+")")
+	//log.Println(logPrefix+"GetKey(srcTP="+srcTP+", destTP="+destTP+", zone="+strconv.Itoa(int(zone))+")")
 	if srcTP == config.TPAddr{
 		// Egress Key needed
 		k, found := egressL1Keys[destTP]
 		if found && k.Ttl.After(time.Now()){
-			log.Println(logPrefix+"Key in egressL1Keys and not expired")
+			//log.Println(logPrefix+"Key in egressL1Keys and not expired")
 			return km.DeriveL2Key(k.Key, zone)
 		}else{
 			log.Println(logPrefix+"Key not in egressL1Keys or expired")
@@ -199,7 +199,7 @@ func (km *KeyMan) GetKey(srcTP string, destTP string, zone uint32)([]byte, error
 		// Ingress Key needed
 		k, found := ingressL1Keys[srcTP]
 		if found && k.Ttl.After(time.Now()){
-			log.Println(logPrefix+"Key in ingressL1Keys and not expired")
+			//log.Println(logPrefix+"Key in ingressL1Keys and not expired")
 			return km.DeriveL2Key(k.Key, zone)
 		}else{
 			log.Println(logPrefix+"Key not in ingressL1Keys or expired")
@@ -284,7 +284,7 @@ func (km *KeyMan) FetchL1FromRemote(remote string) (*keyPld, error) {
 }
 
 func (km *KeyMan) DeriveL2Key(l1 []byte, zone uint32) ([]byte, error) {
-	log.Println(logPrefix+"Deriving L2 Key for zone "+strconv.Itoa(int(zone)))
+	//log.Println(logPrefix+"Deriving L2 Key for zone "+strconv.Itoa(int(zone)))
 	mac, err := crypto.InitMac(l1)
 	if err != nil {
 		return nil, err
