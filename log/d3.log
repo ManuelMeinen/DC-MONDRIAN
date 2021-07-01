@@ -1,42 +1,7 @@
-2021/06/30 20:45:31 [Fetcher] New Fetcher Started for 200.0.0.3
-2021/06/30 20:45:31 [KeyMan] Refresh L0
-2021/06/30 20:45:31 [KeyMan] *** Key Server Ready ***
-2021/06/30 20:45:31 [KeyMan] Listening at: https://100.0.0.3:9090/
-2021/06/30 20:45:31 [Forwarder] Forwarder started
-2021/06/30 20:45:31 [Forwarder] Started processing Ingress Traffic
-2021/06/30 20:45:31 [Forwarder] Started processing Egress Traffic
-2021/06/30 20:45:46 [Forwarder] d3-eth1 received packet --> d3-eth0
-2021/06/30 20:45:46 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-30 20:45:46.009981 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=2e:a2:d4:d9:7a:92 DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
-- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[200, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[200, 0, 0, 2]}
-
-2021/06/30 20:45:46 [Forwarder] No IPv4 Layer decoded
-2021/06/30 20:45:47 [Forwarder] d3-eth1 received packet --> d3-eth0
-2021/06/30 20:45:47 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-30 20:45:47.040376 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=2e:a2:d4:d9:7a:92 DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
-- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[200, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[200, 0, 0, 2]}
-
-2021/06/30 20:45:47 [Forwarder] No IPv4 Layer decoded
-2021/06/30 20:45:48 [Forwarder] d3-eth1 received packet --> d3-eth0
-2021/06/30 20:45:48 PACKET: 42 bytes, wire length 42 cap length 42 @ 2021-06-30 20:45:48.057223 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..28..] SrcMAC=2e:a2:d4:d9:7a:92 DstMAC=ff:ff:ff:ff:ff:ff EthernetType=ARP Length=0}
-- Layer 2 (28 bytes) = ARP	{Contents=[..28..] Payload=[] AddrType=Ethernet Protocol=IPv4 HwAddressSize=6 ProtAddressSize=4 Operation=1 SourceHwAddress=[..6..] SourceProtAddress=[200, 0, 0, 1] DstHwAddress=[..6..] DstProtAddress=[200, 0, 0, 2]}
-
-2021/06/30 20:45:48 [Forwarder] No IPv4 Layer decoded
-2021/06/30 20:45:49 [Forwarder] d3-eth1 received packet --> d3-eth0
-2021/06/30 20:45:49 PACKET: 70 bytes, wire length 70 cap length 70 @ 2021-06-30 20:45:49.128347 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..56..] SrcMAC=2e:a2:d4:d9:7a:92 DstMAC=33:33:00:00:00:02 EthernetType=IPv6 Length=0}
-- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..16..] Version=6 TrafficClass=0 FlowLabel=0 Length=16 NextHeader=ICMPv6 HopLimit=255 SrcIP=fe80::2ca2:d4ff:fed9:7a92 DstIP=ff02::2 HopByHop=nil}
-- Layer 3 (04 bytes) = ICMPv6	{Contents=[133, 0, 131, 17] Payload=[..12..] TypeCode=RouterSolicitation Checksum=33553 TypeBytes=[]}
-- Layer 4 (00 bytes) = ICMPv6RouterSolicitation	{Contents=[] Payload=[] Options=[ICMPv6Option(SourceAddress:2e:a2:d4:d9:7a:92)]}
-
-2021/06/30 20:45:49 [Forwarder] No IPv4 Layer decoded
-2021/06/30 20:46:09 [Forwarder] d3-eth0 received packet --> d3-eth1
-2021/06/30 20:46:09 PACKET: 70 bytes, wire length 70 cap length 70 @ 2021-06-30 20:46:08.98165 +0000 UTC
-- Layer 1 (14 bytes) = Ethernet	{Contents=[..14..] Payload=[..56..] SrcMAC=1a:54:99:8c:a3:b7 DstMAC=33:33:00:00:00:02 EthernetType=IPv6 Length=0}
-- Layer 2 (40 bytes) = IPv6	{Contents=[..40..] Payload=[..16..] Version=6 TrafficClass=0 FlowLabel=0 Length=16 NextHeader=ICMPv6 HopLimit=255 SrcIP=fe80::1854:99ff:fe8c:a3b7 DstIP=ff02::2 HopByHop=nil}
-- Layer 3 (04 bytes) = ICMPv6	{Contents=[133, 0, 207, 253] Payload=[..12..] TypeCode=RouterSolicitation Checksum=53245 TypeBytes=[]}
-- Layer 4 (00 bytes) = ICMPv6RouterSolicitation	{Contents=[] Payload=[] Options=[ICMPv6Option(SourceAddress:1a:54:99:8c:a3:b7)]}
-
-2021/06/30 20:46:09 [Forwarder] ERROR: Finding Zone and Site failed
-2021/06/30 20:46:09 ERROR: No Zone found
+2021/07/01 14:58:48 [Fetcher] New Fetcher Started for 200.0.0.3
+2021/07/01 14:58:48 [KeyMan] Refresh L0
+2021/07/01 14:58:48 [KeyMan] *** Key Server Ready ***
+2021/07/01 14:58:48 [KeyMan] Listening at: https://100.0.0.3:9090/
+2021/07/01 14:58:48 [Forwarder] Forwarder started
+2021/07/01 14:58:48 [Forwarder] Started processing Ingress Traffic
+2021/07/01 14:58:48 [Forwarder] Started processing Egress Traffic
