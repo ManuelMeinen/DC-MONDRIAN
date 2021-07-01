@@ -34,56 +34,51 @@ class GatewayTPTestbed:
 
         info('*** Adding hosts and docker containers\n')
         h11 = net.addHost('h11', ip='10.0.1.2')
-        h1 = net.addHost('h1', ip='10.0.0.1')
-        d1 = net.addDocker('d1', ip='40.0.0.1', dimage="gateway_tp:1.0", volumes=["/home/mmeinen/polybox/code/DC-MONDRIAN:/vol1"])
-        d2 = net.addDocker('d2', ip='40.0.0.3', dimage="gateway_tp:1.0", volumes=["/home/mmeinen/polybox/code/DC-MONDRIAN:/vol1"])
-        h2 = net.addHost('h2', ip='20.0.0.1')
+        #h1 = net.addHost('h1', ip='10.0.0.1')
+        d1 = net.addDocker('d1', ip='30.0.0.1', dimage="gateway_tp:1.0", volumes=["/home/mmeinen/polybox/code/DC-MONDRIAN:/vol1"])
+        d2 = net.addDocker('d2', ip='30.0.0.2', dimage="gateway_tp:1.0", volumes=["/home/mmeinen/polybox/code/DC-MONDRIAN:/vol1"])
+        #h2 = net.addHost('h2', ip='20.0.0.1')
         h21 = net.addHost('h21', ip='20.0.1.2')
         
-        info( '*** Add switches\n')
+        #info( '*** Add switches\n')
         # This switch is used to connect the key exchange network (100.0.0.0/8)
-        s1 = net.addSwitch('s1', cls=OVSKernelSwitch, failMode='standalone')
+        #s1 = net.addSwitch('s1', cls=OVSKernelSwitch, failMode='standalone')
  
         info('*** Creating links\n')
-        net.addLink(h11, h1)
-        net.addLink(h1, d1)
-        net.addLink(h21, h2)
-        net.addLink(h2, d2)
+        net.addLink(h11, d1)
+        net.addLink(h21, d2)
         net.addLink(d1, d2)
-        net.addLink(d1, s1)
-        net.addLink(d2, s1)
+        #net.addLink(d1, s1)
+        #net.addLink(d2, s1)
 
         info('*** Starting network\n')
         net.build()
-        info( '*** Starting switches\n')
-        net.get('s1').start([])
+        #info( '*** Starting switches\n')
+        #net.get('s1').start([])
         
 
         info('*** Configuring stuff')
         setup.set_up_interface(h11, 'eth0','10.0.1.2', '255.0.0.0')
-        setup.set_up_interface(h1, 'eth0','10.0.0.1', '255.0.0.0')
-        setup.set_up_interface(h1, 'eth1','30.0.0.1', '255.0.0.0')
-        setup.set_up_interface(d1, 'eth0','40.0.0.1', '255.0.0.0')
-        setup.set_up_interface(d1, 'eth1','40.0.0.2', '255.0.0.0')
-        setup.set_up_interface(d2, 'eth0','40.0.0.3', '255.0.0.0')
-        setup.set_up_interface(d2, 'eth1','40.0.0.4', '255.0.0.0')
-        setup.set_up_interface(h2, 'eth0','20.0.0.1', '255.0.0.0')
-        setup.set_up_interface(h2, 'eth1','30.0.0.2', '255.0.0.0')
+        setup.set_up_interface(d1, 'eth0','10.0.0.1', '255.0.0.0')
+        setup.set_up_interface(d1, 'eth1','30.0.0.1', '255.0.0.0')
+        setup.set_up_interface(d2, 'eth0','20.0.0.1', '255.0.0.0')
+        setup.set_up_interface(d2, 'eth1','30.0.0.2', '255.0.0.0')
         setup.set_up_interface(h21, 'eth0', '20.0.1.2', '255.0.0.0')
-        setup.set_up_interface(d1, 'eth2', '100.0.0.1', '255.0.0.0')
-        setup.set_up_interface(d2, 'eth2', '100.0.0.2', '255.0.0.0')
+        #setup.set_up_interface(d1, 'eth2', '100.0.0.1', '255.0.0.0')
+        #setup.set_up_interface(d2, 'eth2', '100.0.0.2', '255.0.0.0')
 
-        setup.set_up_default_gw(h1, '30.0.0.2')
-        setup.set_up_default_gw(h2, '30.0.0.1')
+        #setup.set_up_default_gw(h1, '30.0.0.10')
+        #setup.set_up_default_gw(h2, '30.0.0.40')
 
-        setup.set_up_route(h1, '20.0.0.0/8', '30.0.0.2')
-        setup.set_up_route(h2, '10.0.0.0/8', '30.0.0.1')
+        setup.set_up_route(d1, '20.0.0.0/8', '30.0.0.2')
+        setup.set_up_route(d2, '10.0.0.0/8', '30.0.0.1')
+        
 
-        setup.set_up_route(d1, '40.0.0.0/8', '40.0.0.2')
-        setup.set_up_route(d2, '40.0.0.0/8', '40.0.0.3')
 
-        setup.set_up_forwarding(h1)
-        setup.set_up_forwarding(h2)
+        setup.set_up_default_gw(d1, '30.0.0.2')
+        setup.set_up_default_gw(d2, '30.0.0.1')
+
+        
 
         setup.set_up_inet(d1, 'eth0', '172.17.0.2', '255.255.0.0')
         setup.set_up_inet(d2, 'eth0', '172.17.0.3', '255.255.0.0')
@@ -91,7 +86,7 @@ class GatewayTPTestbed:
         setup.set_up_default_gw(h11, '10.0.0.1')
         setup.set_up_default_gw(h21, '20.0.0.1')
 
-        info("*** Starting the Gateway TPs")
+        #info("*** Starting the Gateway TPs")
         #setup.prepare_gateway_TP(d1, "30.0.0.1")
         #setup.prepare_gateway_TP(d2, "30.0.0.2")
         #setup.start_gateway_TP(d1)
@@ -99,8 +94,7 @@ class GatewayTPTestbed:
         
         setup.set_up_forwarding(d1)
         setup.set_up_forwarding(d2)
-        setup.set_up_route(d1, '20.0.0.0/8', '40.0.0.2')
-        setup.set_up_route(d2, '10.0.0.0/8', '40.0.0.3')
+        
         self.net = net
 
 
