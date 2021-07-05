@@ -13,28 +13,36 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
-	"strings"
-	"golang.org/x/crypto/pbkdf2"
 	"net/http"
 	"strconv"
+	"strings"
 	"sync"
 	"time"
+
+	"golang.org/x/crypto/pbkdf2"
 )
 
 var logPrefix = "[KeyMan] "
 
 var l0Salt = []byte("L0 Salt value")
 
-var egressL1Keys map[string]keyPld
-var ingressL1Keys map[string]keyPld
+var egressL1Keys map[string]KeyPld
+
+func (km *KeyMan) SetEgressL1Keys(m map[string]KeyPld){
+	// Used for microbenchmarking
+	egressL1Keys = m
+}
+
+var ingressL1Keys map[string]KeyPld
+
 
 // KeyPld is the payload sent to other TPs carrying the key and the key expiration time
-type keyPld struct {
+type KeyPld struct {
 	Key []byte
 	Ttl time.Time
 }
 
-func (k keyPld) MarshalJSON() ([]byte, error) {
+func (k KeyPld) MarshalJSON() ([]byte, error) {
 	dummy := struct {
 		Key []byte
 		TTL time.Time
@@ -45,7 +53,7 @@ func (k keyPld) MarshalJSON() ([]byte, error) {
 	return json.Marshal(dummy)
 }
 
-func (k *keyPld) UnmarshalJSON(b []byte) error {
+func (k *KeyPld) UnmarshalJSON(b []byte) error {
 	var dummy struct {
 		Key []byte
 		TTL time.Time
@@ -73,7 +81,7 @@ type KeyMan struct {
 }
 
 // NewKeyMan creates a new Keyman
-func NewKeyMan(masterSecret []byte) *KeyMan {
+func NewKeyMan(masterSecret []byte, benchmarking bool) *KeyMan {
 	listenIP := tpAddrToKeyServerAddr(config.TPAddr)
 	km := &KeyMan{
 		keyLength:      config.KeyLength,
@@ -82,13 +90,16 @@ func NewKeyMan(masterSecret []byte) *KeyMan {
 		listenIP:   	listenIP,
 		listenPort: 	config.ServerPort,
 	}
-	err := km.refreshL0()
+	err := km.RefreshL0()
 	if err!=nil{
 		log.Println(logPrefix+"ERROR: Did not refresh L0")
 	}	
-	egressL1Keys = make(map[string]keyPld)
-	ingressL1Keys = make(map[string]keyPld)
-	km.serveL1()
+	egressL1Keys = make(map[string]KeyPld)
+	ingressL1Keys = make(map[string]KeyPld)
+	if benchmarking==false{
+		km.serveL1()
+	}
+	
 	return km
 }
 
@@ -127,7 +138,7 @@ func (km *KeyMan)L1ReqHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	km.ingressLock.Lock()
 	defer km.ingressLock.Unlock()
-	var l1_key *keyPld
+	var l1_key *KeyPld
 	k, found := ingressL1Keys[string(buf)]
 	if found && k.Ttl.After(time.Now()){
 		log.Println(logPrefix+"Key in ingressL1Keys and not expired")
@@ -159,7 +170,7 @@ func encodeAndSend(data interface{}, err error, w http.ResponseWriter) {
 func (km *KeyMan) getL0Key() ([]byte, time.Time, error) {
 	// create new key in case we don't have a key yet or current key has expired
 	if km.l0 == nil || km.l0TTL.Before(time.Now()) {
-		err := km.refreshL0()
+		err := km.RefreshL0()
 		if err != nil {
 			return nil, time.Time{}, err
 		}
@@ -218,7 +229,7 @@ func (km *KeyMan) GetKey(srcTP string, destTP string, zone uint32)([]byte, error
 	}
 }
 
-func (km *KeyMan) refreshL0() error {
+func (km *KeyMan) RefreshL0() error {
 	log.Println(logPrefix+"Refresh L0")
 	km.l0Lock.Lock()
 	defer km.l0Lock.Unlock()
@@ -241,7 +252,7 @@ func (km *KeyMan) refreshL0() error {
 	return nil
 }
 
-func (km *KeyMan) DeriveL1Key(remote string) (*keyPld, error) {
+func (km *KeyMan) DeriveL1Key(remote string) (*KeyPld, error) {
 	log.Println(logPrefix+"Deriving L1 Key for "+remote)
 	_, t, err := km.getL0Key()
 	if err != nil {
@@ -250,15 +261,18 @@ func (km *KeyMan) DeriveL1Key(remote string) (*keyPld, error) {
 	io.WriteString(km.mac, remote)
 	sum := km.mac.Sum(nil)
 	km.mac.Reset()
-	key := &keyPld{
+	key := &KeyPld{
 		Key: sum,
 		Ttl: t,
 	}
+	log.Println(logPrefix+"L1 Key:")
+	log.Println(key)
 	return key, nil
 }
 
-func (km *KeyMan) FetchL1FromRemote(remote string) (*keyPld, error) {
+func (km *KeyMan) FetchL1FromRemote(remote string) (*KeyPld, error) {
 	//TODO: this lock is bad because it serializes all requests, not just the ones going to the same destination
+	log.Println(logPrefix+"Fetching L1 Key from "+remote)
 	km.reqLock.Lock()
 	defer km.reqLock.Unlock()
 	//Init insecure connection to remote TP
@@ -274,12 +288,14 @@ func (km *KeyMan) FetchL1FromRemote(remote string) (*keyPld, error) {
 	}
 	defer resp.Body.Close()
 	decoder := json.NewDecoder(resp.Body)
-	key := &keyPld{}
+	key := &KeyPld{}
 	err = decoder.Decode(key)
 	if err != nil {
 		log.Println(err)
 		return nil, errors.New("ERROR")
 	}
+	log.Println(logPrefix+"L1 Key:")
+	log.Println(key)
 	return key, nil
 }
 

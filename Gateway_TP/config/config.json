@@ -1,6 +1,6 @@
 {
-    "tp_addr": "30.0.0.1",
+    "tp_addr": "200.0.0.1",
     "hostname": "dx",
-    "log_dir": "/vol1/log/",
+    "log_dir": "/home/mmeinen/polybox/code/DC-MONDRIAN/log/",
     "base_path":"/home/mmeinen/polybox/code/DC-MONDRIAN"
 }

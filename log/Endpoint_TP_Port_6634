@@ -35,6 +35,12 @@ instantiating app ryu.controller.ofp_handler of OFPHandler
 [EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table

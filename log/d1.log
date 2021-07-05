@@ -1,11 +1,18 @@
-2021/07/01 14:58:55 [Fetcher] New Fetcher Started for 200.0.0.1
-2021/07/01 14:58:55 [KeyMan] Refresh L0
-2021/07/01 14:58:55 [KeyMan] *** Key Server Ready ***
-2021/07/01 14:58:55 [KeyMan] Listening at: https://100.0.0.1:9090/
-2021/07/01 14:58:55 [Forwarder] Forwarder started
-2021/07/01 14:58:55 [Forwarder] Started processing Ingress Traffic
-2021/07/01 14:58:55 [Forwarder] Started processing Egress Traffic
-2021/07/01 14:59:05 [KeyMan] Key not in egressL1Keys or expired
-2021/07/01 14:59:06 [KeyMan] L1ReqHandler triggered
-2021/07/01 14:59:06 [KeyMan] Key not in ingressL1Keys or expired
-2021/07/01 14:59:06 [KeyMan] Deriving L1 Key for 200.0.0.2
+2021/07/05 13:50:41 [Fetcher] New Fetcher Started for 200.0.0.1
+2021/07/05 13:50:41 [KeyMan] Refresh L0
+2021/07/05 13:50:41 [KeyMan] *** Key Server Ready ***
+2021/07/05 13:50:41 [KeyMan] Listening at: https://100.0.0.1:9090/
+2021/07/05 13:50:41 [Forwarder] Forwarder started
+2021/07/05 13:50:41 [Forwarder] Started processing Ingress Traffic
+2021/07/05 13:50:41 [Forwarder] Started processing Egress Traffic
+2021/07/05 13:50:56 [KeyMan] Key not in egressL1Keys or expired
+2021/07/05 13:50:56 [KeyMan] Fetching L1 Key from 200.0.0.2
+2021/07/05 13:50:56 [KeyMan] L1 Key:
+2021/07/05 13:50:56 &{[154 149 31 140 170 32 201 113 144 54 139 221 173 33 82 145] 2021-07-06 13:50:30.084318778 +0000 UTC}
+
+2021/07/05 13:50:57 [KeyMan] L1ReqHandler triggered
+2021/07/05 13:50:57 [KeyMan] Key not in ingressL1Keys or expired
+2021/07/05 13:50:57 [KeyMan] Deriving L1 Key for 200.0.0.2
+2021/07/05 13:50:57 [KeyMan] L1 Key:
+2021/07/05 13:50:57 &{[21 62 170 138 80 136 151 212 159 19 173 112 69 116 221 93] 2021-07-06 13:50:41.906473695 +0000 UTC m=+86400.042358933}
+&{[21 62 170 138 80 136 151 212 159 19 173 112 69 116 221 93] 2021-07-06 15:56:17.827128013 +0200 CEST m=+86400.060716249}

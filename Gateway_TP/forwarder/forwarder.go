@@ -60,19 +60,19 @@ func (fwd *Forwarder)GetMondrianInfoEgress(pkt gopacket.Packet)(string, string, 
 		ipv4, _ := ipLayer.(*layers.IPv4)
 		src_ip :=ipv4.SrcIP
 		dest_ip := ipv4.DstIP
-		zone, remoteTP, err := fwd.fetcher.GetZoneAndSite(dest_ip)
+		zone, remoteTP, err := fwd.Fetcher.GetZoneAndSite(dest_ip)
 		if err!=nil{
 			log.Println(logPrefix+"ERROR: Finding Zone and Site failed")
 			log.Println(err)
 			return "", "", 0, nil, err
 		}
-		_, localTP, err := fwd.fetcher.GetZoneAndSite(src_ip)
+		_, localTP, err := fwd.Fetcher.GetZoneAndSite(src_ip)
 		if err!=nil{
 			log.Println(logPrefix+"ERROR: Finding Zone and Site failed")
 			log.Println(err)
 			return "", "", 0, nil, err
 		}
-		key, err := fwd.km.GetKey(localTP, remoteTP, uint32(zone))
+		key, err := fwd.Km.GetKey(localTP, remoteTP, uint32(zone))
 		if err!=nil{
 			log.Println(logPrefix+"ERROR: Getting the key failed")
 			return "", "", 0, nil, err
@@ -103,7 +103,7 @@ func (fwd *Forwarder)GetMondrianInfoIngress(pkt gopacket.Packet)(string, string,
 		}else{
 			return "", "", 0, nil, errors.New("No Mondrian Layer decoded")
 		}
-		key, err := fwd.km.GetKey(remoteTP, localTP, zone)
+		key, err := fwd.Km.GetKey(remoteTP, localTP, zone)
 		if err!=nil{
 			log.Println(logPrefix+"ERROR: Getting the key failed")
 			return "", "", 0, nil, err
@@ -179,19 +179,19 @@ func (fwd *Forwarder)ToMondrian(pkt gopacket.Packet) gopacket.Packet {
 		//log.Println(logPrefix+"No IPv4 header detected")
 		return pkt
 	}
-	zone, remoteTP, err := fwd.fetcher.GetZoneAndSite(ip_internal.DstIP)
+	zone, remoteTP, err := fwd.Fetcher.GetZoneAndSite(ip_internal.DstIP)
 	if err!=nil{
 		log.Println(logPrefix+"ERROR: Finding Zone and Site failed")
 		log.Println(err)
 		return pkt
 	}
-	_, localTP, err := fwd.fetcher.GetZoneAndSite(ip_internal.SrcIP)
+	_, localTP, err := fwd.Fetcher.GetZoneAndSite(ip_internal.SrcIP)
 	if err!=nil{
 		log.Println(logPrefix+"ERROR: Finding Zone and Site failed")
 		log.Println(err)
 		return pkt
 	}
-	key, err := fwd.km.GetKey(localTP, remoteTP, uint32(zone))
+	key, err := fwd.Km.GetKey(localTP, remoteTP, uint32(zone))
 	if err!=nil{
 		log.Println(logPrefix+"ERROR: Getting the key failed")
 		return pkt
@@ -364,7 +364,7 @@ func (fwd *Forwarder)FromMondrian(pkt gopacket.Packet) gopacket.Packet {
 	localTP := dest_ip.String()
 	zone := m.ZoneID
 
-	key, err := fwd.km.GetKey(remoteTP, localTP, zone)
+	key, err := fwd.Km.GetKey(remoteTP, localTP, zone)
 	if err!=nil{
 		log.Println(logPrefix+err.Error())
 		return pkt
@@ -427,22 +427,22 @@ func (i *Iface) Send_Packet(pkt []byte) {
 }
 
 type Forwarder struct {
-	fetcher            *fetcher.Fetcher
-	internal_interface *Iface
-	external_interface *Iface
-	km				   *keyman.KeyMan
+	Fetcher            *fetcher.Fetcher
+	Internal_interface *Iface
+	External_interface *Iface
+	Km				   *keyman.KeyMan
 }
 
 func NewForwarder() *Forwarder {
 	f := fetcher.NewFetcher(config.TPAddr, 60*60) //Refresh Interval = 1h (in reality this will be smaller)
 	int_iface := NewIface(config.HostName + "-eth0")
 	ext_iface := NewIface(config.HostName + "-eth1")
-	km := keyman.NewKeyMan(config.MasterSecret)
+	km := keyman.NewKeyMan(config.MasterSecret, false)
 	fwd := &Forwarder{
-		fetcher:            f,
-		internal_interface: int_iface,
-		external_interface: ext_iface,
-		km:					km,
+		Fetcher:            f,
+		Internal_interface: int_iface,
+		External_interface: ext_iface,
+		Km:					km,
 	}
 	return fwd
 }
@@ -452,8 +452,8 @@ func (f *Forwarder) Start() {
 	Start gorutines processing ingress and egress traffic
 	*/
 	log.Println(logPrefix+"Forwarder started")
-	go f.internal_interface.Process_Egress_Traffic(f.external_interface, f)
-	go f.external_interface.Process_Ingress_Traffic(f.internal_interface, f)
+	go f.Internal_interface.Process_Egress_Traffic(f.External_interface, f)
+	go f.External_interface.Process_Ingress_Traffic(f.Internal_interface, f)
 }
 
 func (f *Forwarder) Stop() {
@@ -461,6 +461,6 @@ func (f *Forwarder) Stop() {
 	Close the interfaces
 	*/
 	log.Println(logPrefix+"Forwarder stopped")
-	f.internal_interface.Close()
-	f.external_interface.Close()
+	f.Internal_interface.Close()
+	f.External_interface.Close()
 }

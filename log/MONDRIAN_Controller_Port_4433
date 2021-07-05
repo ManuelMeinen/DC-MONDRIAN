@@ -2,4 +2,4 @@ Handlers initialized
 /home/mmeinen/polybox/code/DC-MONDRIAN/MONDRIAN_Controller/backendDB/controllerDB.sqlite
 *** Controller Ready ***
 Listening at: https://172.17.0.1:4433/
-2021/07/01 20:03:58 listen tcp :4433: bind: address already in use
+Killed
