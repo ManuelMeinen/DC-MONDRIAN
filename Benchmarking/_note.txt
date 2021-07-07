@@ -8,3 +8,4 @@
 10: Made the test to run in standalone mode
 11: Add naive conversion and sending benchmark (ToMondrianAndSend, FromMondrianAndSend)
 12: Conversion and sending in one function
+13: Run on testing hardware

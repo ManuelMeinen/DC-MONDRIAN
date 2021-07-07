@@ -1,0 +1,55 @@
+forwarder ready
+goos: linux
+goarch: amd64
+pkg: gateway_tp/gateway_test
+BenchmarkFromMondrian/packet_size_119-8         	 2765746	      4234 ns/op	  28.11 MB/s	    3456 B/op	      52 allocs/op
+BenchmarkFromMondrian/packet_size_124-8         	 2833147	      4114 ns/op	  30.14 MB/s	    3616 B/op	      51 allocs/op
+BenchmarkFromMondrian/packet_size_136-8         	 2882402	      4084 ns/op	  33.30 MB/s	    3680 B/op	      51 allocs/op
+BenchmarkFromMondrian/packet_size_143-8         	 2871189	      4145 ns/op	  34.50 MB/s	    3728 B/op	      52 allocs/op
+BenchmarkFromMondrian/packet_size_144-8         	 2765704	      4229 ns/op	  34.05 MB/s	    3952 B/op	      52 allocs/op
+BenchmarkFromMondrian/packet_size_168-8         	 3021406	      3924 ns/op	  42.81 MB/s	    3584 B/op	      52 allocs/op
+BenchmarkToMondrian/packet_size_49-8            	 2285019	      5164 ns/op	   9.49 MB/s	    4272 B/op	      67 allocs/op
+BenchmarkToMondrian/packet_size_54-8            	 2317696	      5127 ns/op	  10.53 MB/s	    4288 B/op	      67 allocs/op
+BenchmarkToMondrian/packet_size_66-8            	 2277118	      5204 ns/op	  12.68 MB/s	    4432 B/op	      67 allocs/op
+BenchmarkToMondrian/packet_size_73-8            	 2391906	      4977 ns/op	  14.67 MB/s	    4160 B/op	      66 allocs/op
+BenchmarkToMondrian/packet_size_74-8            	 2409975	      4939 ns/op	  14.98 MB/s	    4160 B/op	      66 allocs/op
+BenchmarkToMondrian/packet_size_98-8            	 2382366	      5002 ns/op	  19.59 MB/s	    4304 B/op	      66 allocs/op
+BenchmarkFromMondrianAndSend/packet_size_119-8  	 1659528	      7218 ns/op	  16.49 MB/s	    2576 B/op	      42 allocs/op
+BenchmarkFromMondrianAndSend/packet_size_124-8  	 1663875	      7210 ns/op	  17.20 MB/s	    2576 B/op	      42 allocs/op
+BenchmarkFromMondrianAndSend/packet_size_136-8  	 1654700	      7233 ns/op	  18.80 MB/s	    2624 B/op	      42 allocs/op
+BenchmarkFromMondrianAndSend/packet_size_143-8  	 1652120	      7247 ns/op	  19.73 MB/s	    2640 B/op	      42 allocs/op
+BenchmarkFromMondrianAndSend/packet_size_144-8  	 1652209	      7246 ns/op	  19.87 MB/s	    2640 B/op	      42 allocs/op
+BenchmarkFromMondrianAndSend/packet_size_168-8  	 1636882	      7326 ns/op	  22.93 MB/s	    2720 B/op	      42 allocs/op
+BenchmarkToMondrianAndSend/packet_size_49-8     	 1353428	      8845 ns/op	   5.54 MB/s	    3328 B/op	      57 allocs/op
+BenchmarkToMondrianAndSend/packet_size_54-8     	 1356192	      8832 ns/op	   6.11 MB/s	    3344 B/op	      57 allocs/op
+BenchmarkToMondrianAndSend/packet_size_66-8     	 1340072	      8927 ns/op	   7.39 MB/s	    3472 B/op	      57 allocs/op
+BenchmarkToMondrianAndSend/packet_size_73-8     	 1367619	      8756 ns/op	   8.34 MB/s	    3200 B/op	      56 allocs/op
+BenchmarkToMondrianAndSend/packet_size_74-8     	 1370244	      8762 ns/op	   8.45 MB/s	    3200 B/op	      56 allocs/op
+BenchmarkToMondrianAndSend/packet_size_98-8     	 1363276	      8823 ns/op	  11.11 MB/s	    3312 B/op	      56 allocs/op
+BenchmarkID/packet_size_49-8                    	1000000000	         0.278 ns/op	176495.37 MB/s	       0 B/op	       0 allocs/op
+BenchmarkID/packet_size_54-8                    	1000000000	         0.275 ns/op	196149.34 MB/s	       0 B/op	       0 allocs/op
+BenchmarkID/packet_size_66-8                    	1000000000	         0.279 ns/op	236172.19 MB/s	       0 B/op	       0 allocs/op
+BenchmarkID/packet_size_73-8                    	1000000000	         0.268 ns/op	272140.23 MB/s	       0 B/op	       0 allocs/op
+BenchmarkID/packet_size_74-8                    	1000000000	         0.267 ns/op	276915.22 MB/s	       0 B/op	       0 allocs/op
+BenchmarkID/packet_size_98-8                    	1000000000	         0.268 ns/op	365315.97 MB/s	       0 B/op	       0 allocs/op
+BenchmarkEncryption/packet_size_49-8            	15955284	       751 ns/op	  65.21 MB/s	     848 B/op	       6 allocs/op
+BenchmarkEncryption/packet_size_54-8            	15872756	       750 ns/op	  72.05 MB/s	     848 B/op	       6 allocs/op
+BenchmarkEncryption/packet_size_66-8            	15577351	       772 ns/op	  85.52 MB/s	     864 B/op	       6 allocs/op
+BenchmarkEncryption/packet_size_73-8            	15473956	       774 ns/op	  94.30 MB/s	     864 B/op	       6 allocs/op
+BenchmarkEncryption/packet_size_74-8            	15322381	       775 ns/op	  95.52 MB/s	     864 B/op	       6 allocs/op
+BenchmarkEncryption/packet_size_98-8            	14711017	       811 ns/op	 120.83 MB/s	     896 B/op	       6 allocs/op
+BenchmarkDecryption/packet_size_119-8           	 6998250	      1686 ns/op	  70.60 MB/s	    1888 B/op	      17 allocs/op
+BenchmarkDecryption/packet_size_124-8           	 6966090	      1687 ns/op	  73.49 MB/s	    1888 B/op	      17 allocs/op
+BenchmarkDecryption/packet_size_136-8           	 6835658	      1715 ns/op	  79.30 MB/s	    1952 B/op	      17 allocs/op
+BenchmarkDecryption/packet_size_143-8           	 6885650	      1726 ns/op	  82.87 MB/s	    1968 B/op	      17 allocs/op
+BenchmarkDecryption/packet_size_144-8           	 6888589	      1725 ns/op	  83.46 MB/s	    1968 B/op	      17 allocs/op
+BenchmarkDecryption/packet_size_168-8           	 6731127	      1768 ns/op	  95.03 MB/s	    2080 B/op	      17 allocs/op
+BenchmarkSendPacket/packet_size_119-8           	 9126202	      1282 ns/op	  92.85 MB/s	       0 B/op	       0 allocs/op
+BenchmarkSendPacket/packet_size_124-8           	 9248131	      1289 ns/op	  96.18 MB/s	       0 B/op	       0 allocs/op
+BenchmarkSendPacket/packet_size_136-8           	 9221019	      1287 ns/op	 105.71 MB/s	       0 B/op	       0 allocs/op
+BenchmarkSendPacket/packet_size_143-8           	 9288793	      1282 ns/op	 111.52 MB/s	       0 B/op	       0 allocs/op
+BenchmarkSendPacket/packet_size_144-8           	 9283168	      1287 ns/op	 111.90 MB/s	       0 B/op	       0 allocs/op
+BenchmarkSendPacket/packet_size_168-8           	 9216973	      1297 ns/op	 129.52 MB/s	       0 B/op	       0 allocs/op
+BenchmarkIteratePackets/packet_size_varying-8   	484165490	        24.6 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	gateway_tp/gateway_test	704.326s
