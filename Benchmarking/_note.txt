@@ -4,3 +4,7 @@
 6: Inlined decryption --> (fromMondrian)
 7: Added benchmark for SendPacket
 8: Added benchmark for iterating over packets
+
+10: Made the test to run in standalone mode
+11: Add naive conversion and sending benchmark (ToMondrianAndSend, FromMondrianAndSend)
+12: Conversion and sending in one function
