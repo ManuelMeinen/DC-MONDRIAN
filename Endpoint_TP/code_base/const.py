@@ -11,6 +11,10 @@ class Const:
     PATH_TO_CONFIG_FILE = "Endpoint_TP/config/config.json"
     
     tpAddr = "NOT SET"
+    # Timeouts are in seconds and 0 menas it never times out
+    IDLE_TIMEOUT = 0#10*60
+    HARD_TIMEOUT = 0#60*60
+    endpointTPPort = "6633"
 
     TCP_PROTO = "TCP"
     UDP_PROTO = "UDP"
@@ -32,6 +36,9 @@ class Const:
                 Const.controllerAddr = data["controllerAddr"]
                 Const.controllerPort = data["controllerPort"]
                 Const.tpAddr = data["tpAddr"]
+                Const.IDLE_TIMEOUT = data["idleTimeout"]
+                Const.HARD_TIMEOUT = data["hardTimeout"]
+                Const.endpointTPPort = data["endpointTPPort"]
         except json.JSONDecodeError as e:
             self.logger.info("[Const] ERROR: Reading config.json failed!")
             exit(1)

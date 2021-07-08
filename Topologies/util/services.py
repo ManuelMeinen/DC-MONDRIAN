@@ -48,7 +48,7 @@ class ServicesUtil:
             self.log[str(endpointTPPort)] = open(os.path.join(self.BASE_PATH, "log/Endpoint_TP_Port_"+str(endpointTPPort)), "w")
             self.proc.append(subprocess.Popen(os.path.join(os.path.join(self.BASE_PATH, "Endpoint_TP"),cmd), universal_newlines=True, shell=True, stdout=self.log[str(endpointTPPort)], stderr=self.log[str(endpointTPPort)]))
             print(self.UTIL_PREFIX+"Endpoint TP process started")
-            time.sleep(1) # To prevent race condition while reading config.json file (happens rarely)
+            time.sleep(5) # To prevent race condition while reading config.json file (happens rarely)
         except subprocess.CalledProcessError as e:
             print(self.UTIL_PREFIX+"ERROR: Failed to start Endpoint TP")
             print(e)

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 from mininet.net import Mininet
 from mininet.node import Controller, OVSSwitch, RemoteController, OVSKernelSwitch, IVSSwitch, UserSwitch
 from mininet.link import Link, TCLink
@@ -201,9 +201,19 @@ class EndpointTPTestbed:
         success = test.test_tcp(src=host_dict['h11'], dest=host_dict['h13'], srcPort=80, destPort=100)  #OK 
         success = test.test_tcp(src=host_dict['h13'], dest=host_dict['h11'], srcPort=100, destPort=80)  #OK 
 
-
-
         test.prefix = ""
+
+    def pingall_loop(self):
+        '''
+        Ping all hosts to generate traffic for the packet-in benchmarking
+        '''
+        test.prefix = "[ICMP Traffic Generator] "
+        while True:
+            for ha, _ in self.hosts:
+                for hb, _ in self.hosts:
+                    if ha!=hb:
+                        test.test_icmp(ha, hb)
+
         
     
     def get_host_dict(self):
@@ -229,8 +239,11 @@ if __name__ == '__main__':
     topo.topology()
     #Make sure that everything is ready
     time.sleep(3)
-    topo.test_intra_zone()
-    topo.test_inter_zone()
-    #topo.test()
-    topo.startCLI()
-    topo.stopNet()
+    try:
+        #topo.test_intra_zone()
+        #topo.test_inter_zone()
+        #topo.test()
+        topo.pingall_loop()
+        topo.startCLI()
+    finally:
+        topo.stopNet()

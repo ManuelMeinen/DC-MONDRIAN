@@ -27,6 +27,7 @@ from code_base.const import Const
 from code_base.sync import Synchronizer
 from code_base.conn_state import ConnectionState
 from code_base.transfer_module import ESTABLISHED_RESPONSE, TransferModule, ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT
+from code_base.stats import Stats
 
 class EndpointTP(app_manager.RyuApp):
 
@@ -35,6 +36,7 @@ class EndpointTP(app_manager.RyuApp):
     # Timeouts are in seconds and 0 menas it never times out
     IDLE_TIMEOUT = 10*60
     HARD_TIMEOUT = 60*60
+    BENCHMARKING = True #Change to False if stats should be turned off
 
     def log(self, msg):
         if self.verbose:
@@ -52,6 +54,8 @@ class EndpointTP(app_manager.RyuApp):
         self.module = TransferModule(tpAddr=Const.tpAddr, controllerAddr=Const.controllerAddr, 
                                     controllerPort=Const.controllerPort, logger=None, verbose=self.verbose)
         self.conn_state = ConnectionState(logger=self.logger, verbose=self.verbose)
+        if self.BENCHMARKING:
+            self.stats = Stats(hard_timeout=self.HARD_TIMEOUT, idle_timeout=self.IDLE_TIMEOUT)
         
     
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
@@ -124,7 +128,8 @@ class EndpointTP(app_manager.RyuApp):
                 self.synchronizer.log_status(self.logger)
                 self.synchronizer.allow()
                 return
-            
+            if self.BENCHMARKING:
+                self.stats.tick()
             match_dict = self.createMatchDict(in_port=in_port, src_net=src_net, dest_net=dest_net, packet_in=packet_in)
             match = parser.OFPMatch(**match_dict)
             # actions = [ESTABLISHED, ESTABLISHED_RESPONSE, FORWARDING, DROP, INTRA_ZONE, DEFAULT]
@@ -163,9 +168,9 @@ class EndpointTP(app_manager.RyuApp):
                     self.log(packet_in.to_string()) 
 
             if msg.buffer_id != ofproto.OFP_NO_BUFFER:
-                self.add_flow(datapath, 1, match, actions, msg.buffer_id, instructions=instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)
+                self.add_flow(datapath, 1, match, actions, msg.buffer_id, instructions=instructions, idle_timeout=Const.IDLE_TIMEOUT, hard_timeout=Const.HARD_TIMEOUT)
             else:
-                self.add_flow(datapath, 1, match, actions, instructions=instructions, idle_timeout=self.IDLE_TIMEOUT, hard_timeout=self.HARD_TIMEOUT)
+                self.add_flow(datapath, 1, match, actions, instructions=instructions, idle_timeout=Const.IDLE_TIMEOUT, hard_timeout=Const.HARD_TIMEOUT)
             if action == DROP or action == DEFAULT:
                 self.synchronizer.drop()
             else:
