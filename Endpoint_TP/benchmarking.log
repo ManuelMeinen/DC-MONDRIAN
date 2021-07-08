@@ -1,0 +1,9 @@
+2021-07-08 15:49:15,680 - Benchmarking - INFO - Start Mondrian Controller at: https://:4433
+2021-07-08 15:49:15,739 - Benchmarking - INFO - MONDRIAN Controller process started
+2021-07-08 15:49:20,855 - Benchmarking - INFO - Transfer Module started
+2021-07-08 15:49:30,867 - Benchmarking - INFO - Connection State started
+2021-07-08 15:49:30,871 - Benchmarking - INFO - Run benchmarking for function find_zone for 100000 repetitions with a warmup of 100
+2021-07-08 15:49:54,627 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/find_zone.bench
+2021-07-08 15:49:54,630 - Benchmarking - INFO - Run benchmarking for function check_packet for 100000 repetitions with a warmup of 100
+2021-07-08 15:50:52,125 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/check_packet.bench
+2021-07-08 15:50:52,138 - Benchmarking - INFO - MONDRIAN Controller process terminated

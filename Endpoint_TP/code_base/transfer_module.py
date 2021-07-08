@@ -16,11 +16,11 @@ ACTIONS = [ESTABLISHED, FORWARDING, DROP, INTRA_ZONE, DEFAULT]
 
 class TransferModule:
 
-    def __init__(self, tpAddr, controllerAddr, controllerPort, logger=None, verbose=True):
+    def __init__(self, tpAddr, controllerAddr, controllerPort,refresh_interval=30, logger=None, verbose=True):
         self.tpAddr = tpAddr
         self.logger = logger
         self.verbose = verbose
-        self.fetcher = Fetcher(tpAddr=tpAddr, controllerAddr=controllerAddr, controllerPort=controllerPort, logger=logger, verbose=self.verbose)
+        self.fetcher = Fetcher(tpAddr=tpAddr, controllerAddr=controllerAddr, controllerPort=controllerPort, refresh_interval=refresh_interval, logger=logger, verbose=self.verbose)
         
     
     def log(self, msg):
