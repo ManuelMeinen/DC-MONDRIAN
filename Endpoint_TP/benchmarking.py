@@ -110,7 +110,32 @@ class Benchmarking:
         stats.print_stats()
         self.write_res(res_path, s)
         self.log("Benchmarking done! Results can be found in "+str(res_path))
-
+    
+    def reset_subnets(self):
+        '''
+        set the subnets into the original state
+        '''
+        self.transfer_module.fetcher.refresh_subnets()
+        time.sleep(5)
+    
+    def reset_policies(self):
+        '''
+        set the policies into the original state
+        '''
+        self.transfer_module.fetcher.refresh_policies()
+        time.sleep(5)
+    
+    def scale_up_subnets(self, scale_factor):
+        '''
+        scale up the subnets by a factor of scale_factor
+        '''
+        self.transfer_module.fetcher.subnets = self.transfer_module.fetcher.subnets*scale_factor
+    
+    def scale_up_policies(self, scale_factor):
+        '''
+        scale up the policies by a factor of scale_factor
+        '''
+        self.transfer_module.fetcher.policies = self.transfer_module.fetcher.policies*scale_factor
     
 
 
@@ -120,8 +145,25 @@ if __name__=='__main__':
     bench.start_transfer_module()
     bench.start_connection_state()
     try:
-        bench.bench("find_zone", lambda: bench.transfer_module.find_zone('10.0.1.0'), N=100000)
         packet = Packet("10.0.1.0", "20.0.2.0", destPort=100, srcPort=80, proto="UDP")
-        bench.bench("check_packet", lambda: bench.transfer_module.check_packet(packet), N=100000)
+        scale_factors = [1, 2, 4, 8, 16, 32]
+        N=10000
+        for f in scale_factors:
+            bench.scale_up_subnets(f)
+            bench.scale_up_policies(f)
+            bench.log("#Subnets = "+str(len(bench.transfer_module.fetcher.subnets)))
+            bench.log("#Policies = "+str(len(bench.transfer_module.fetcher.policies)))
+            bench.bench("find_zone_f_"+str(f)+"_N_"+str(N), lambda: bench.transfer_module.find_zone('10.0.1.0'), N=N)
+            bench.bench("check_packet_f_"+str(f)+"_N_"+str(N), lambda: bench.transfer_module.check_packet(packet), N=N)
+            bench.reset_subnets()
+            bench.reset_policies()
+            
+        
+        print(len(bench.transfer_module.fetcher.subnets))
+        print(len(bench.transfer_module.fetcher.policies))
+        bench.reset_policies()
+        bench.reset_subnets()
+        print(len(bench.transfer_module.fetcher.subnets))
+        print(len(bench.transfer_module.fetcher.policies))
     finally:
         bench.stop_mondrian_controller()
