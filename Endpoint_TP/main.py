@@ -34,8 +34,8 @@ class EndpointTP(app_manager.RyuApp):
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
     TABLE_ID = 0
     # Timeouts are in seconds and 0 menas it never times out
-    IDLE_TIMEOUT = 1#10*60
-    HARD_TIMEOUT = 60*60
+    #IDLE_TIMEOUT = 60*60
+    #HARD_TIMEOUT = 10*60
     BENCHMARKING = True #Change to False if stats should be turned off
 
     def log(self, msg):
@@ -55,7 +55,7 @@ class EndpointTP(app_manager.RyuApp):
                                     controllerPort=Const.controllerPort, logger=None, verbose=self.verbose)
         self.conn_state = ConnectionState(logger=self.logger, verbose=self.verbose)
         if self.BENCHMARKING:
-            self.stats = Stats(hard_timeout=self.HARD_TIMEOUT, idle_timeout=self.IDLE_TIMEOUT)
+            self.stats = Stats(hard_timeout=Const.HARD_TIMEOUT, idle_timeout=Const.IDLE_TIMEOUT)
         
     
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)

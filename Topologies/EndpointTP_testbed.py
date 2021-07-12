@@ -203,17 +203,21 @@ class EndpointTPTestbed:
 
         test.prefix = ""
 
-    def pingall_loop(self):
+    def traffic_generator(self):
         '''
-        Ping all hosts to generate traffic for the packet-in benchmarking
+        generate some traffic for the packet-in benchmarking
         '''
         test.prefix = "[ICMP Traffic Generator] "
+        host_dict = self.get_host_dict()
         while True:
             t = time.time()
-            for ha, _ in self.hosts:
-                for hb, _ in self.hosts:
-                    if ha!=hb:
-                        test.test_icmp(ha, hb, rep=1)
+            for i in range(99):
+                # 99% intra-zone
+                _ = self.net.ping([host_dict['h11'], host_dict['h12'], host_dict['h21']])
+                time.sleep(0.1)
+            for i in range(1):
+                # 1% mix
+                _ = self.net.ping([host_dict['h11'], host_dict['h12'], host_dict['h13'], host_dict['h21'], host_dict['h22']])
             print("*** Time for this round was: "+str(time.time()-t)+"s")
 
         
@@ -245,7 +249,7 @@ if __name__ == '__main__':
         #topo.test_intra_zone()
         #topo.test_inter_zone()
         #topo.test()
-        topo.pingall_loop()
+        topo.traffic_generator()
         topo.startCLI()
     finally:
         topo.stopNet()
