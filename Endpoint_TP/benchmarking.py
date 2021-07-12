@@ -147,7 +147,7 @@ if __name__=='__main__':
     try:
         packet = Packet("10.0.1.0", "20.0.2.0", destPort=100, srcPort=80, proto="UDP")
         scale_factors = [1, 2, 4, 8, 16, 32]
-        N=10000
+        N=1000000
         for f in scale_factors:
             bench.scale_up_subnets(f)
             bench.scale_up_policies(f)
