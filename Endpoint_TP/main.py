@@ -34,7 +34,7 @@ class EndpointTP(app_manager.RyuApp):
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
     TABLE_ID = 0
     # Timeouts are in seconds and 0 menas it never times out
-    IDLE_TIMEOUT = 10*60
+    IDLE_TIMEOUT = 1#10*60
     HARD_TIMEOUT = 60*60
     BENCHMARKING = True #Change to False if stats should be turned off
 

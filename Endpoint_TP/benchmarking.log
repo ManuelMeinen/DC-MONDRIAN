@@ -1,41 +1,41 @@
-2021-07-08 17:01:32,071 - Benchmarking - INFO - Start Mondrian Controller at: https://:4433
-2021-07-08 17:01:32,080 - Benchmarking - INFO - MONDRIAN Controller process started
-2021-07-08 17:01:37,185 - Benchmarking - INFO - Transfer Module started
-2021-07-08 17:01:47,216 - Benchmarking - INFO - Connection State started
-2021-07-08 17:01:47,216 - Benchmarking - INFO - #Subnets = 8
-2021-07-08 17:01:47,217 - Benchmarking - INFO - #Policies = 8
-2021-07-08 17:01:47,217 - Benchmarking - INFO - Run benchmarking for function find_zone_f_1_N_10000 for 10000 repetitions with a warmup of 100
-2021-07-08 17:01:50,388 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/find_zone_f_1_N_10000.bench
-2021-07-08 17:01:50,392 - Benchmarking - INFO - Run benchmarking for function check_packet_f_1_N_10000 for 10000 repetitions with a warmup of 100
-2021-07-08 17:01:56,588 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/check_packet_f_1_N_10000.bench
-2021-07-08 17:02:06,683 - Benchmarking - INFO - #Subnets = 16
-2021-07-08 17:02:06,688 - Benchmarking - INFO - #Policies = 16
-2021-07-08 17:02:06,704 - Benchmarking - INFO - Run benchmarking for function find_zone_f_2_N_10000 for 10000 repetitions with a warmup of 100
-2021-07-08 17:02:12,045 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/find_zone_f_2_N_10000.bench
-2021-07-08 17:02:12,047 - Benchmarking - INFO - Run benchmarking for function check_packet_f_2_N_10000 for 10000 repetitions with a warmup of 100
-2021-07-08 17:02:24,723 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/check_packet_f_2_N_10000.bench
-2021-07-08 17:02:34,867 - Benchmarking - INFO - #Subnets = 32
-2021-07-08 17:02:34,869 - Benchmarking - INFO - #Policies = 32
-2021-07-08 17:02:34,870 - Benchmarking - INFO - Run benchmarking for function find_zone_f_4_N_10000 for 10000 repetitions with a warmup of 100
-2021-07-08 17:02:43,597 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/find_zone_f_4_N_10000.bench
-2021-07-08 17:02:43,602 - Benchmarking - INFO - Run benchmarking for function check_packet_f_4_N_10000 for 10000 repetitions with a warmup of 100
-2021-07-08 17:03:04,526 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/check_packet_f_4_N_10000.bench
-2021-07-08 17:03:14,629 - Benchmarking - INFO - #Subnets = 64
-2021-07-08 17:03:14,629 - Benchmarking - INFO - #Policies = 64
-2021-07-08 17:03:14,631 - Benchmarking - INFO - Run benchmarking for function find_zone_f_8_N_10000 for 10000 repetitions with a warmup of 100
-2021-07-08 17:03:35,638 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/find_zone_f_8_N_10000.bench
-2021-07-08 17:03:35,643 - Benchmarking - INFO - Run benchmarking for function check_packet_f_8_N_10000 for 10000 repetitions with a warmup of 100
-2021-07-08 17:04:26,014 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/check_packet_f_8_N_10000.bench
-2021-07-08 17:04:36,122 - Benchmarking - INFO - #Subnets = 128
-2021-07-08 17:04:36,123 - Benchmarking - INFO - #Policies = 128
-2021-07-08 17:04:36,124 - Benchmarking - INFO - Run benchmarking for function find_zone_f_16_N_10000 for 10000 repetitions with a warmup of 100
-2021-07-08 17:05:13,847 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/find_zone_f_16_N_10000.bench
-2021-07-08 17:05:13,851 - Benchmarking - INFO - Run benchmarking for function check_packet_f_16_N_10000 for 10000 repetitions with a warmup of 100
-2021-07-08 17:07:01,572 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/check_packet_f_16_N_10000.bench
-2021-07-08 17:07:11,668 - Benchmarking - INFO - #Subnets = 256
-2021-07-08 17:07:11,669 - Benchmarking - INFO - #Policies = 256
-2021-07-08 17:07:11,670 - Benchmarking - INFO - Run benchmarking for function find_zone_f_32_N_10000 for 10000 repetitions with a warmup of 100
-2021-07-08 17:08:44,622 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/find_zone_f_32_N_10000.bench
-2021-07-08 17:08:44,623 - Benchmarking - INFO - Run benchmarking for function check_packet_f_32_N_10000 for 10000 repetitions with a warmup of 100
-2021-07-08 17:11:58,512 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/check_packet_f_32_N_10000.bench
-2021-07-08 17:12:18,780 - Benchmarking - INFO - MONDRIAN Controller process terminated
+2021-07-12 15:11:45,614 - Benchmarking - INFO - Start Mondrian Controller at: https://:4433
+2021-07-12 15:11:45,616 - Benchmarking - INFO - MONDRIAN Controller process started
+2021-07-12 15:11:50,654 - Benchmarking - INFO - Transfer Module started
+2021-07-12 15:12:00,660 - Benchmarking - INFO - Connection State started
+2021-07-12 15:12:00,661 - Benchmarking - INFO - #Subnets = 1
+2021-07-12 15:12:00,661 - Benchmarking - INFO - #Policies = 1
+2021-07-12 15:12:00,661 - Benchmarking - INFO - Run benchmarking for function find_zone_f_1_N_10000 for 10000 repetitions with a warmup of 100
+2021-07-12 15:12:00,894 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/find_zone_f_1_N_10000.bench
+2021-07-12 15:12:00,894 - Benchmarking - INFO - Run benchmarking for function check_packet_f_1_N_10000 for 10000 repetitions with a warmup of 100
+2021-07-12 15:12:01,318 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/check_packet_f_1_N_10000.bench
+2021-07-12 15:12:11,359 - Benchmarking - INFO - #Subnets = 2
+2021-07-12 15:12:11,360 - Benchmarking - INFO - #Policies = 2
+2021-07-12 15:12:11,360 - Benchmarking - INFO - Run benchmarking for function find_zone_f_2_N_10000 for 10000 repetitions with a warmup of 100
+2021-07-12 15:12:11,717 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/find_zone_f_2_N_10000.bench
+2021-07-12 15:12:11,717 - Benchmarking - INFO - Run benchmarking for function check_packet_f_2_N_10000 for 10000 repetitions with a warmup of 100
+2021-07-12 15:12:12,468 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/check_packet_f_2_N_10000.bench
+2021-07-12 15:12:22,508 - Benchmarking - INFO - #Subnets = 4
+2021-07-12 15:12:22,509 - Benchmarking - INFO - #Policies = 4
+2021-07-12 15:12:22,509 - Benchmarking - INFO - Run benchmarking for function find_zone_f_4_N_10000 for 10000 repetitions with a warmup of 100
+2021-07-12 15:12:23,185 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/find_zone_f_4_N_10000.bench
+2021-07-12 15:12:23,185 - Benchmarking - INFO - Run benchmarking for function check_packet_f_4_N_10000 for 10000 repetitions with a warmup of 100
+2021-07-12 15:12:24,579 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/check_packet_f_4_N_10000.bench
+2021-07-12 15:12:34,644 - Benchmarking - INFO - #Subnets = 8
+2021-07-12 15:12:34,645 - Benchmarking - INFO - #Policies = 8
+2021-07-12 15:12:34,645 - Benchmarking - INFO - Run benchmarking for function find_zone_f_8_N_10000 for 10000 repetitions with a warmup of 100
+2021-07-12 15:12:35,955 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/find_zone_f_8_N_10000.bench
+2021-07-12 15:12:35,955 - Benchmarking - INFO - Run benchmarking for function check_packet_f_8_N_10000 for 10000 repetitions with a warmup of 100
+2021-07-12 15:12:38,591 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/check_packet_f_8_N_10000.bench
+2021-07-12 15:12:48,632 - Benchmarking - INFO - #Subnets = 16
+2021-07-12 15:12:48,633 - Benchmarking - INFO - #Policies = 16
+2021-07-12 15:12:48,633 - Benchmarking - INFO - Run benchmarking for function find_zone_f_16_N_10000 for 10000 repetitions with a warmup of 100
+2021-07-12 15:12:51,196 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/find_zone_f_16_N_10000.bench
+2021-07-12 15:12:51,196 - Benchmarking - INFO - Run benchmarking for function check_packet_f_16_N_10000 for 10000 repetitions with a warmup of 100
+2021-07-12 15:12:56,342 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/check_packet_f_16_N_10000.bench
+2021-07-12 15:13:06,383 - Benchmarking - INFO - #Subnets = 32
+2021-07-12 15:13:06,383 - Benchmarking - INFO - #Policies = 32
+2021-07-12 15:13:06,384 - Benchmarking - INFO - Run benchmarking for function find_zone_f_32_N_10000 for 10000 repetitions with a warmup of 100
+2021-07-12 15:13:11,432 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/find_zone_f_32_N_10000.bench
+2021-07-12 15:13:11,432 - Benchmarking - INFO - Run benchmarking for function check_packet_f_32_N_10000 for 10000 repetitions with a warmup of 100
+2021-07-12 15:13:21,555 - Benchmarking - INFO - Benchmarking done! Results can be found in benchmarking_res/check_packet_f_32_N_10000.bench
+2021-07-12 15:13:41,653 - Benchmarking - INFO - MONDRIAN Controller process terminated

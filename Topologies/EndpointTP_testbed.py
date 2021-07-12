@@ -209,10 +209,12 @@ class EndpointTPTestbed:
         '''
         test.prefix = "[ICMP Traffic Generator] "
         while True:
+            t = time.time()
             for ha, _ in self.hosts:
                 for hb, _ in self.hosts:
                     if ha!=hb:
-                        test.test_icmp(ha, hb)
+                        test.test_icmp(ha, hb, rep=1)
+            print("*** Time for this round was: "+str(time.time()-t)+"s")
 
         
     

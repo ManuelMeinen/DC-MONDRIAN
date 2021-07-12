@@ -160,9 +160,9 @@ class MondrianTestbed:
                     setup.set_up_interface(g[0], if_name='eth2', ip_addr=site_info['key_net_addr'], net_mask='255.0.0.0')
                     setup.set_up_inet(g[0], if_name='eth0', ip_addr=site_info['gw_ctl_addr'], net_mask=site_info['gw_ctl_mask'])
                     setup.prepare_gateway_TP(g[0], site_info['tpAddr'])
-        #print("*** Start Gateway TPs")
-        #for g in self.gatewayTPs:
-        #    setup.start_gateway_TP(g[0])
+        print("*** Start Gateway TPs")
+        for g in self.gatewayTPs:
+            setup.start_gateway_TP(g[0])
         print("*** Start Controllers")
         for c in self.controllers:
             c[0].start()
@@ -392,7 +392,13 @@ class MondrianTestbed:
         test.test_tcp(src=host_dict['h21'], dest=host_dict['h11'])
 
 
-        
+    def pingall(self):
+        '''
+        just test only one thing
+        '''
+        print("*** Ping: testing ping reachability")
+        self.net.ping([h[0] for h in self.hosts])
+ 
 
 
     def get_host_dict(self):
@@ -418,9 +424,12 @@ if __name__ == '__main__':
     topo.topology()
     #Make sure that everything is ready
     time.sleep(3)
-    #topo.test_intra_zone()
-    #topo.test_inter_zone()
-    #topo.test()
-    #topo.capture_traffic()
-    topo.startCLI()
-    topo.stopNet()
+    try:
+        #topo.test_intra_zone()
+        #topo.test_inter_zone()
+        #topo.test()
+        #topo.capture_traffic()
+        topo.pingall()
+        topo.startCLI()
+    finally:
+        topo.stopNet()

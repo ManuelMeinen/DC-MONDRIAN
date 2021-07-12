@@ -102,7 +102,7 @@ class TestUtil:
                     no_runs += 1
         return False
 
-    def test_icmp(self, src, dest):
+    def test_icmp(self, src, dest, rep=5):
         '''
         Let src ping dest via ICMP
         return success
@@ -110,7 +110,7 @@ class TestUtil:
         print(self.prefix+"*** Running ICMP Test")
         test_prefix = self.prefix+"[ICMP Test] "
         print(test_prefix+"src: "+str(src.IP())+" dest: "+str(dest.IP()))
-        cmd = "ping -c5 "+str(dest.IP()) #Send more than one since some could get lost due to unreliable data trasfer
+        cmd = "ping -c"+str(rep)+" "+str(dest.IP()) #Send more than one since some could get lost due to unreliable data trasfer
         res = src.cmd(cmd)
         print(test_prefix+str(src.name)+" "+cmd)
         sent, received = Mininet._parsePing(res)
