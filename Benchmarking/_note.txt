@@ -9,3 +9,4 @@
 11: Add naive conversion and sending benchmark (ToMondrianAndSend, FromMondrianAndSend)
 12: Conversion and sending in one function
 13: Run on testing hardware
+14: benchtime=30s
