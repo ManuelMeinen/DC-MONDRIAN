@@ -28,9 +28,11 @@ instantiating app ryu.controller.ofp_handler of OFPHandler
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.1.0.0/16', None, None, 1)
+[EndpointTP] Packet classification: established --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.2.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Connection State] Conn added to state: ('10.0.1.0/24', '20.2.0.0/16', None, None, 1)
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', None, None, 1)
+[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.1.0.0/16', None, None, 1)
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] Subnets fetched successfully
@@ -102,6 +104,702 @@ Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: NONE, S
 [EndpointTP] [Fetcher] subnet lock released
 [EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.2.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established> priority=10
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] Packet classification: established --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.2.0.3, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Connection State] Conn added to state: ('10.1.0.0/16', '20.2.0.0/16', None, None, 1)
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.1.0.0/16', '10.2.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.2.0.3, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established> priority=10
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[EndpointTP] [Connection State] Conn is not in state! ('20.0.1.0/24', '10.2.0.0/16', None, None, 1)
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('20.2.0.0/16', '10.2.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn in state: ('10.0.1.0/24', '20.2.0.0/16', None, None, 1)
+[EndpointTP] Packet classification: established_response --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.2.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn in state: ('10.1.0.0/16', '20.2.0.0/16', None, None, 1)
+[EndpointTP] Packet classification: established_response --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.2.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.2.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.2.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop> priority=5
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established> priority=10
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.2.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop> priority=5
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established> priority=10
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.0.1.0/24', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.1.0.0/16', None, None, 1)
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[EndpointTP] [Connection State] Conn is not in state! ('10.1.0.0/16', '10.2.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('20.0.1.0/24', '10.2.0.0/16', None, None, 1)
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('20.2.0.0/16', '10.2.0.0/16', None, None, 1)
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.0.1.0/24', None, None, 1)
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.2.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.1.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.1.0.0/16', '10.2.0.0/16', None, None, 1)
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('20.0.1.0/24', '10.2.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.2.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[EndpointTP] [Connection State] Conn is not in state! ('20.2.0.0/16', '10.2.0.0/16', None, None, 1)
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.0.1.0/24', None, None, 1)
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.1.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
 Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
 [NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
@@ -142,6 +840,10 @@ Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, S
 [NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
 [NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
 [NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
 [EndpointTP] [Connection State] Conn is not in state! ('10.1.0.0/16', '10.2.0.0/16', None, None, 1)
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
@@ -156,10 +858,6 @@ Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, S
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
 [EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] subnet lock released
 Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
@@ -255,6 +953,8 @@ Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: NONE, S
 [NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
 [NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
 [NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
 [EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.0.1.0/24', None, None, 1)
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
@@ -271,8 +971,6 @@ Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: NONE, S
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
 [NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
 [NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
 [NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
@@ -370,13 +1068,24 @@ Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, S
 [NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
 [NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
 [NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
 [EndpointTP] [Connection State] Conn is not in state! ('20.0.1.0/24', '10.2.0.0/16', None, None, 1)
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] [Connection State] Conn is not in state! ('20.2.0.0/16', '10.2.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
@@ -384,10 +1093,6 @@ Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, S
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.0.1.0/24', None, None, 1)
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.1.0.0/16', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
 [NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
 [NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
 [NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
@@ -419,12 +1124,33 @@ Checking Packet: Packet <Dest IP: 20.2.0.3, Src IP: 10.2.0.4, Dest Port: NONE, S
 [NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
 [NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
 [NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] Subnets fetched successfully
 [EndpointTP] [Fetcher] subnet lock released
 [EndpointTP] [Fetcher] policy lock acquired
 [EndpointTP] [Fetcher] Policies fetched successfully
 [EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] Subnets fetched successfully
 [EndpointTP] [Fetcher] subnet lock released
@@ -460,7 +1186,7 @@ Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: NONE, S
 [EndpointTP] [Fetcher] subnet lock released
 [EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+Checking Packet: Packet <Dest IP: 20.2.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
 [NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
 [NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
@@ -473,698 +1199,9 @@ Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.1.0.3, Dest Port: NONE, S
 [NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
 [NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
 [NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', None, None, 1)
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.1.0.0/16', '10.2.0.0/16', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('20.0.1.0/24', '10.2.0.0/16', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('20.2.0.0/16', '10.2.0.0/16', None, None, 1)
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.2.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.0.1.0/24', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.1.0.0/16', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', None, None, 1)
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[EndpointTP] [Connection State] Conn is not in state! ('10.1.0.0/16', '10.2.0.0/16', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('20.0.1.0/24', '10.2.0.0/16', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('20.2.0.0/16', '10.2.0.0/16', None, None, 1)
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.0.1.0/24', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.2.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.1.0.0/16', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', None, None, 1)
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.1.0.0/16', '10.2.0.0/16', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('20.0.1.0/24', '10.2.0.0/16', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.2.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[EndpointTP] [Connection State] Conn is not in state! ('20.2.0.0/16', '10.2.0.0/16', None, None, 1)
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.0.1.0/24', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.1.0.0/16', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', None, None, 1)
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.1.0.0/16', '10.2.0.0/16', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('20.0.1.0/24', '10.2.0.0/16', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('20.2.0.0/16', '10.2.0.0/16', None, None, 1)
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.2.0.3, Src IP: 10.2.0.4, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
-[EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.0.1.0/24', None, None, 1)
+[EndpointTP] Packet classification: established --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.2.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Connection State] Conn added to state: ('10.0.1.0/24', '20.2.0.0/16', None, None, 1)
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] [Connection State] Conn is not in state! ('10.2.0.0/16', '10.1.0.0/16', None, None, 1)
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
@@ -1172,15 +1209,15 @@ Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.0.1.2, Dest Port: NONE, S
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: established --> GOTO next table
+[EndpointTP] Packet <Dest IP: 20.2.0.3, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Connection State] Conn added to state: ('10.1.0.0/16', '20.2.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] [Connection State] Conn is not in state! ('10.0.1.0/24', '10.2.0.0/16', None, None, 1)
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('10.1.0.0/16', '10.2.0.0/16', None, None, 1)
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
-[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
 [NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
 [NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
-[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established> priority=10
 [NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
 [EndpointTP] [Fetcher] policy lock acquired
 [EndpointTP] [Fetcher] policy lock released
@@ -1211,6 +1248,29 @@ Checking Packet: Packet <Dest IP: 10.2.0.4, Src IP: 10.1.0.3, Dest Port: NONE, S
 [EndpointTP] [Fetcher] policy lock acquired
 [EndpointTP] [Fetcher] Policies fetched successfully
 [EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.2.0.3, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 1 <destZone: 2, destPort: 90, srcZone: 1, srcPort: 70, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 2 <destZone: 1, destPort: 90, srcZone: 2, srcPort: 70, proto: UDP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
+[MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established> priority=10
+[NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
 [EndpointTP] [Fetcher] policy lock acquired
 [EndpointTP] [Fetcher] policy lock released
 [EndpointTP] [Fetcher] subnet lock acquired
@@ -1250,6 +1310,25 @@ Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.2.0.4, Dest Port: NONE, S
 [NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
 [NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
 [NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
+[EndpointTP] [Connection State] Conn is not in state! ('10.1.0.0/16', '10.2.0.0/16', None, None, 1)
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('20.0.1.0/24', '10.2.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Connection State] Conn is not in state! ('20.2.0.0/16', '10.2.0.0/16', None, None, 1)
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
 [NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
 [NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
 [NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
@@ -1257,6 +1336,12 @@ Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.2.0.4, Dest Port: NONE, S
 [NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
 [NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
 [NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
 [EndpointTP] [Fetcher] policy lock acquired
 [EndpointTP] [Fetcher] policy lock released
 [EndpointTP] [Fetcher] subnet lock acquired
@@ -1272,13 +1357,6 @@ Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, S
 [NO MATCH] Policy ID: 3 <destZone: 2, destPort: *, srcZone: 1, srcPort: *, proto: TCP> --> <forwarding>
 [NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
 [NO MATCH] Policy ID: 4 <destZone: *, destPort: *, srcZone: 3, srcPort: *, proto: *> --> <drop>
-[EndpointTP] [Connection State] Conn is not in state! ('20.0.1.0/24', '10.2.0.0/16', None, None, 1)
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Connection State] Conn is not in state! ('20.2.0.0/16', '10.2.0.0/16', None, None, 1)
 [NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
 [NO MATCH] Policy ID: 5 <destZone: 2, destPort: 100, srcZone: 1, srcPort: 80, proto: TCP> --> <established>
 [NO MATCH] Policy ID: 6 <destZone: 2, destPort: *, srcZone: 1, srcPort: 80, proto: TCP> --> <drop>
@@ -1287,12 +1365,6 @@ Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.2.0.4, Dest Port: NONE, S
 [NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
 [NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
 [NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
 [EndpointTP] [Fetcher] policy lock acquired
 [EndpointTP] [Fetcher] policy lock released
 [EndpointTP] [Fetcher] subnet lock acquired
@@ -1316,6 +1388,26 @@ Checking Packet: Packet <Dest IP: 20.2.0.3, Src IP: 10.2.0.4, Dest Port: NONE, S
 [NO MATCH] Policy ID: 7 <destZone: 1, destPort: 100, srcZone: 2, srcPort: *, proto: UDP> --> <established>
 [NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
 [NO MATCH] Policy ID: 8 <destZone: 3, destPort: *, srcZone: 1, srcPort: *, proto: *> --> <established>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
 Traceback (most recent call last):
   File "/home/mmeinen/polybox/code/DC-MONDRIAN/Endpoint_TP/start_custom_EndpointTP.py", line 54, in <module>
     subprocess.run(["ryu-manager"]+endpoint_tp+other_ryu_services+config)
