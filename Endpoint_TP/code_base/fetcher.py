@@ -10,7 +10,7 @@ from code_base.const import Const
 
 class Fetcher:
     '''
-            This Fetcher starts a deamon that fetches the relevant subnets and policies periodically.
+            This Fetcher starts a daemon that fetches the relevant subnets and policies periodically.
             In order to avoid race conditions use the get_subnets and get_policies functions
     '''
 
@@ -36,16 +36,16 @@ class Fetcher:
         self.policy_lock = threading.Lock()
         self.refresh_subnets()
         self.refresh_policies()
-        self.deamon = threading.Thread(target=self.refresh_deamon)
-        self.deamon.daemon = True
-        self.deamon.start()
+        self.daemon = threading.Thread(target=self.refresh_daemon)
+        self.daemon.daemon = True
+        self.daemon.start()
 
     
-    def refresh_deamon(self):
+    def refresh_daemon(self):
         '''
-        Run the fetching deamon
+        Run the fetching daemon
         '''
-        self.log("Refresh deamon started")
+        self.log("Refresh daemon started")
         while True:
             time.sleep(self.refresh_interval)
             self.refresh_subnets()
