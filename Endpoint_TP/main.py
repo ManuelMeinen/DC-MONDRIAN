@@ -54,8 +54,9 @@ class EndpointTP(app_manager.RyuApp):
         self.module = TransferModule(tpAddr=Const.tpAddr, controllerAddr=Const.controllerAddr, 
                                     controllerPort=Const.controllerPort, logger=None, verbose=self.verbose)
         self.conn_state = ConnectionState(logger=self.logger, verbose=self.verbose)
-        if self.BENCHMARKING:
-            self.stats = Stats(hard_timeout=Const.HARD_TIMEOUT, idle_timeout=Const.IDLE_TIMEOUT)
+        if self.BENCHMARKING:      
+            self.stats = Stats(hard_timeout=Const.HARD_TIMEOUT, idle_timeout=Const.IDLE_TIMEOUT, delta_t=1)
+            
         
     
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
