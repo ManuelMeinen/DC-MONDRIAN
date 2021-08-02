@@ -58,6 +58,6 @@ class Stats:
                 for key, value in local_data.items():
                     f.write(str(key)+','+str(value)+'\n')
                     
-            time.sleep(12*60)
+            time.sleep(11*60)
 
     

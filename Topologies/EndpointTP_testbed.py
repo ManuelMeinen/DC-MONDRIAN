@@ -5,6 +5,7 @@ from mininet.link import Link, TCLink
 from mininet.cli import CLI
 from mininet.log import setLogLevel
 import time
+import threading
 from util.setup import SetupUtil
 from util.test import TestUtil
 from util.services import ServicesUtil
@@ -211,16 +212,37 @@ class EndpointTPTestbed:
         host_dict = self.get_host_dict()
         while True:
             t = time.time()
-            for i in range(99):
-                # 99% intra-zone
+            for i in range(9):
+                # 90% intra-zone
                 _ = self.net.ping([host_dict['h11'], host_dict['h12'], host_dict['h21']])
-                time.sleep(0.1)
+                time.sleep(1)
             for i in range(1):
-                # 1% mix
+                # 10% mix
                 _ = self.net.ping([host_dict['h11'], host_dict['h12'], host_dict['h13'], host_dict['h21'], host_dict['h22']])
             print("*** Time for this round was: "+str(time.time()-t)+"s")
 
-        
+    def traffic_generator_intra_zone(self):
+        '''
+        generate intra zone traffic for benchmarking packet-in messages
+        '''
+        test.prefix = "[ICMP Traffic Generator] "
+        host_dict = self.get_host_dict()
+        while True:
+            t = time.time()            
+            _ = self.net.ping([host_dict['h11'], host_dict['h12'], host_dict['h21']])
+            time.sleep(2)
+    
+    def traffic_generator_inter_zone(self):
+        '''
+        generate inter zone traffic for benchmarking packet-in messages
+        '''
+        test.prefix = "[ICMP Traffic Generator] "
+        host_dict = self.get_host_dict()
+        while True:
+            t = time.time()  
+            _ = self.net.ping([host_dict['h11'], host_dict['h12'], host_dict['h13'], host_dict['h21'], host_dict['h22']])
+            time.sleep(1)
+    
     
     def get_host_dict(self):
         host_dict = {}
@@ -249,7 +271,16 @@ if __name__ == '__main__':
         #topo.test_intra_zone()
         #topo.test_inter_zone()
         #topo.test()
-        topo.traffic_generator()
+        #t1 = threading.Thread(target=topo.traffic_generator_inter_zone)
+        #t1.daemon = True
+        #
+        #t2 = threading.Thread(target=topo.traffic_generator_intra_zone)
+        #t2.daemon = True
+        #t1.start()
+        #t2.start()
+        #while True:
+        #    pass
+        topo.traffic_generator_intra_zone()
         topo.startCLI()
     finally:
         topo.stopNet()
