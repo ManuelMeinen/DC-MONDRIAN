@@ -256,13 +256,11 @@ func BenchmarkFromMondrianAndSendNaive(b *testing.B) {
 		b.Run(fmt.Sprintf("packet size %d", size), func(b *testing.B) {
 			packet := mondrianPackets[size]
 			//Warmup
-			pkt := fwd.FromMondrian(packet)
-			ext_iface.Send_Packet(pkt.Data())
+			fwd.FromMondrianAndSendNaive(packet, ext_iface)
 			b.SetBytes(int64(size))
 			b.ResetTimer()
 			for i := 0; i < b.N; i++ {
-				pkt := fwd.FromMondrian(packet)
-				ext_iface.Send_Packet(pkt.Data())
+				fwd.FromMondrianAndSendNaive(packet, ext_iface)
 			}
 		})
 	}
@@ -344,15 +342,13 @@ func BenchmarkToMondrianAndSendNaive(b *testing.B) {
 	for _, size := range sizes {
 		packet := ipPackets[size]
 		//Warmup
-		pkt := fwd.ToMondrian(packet)
-		ext_iface.Send_Packet(pkt.Data())
+		fwd.ToMondrianAndSendNaive(packet, ext_iface)
 		
 		b.Run(fmt.Sprintf("packet size %d", size), func(b *testing.B) {
 			b.SetBytes(int64(size))
 			b.ResetTimer()
 			for i := 0; i < b.N; i++ {
-				pkt := fwd.ToMondrian(packet)
-				ext_iface.Send_Packet(pkt.Data())
+				fwd.ToMondrianAndSendNaive(packet, ext_iface)
 			}
 		})
 	}

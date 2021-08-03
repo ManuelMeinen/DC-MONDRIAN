@@ -245,6 +245,88 @@ func (fwd *Forwarder)ToMondrianAndSend(pkt gopacket.Packet, outIface *Iface){
 	go outIface.Send_Packet(buf.Bytes())
 }
 
+func (fwd *Forwarder)ToMondrianAndSendNaive(pkt gopacket.Packet, outIface *Iface){
+	/*
+	Convert an IPv4 packet into a Mondrian packet
+	Note: If it's not an IPv4 Packet then just return pkt (like this ARP still works)
+	*/
+	
+
+	// Get eth header to restore it afterwards
+	var eth layers.Ethernet
+	var ip_internal layers.IPv4
+	parser := gopacket.NewDecodingLayerParser(layers.LayerTypeEthernet, &eth, &ip_internal)
+	decoded := []gopacket.LayerType{}
+	parser.DecodeLayers(pkt.Data(), &decoded)
+	
+	if len(decoded) < 2{
+		//log.Println(logPrefix+"No IPv4 header detected")
+		go outIface.Send_Packet(pkt.Data())
+	}
+	zone, remoteTP, err := fwd.Fetcher.GetZoneAndSite(ip_internal.DstIP)
+	if err!=nil{
+		log.Println(logPrefix+"ERROR: Finding Zone and Site failed")
+		log.Println(err)
+		go outIface.Send_Packet(pkt.Data())
+	}
+	_, localTP, err := fwd.Fetcher.GetZoneAndSite(ip_internal.SrcIP)
+	if err!=nil{
+		log.Println(logPrefix+"ERROR: Finding Zone and Site failed")
+		log.Println(err)
+		go outIface.Send_Packet(pkt.Data())
+	}
+	key, err := fwd.Km.GetKey(localTP, remoteTP, uint32(zone))
+	if err!=nil{
+		log.Println(logPrefix+"ERROR: Getting the key failed")
+		go outIface.Send_Packet(pkt.Data())
+	}
+	srcTP_ip, _, _ := net.ParseCIDR(localTP+"/8")
+	destTP_ip, _, _ := net.ParseCIDR(remoteTP+"/8")
+	// Create outer IPv4 header
+	ip := layers.IPv4{
+		SrcIP:    srcTP_ip,
+		DstIP:    destTP_ip,
+		Version:  4,
+		IHL:      5,
+		Protocol: 112, // VRRP
+	}
+	//Test out inlining Encryption
+	var ad []byte = make([]byte, 20)
+	ad[0] = 1
+	dummy := make([]byte, 4)
+	binary.LittleEndian.PutUint32(dummy, uint32(zone))
+	copy(ad[1:4], dummy)
+	timestamp:=time.Now()
+	binary.LittleEndian.PutUint32(ad[4:8], uint32(timestamp.Unix()))
+	nonce := crypto.Nonce()
+	copy(ad[8:20], nonce)
+
+	aead, err := crypto.NewAEAD(key[:])
+	if err != nil {
+		log.Println(logPrefix+err.Error())
+		go outIface.Send_Packet(pkt.Data())
+	}
+	data_len := len(pkt.Data())
+	res := aead.Seal(nil, nonce, pkt.Data(), ad)
+	
+	m := mondrian.MondrianLayer{
+		Type:      1,
+		ZoneID:    uint32(zone),
+		TimeStamp: timestamp,
+		Nonce:     nonce,
+	}
+	m.Payload = res[:data_len]
+	m.MAC = res[data_len:]
+
+	// Create final (encrypted) Mondrian out-packet
+	pld := gopacket.Payload(m.LayerPayload())
+	buf := gopacket.NewSerializeBuffer()
+	opts := gopacket.SerializeOptions{}
+	err = gopacket.SerializeLayers(buf, opts, &eth, &ip, &m, &pld)
+	out_pkt := gopacket.NewPacket(buf.Bytes(), layers.LayerTypeEthernet, gopacket.Default)
+	go outIface.Send_Packet(out_pkt.Data())
+}
+
 func (fwd *Forwarder)FromMondrianAndSend(pkt gopacket.Packet, outIface *Iface){
 	var eth layers.Ethernet
 	var ip layers.IPv4
@@ -286,6 +368,49 @@ func (fwd *Forwarder)FromMondrianAndSend(pkt gopacket.Packet, outIface *Iface){
 	//out_pkt := gopacket.NewPacket(m.LayerPayload(), layers.LayerTypeEthernet, gopacket.Default)
 	go outIface.Send_Packet(m.LayerPayload())
 }
+
+func (fwd *Forwarder)FromMondrianAndSendNaive(pkt gopacket.Packet, outIface *Iface){
+	var eth layers.Ethernet
+	var ip layers.IPv4
+	var m mondrian.MondrianLayer
+	parser := gopacket.NewDecodingLayerParser(layers.LayerTypeEthernet, &eth, &ip, &m)
+	decoded := []gopacket.LayerType{}
+	parser.DecodeLayers(pkt.Data(), &decoded)
+	
+	if len(decoded) < 3{
+		//log.Println(logPrefix+"No Mondrian header detected")
+		go outIface.Send_Packet(pkt.Data())
+	}
+
+	src_ip := ip.SrcIP
+	dest_ip := ip.DstIP
+	remoteTP := src_ip.String()
+	localTP := dest_ip.String()
+	zone := m.ZoneID
+
+	key, err := fwd.Km.GetKey(remoteTP, localTP, zone)
+	if err!=nil{
+		log.Println(logPrefix+err.Error())
+		go outIface.Send_Packet(pkt.Data())
+	}
+
+	aead, err := crypto.NewAEAD(key[:])
+	if err != nil {
+		log.Println(logPrefix+err.Error())
+		go outIface.Send_Packet(pkt.Data())
+	}
+	buf := append(m.Payload, m.MAC...)
+	m.Payload, err = aead.Open(nil, m.Nonce, buf, m.Contents[:20])
+	if err != nil {
+		log.Println(logPrefix+err.Error())
+		go outIface.Send_Packet(pkt.Data())
+	}
+	
+	// Return the Mondrian packet's payload as IPv4 packet
+	out_pkt := gopacket.NewPacket(m.LayerPayload(), layers.LayerTypeEthernet, gopacket.Default)
+	go outIface.Send_Packet(out_pkt.Data())
+}
+
 
 func (fwd *Forwarder)ToMondrian(pkt gopacket.Packet) gopacket.Packet {
 	/*
