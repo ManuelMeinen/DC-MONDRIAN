@@ -34,6 +34,34 @@ instantiating app ryu.controller.ofp_handler of OFPHandler
   warnings.warn(
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
@@ -55,26 +83,6 @@ instantiating app ryu.controller.ofp_handler of OFPHandler
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] Subnets fetched successfully
 [EndpointTP] [Fetcher] subnet lock released
@@ -137,6 +145,48 @@ Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, S
 [EndpointTP] [Fetcher] policy lock acquired
 [EndpointTP] [Fetcher] Policies fetched successfully
 [EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
 [EndpointTP] [Fetcher] policy lock acquired
 [EndpointTP] [Fetcher] policy lock released
 [EndpointTP] [Fetcher] subnet lock acquired
@@ -192,87 +242,41 @@ Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, S
 [EndpointTP] [Fetcher] policy lock acquired
 [EndpointTP] [Fetcher] Policies fetched successfully
 [EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
 [EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
 [EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
@@ -281,192 +285,44 @@ Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, S
 [EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
+[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
@@ -487,53 +343,78 @@ Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, S
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] subnet lock released
 Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] [Fetcher] policy lock acquired
@@ -543,6 +424,48 @@ Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, S
 [EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] subnet lock released
 Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
 [EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] Subnets fetched successfully
 [EndpointTP] [Fetcher] subnet lock released
@@ -585,114 +508,35 @@ Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, S
 [EndpointTP] [Fetcher] subnet lock released
 Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] Packet classification: intra_zone --> GOTO next table
+[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
@@ -723,6 +567,34 @@ Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, S
   warnings.warn(
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
@@ -730,6 +602,172 @@ Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, S
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] Subnets fetched successfully
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] Policies fetched successfully
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
+[EndpointTP] [Fetcher] policy lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+[EndpointTP] [Fetcher] subnet lock acquired
+[EndpointTP] [Fetcher] subnet lock released
+Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
+[EndpointTP] [Fetcher] policy lock acquired
 [EndpointTP] Packet classification: intra_zone --> GOTO next table
 [EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] ------------------------------ New Packet-In ------------------------------
@@ -745,55 +783,18 @@ Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, S
   warnings.warn(
 /usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
 [EndpointTP] [Fetcher] policy lock released
 [EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] subnet lock released
@@ -827,839 +828,18 @@ Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, S
 [EndpointTP] [Fetcher] policy lock acquired
 [EndpointTP] [Fetcher] Policies fetched successfully
 [EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] Subnets fetched successfully
 [EndpointTP] [Fetcher] subnet lock released
 [EndpointTP] [Fetcher] policy lock acquired
 [EndpointTP] [Fetcher] Policies fetched successfully
 [EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] Subnets fetched successfully
 [EndpointTP] [Fetcher] subnet lock released
 [EndpointTP] [Fetcher] policy lock acquired
 [EndpointTP] [Fetcher] Policies fetched successfully
 [EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] Subnets fetched successfully
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] Policies fetched successfully
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] ------------------------------ New Packet-In ------------------------------
-[EndpointTP] Packet classification: intra_zone --> GOTO next table
-[EndpointTP] Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-/usr/lib/python3/dist-packages/urllib3/connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.0.1.2, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 20.0.1.2, Src IP: 10.1.0.3, Dest Port: NONE, Src Port: NONE, Proto: 1>
-[EndpointTP] [Fetcher] policy lock acquired
-[EndpointTP] [Fetcher] policy lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-[EndpointTP] [Fetcher] subnet lock acquired
-[EndpointTP] [Fetcher] subnet lock released
-Checking Packet: Packet <Dest IP: 10.1.0.3, Src IP: 20.0.1.2, Dest Port: NONE, Src Port: NONE, Proto: 1>
 [EndpointTP] [Fetcher] subnet lock acquired
 [EndpointTP] [Fetcher] Subnets fetched successfully
 [EndpointTP] [Fetcher] subnet lock released
