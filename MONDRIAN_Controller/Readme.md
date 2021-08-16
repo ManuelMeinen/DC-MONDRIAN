@@ -1,0 +1,3 @@
+# MONDRIAN Controller
+## How to run it:
+To start the MONDRIAN Controller according to the configuration found in [config.go](config/config.go), simply run ```go run main.go``` or ```go build main.go``` followed by ```./main```. By default, the MONDRIAN Controller will use the data found in `backendDB/controllerDB.sqlite`. To initialize it with different data, remove `controllerDB.sqlite*` from `backendDB/` and then run the desired `db_init_***.go` file. Predefined files exist to load the MONDRIAN Controller with data used for the Endpoint TP testbed and the MONDRIAN testbed.
