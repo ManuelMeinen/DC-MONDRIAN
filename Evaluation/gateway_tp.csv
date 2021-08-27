@@ -1,0 +1,10 @@
+function,time,throughput
+ToMondrian,4976.5,13.88666667
+FromMondrian,3984.5,35.03833333
+Encryption,739,92.94333333
+Decryption,1681,82.57166667
+SendPacket,1293.666667,107.4366667
+FromMondrianAndSend,7153,19.42666667
+FromMondrianAndSendNaive,13233.16667,10.5
+ToMondrianAndSend,8708.166667,7.926666667
+ToMondrianAndSendNaive,14981.83333,4.605

@@ -1,0 +1,32 @@
+         69000001 function calls in 18.764 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+  1000000    0.385    0.000   18.764    0.000 ./benchmarking.py:156(<lambda>)
+  1000000    1.581    0.000   18.379    0.000 /home/mmeinen/polybox/code/DC-MONDRIAN/Endpoint_TP/code_base/transfer_module.py:172(find_zone)
+  2000000    1.325    0.000   10.521    0.000 /usr/lib/python3.8/ipaddress.py:1219(__init__)
+  1000000    0.403    0.000    9.354    0.000 /usr/lib/python3.8/ipaddress.py:57(ip_network)
+  1000000    1.544    0.000    8.950    0.000 /usr/lib/python3.8/ipaddress.py:1412(__init__)
+  2000000    1.290    0.000    8.865    0.000 /usr/lib/python3.8/ipaddress.py:1125(_ip_int_from_string)
+  2000000    1.458    0.000    7.179    0.000 {built-in method from_bytes}
+  8000000    4.188    0.000    5.722    0.000 /usr/lib/python3.8/ipaddress.py:1151(_parse_octet)
+  1000000    0.305    0.000    5.513    0.000 /usr/lib/python3.8/ipaddress.py:27(ip_address)
+  1000000    0.678    0.000    1.657    0.000 /usr/lib/python3.8/ipaddress.py:535(_split_addr_prefix)
+  1000000    0.817    0.000    1.237    0.000 /home/mmeinen/polybox/code/DC-MONDRIAN/Endpoint_TP/code_base/fetcher.py:55(get_subnets)
+ 12000000    0.831    0.000    0.831    0.000 {built-in method builtins.len}
+  1000000    0.467    0.000    0.709    0.000 /usr/lib/python3.8/ipaddress.py:158(_split_optional_netmask)
+  7000000    0.639    0.000    0.639    0.000 {built-in method builtins.isinstance}
+  8000000    0.561    0.000    0.561    0.000 {method 'isdigit' of 'str' objects}
+  1000000    0.435    0.000    0.541    0.000 /usr/lib/python3.8/ipaddress.py:690(__contains__)
+  8000000    0.451    0.000    0.451    0.000 {method 'isascii' of 'str' objects}
+  3000000    0.397    0.000    0.397    0.000 {method 'split' of 'str' objects}
+  2000000    0.231    0.000    0.231    0.000 /usr/lib/python3.8/ipaddress.py:574(__int__)
+  1000000    0.206    0.000    0.206    0.000 /usr/lib/python3.8/ipaddress.py:1099(_make_netmask)
+  2000000    0.188    0.000    0.188    0.000 /home/mmeinen/polybox/code/DC-MONDRIAN/Endpoint_TP/code_base/fetcher.py:17(log)
+  1000000    0.152    0.000    0.152    0.000 /home/mmeinen/polybox/code/DC-MONDRIAN/Endpoint_TP/code_base/transfer_module.py:26(log)
+  1000000    0.131    0.000    0.131    0.000 {method 'acquire' of '_thread.lock' objects}
+  1000000    0.102    0.000    0.102    0.000 {method 'release' of '_thread.lock' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+

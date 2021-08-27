@@ -1,0 +1,67 @@
+forwarder ready
+goos: linux
+goarch: amd64
+pkg: gateway_tp/gateway_test
+BenchmarkFromMondrian/packet_size_119-8         	 8414713	      4112 ns/op	  28.94 MB/s	    3456 B/op	      52 allocs/op
+BenchmarkFromMondrian/packet_size_124-8         	 8902454	      3945 ns/op	  31.43 MB/s	    3616 B/op	      51 allocs/op
+BenchmarkFromMondrian/packet_size_136-8         	 9122702	      3887 ns/op	  34.99 MB/s	    3680 B/op	      51 allocs/op
+BenchmarkFromMondrian/packet_size_143-8         	 9004489	      3943 ns/op	  36.26 MB/s	    3728 B/op	      52 allocs/op
+BenchmarkFromMondrian/packet_size_144-8         	 8730860	      4070 ns/op	  35.38 MB/s	    3952 B/op	      52 allocs/op
+BenchmarkFromMondrian/packet_size_168-8         	 9494835	      3734 ns/op	  44.99 MB/s	    3584 B/op	      52 allocs/op
+BenchmarkToMondrian/packet_size_49-8            	 7179675	      4962 ns/op	   9.87 MB/s	    4272 B/op	      67 allocs/op
+BenchmarkToMondrian/packet_size_54-8            	 7205196	      4961 ns/op	  10.88 MB/s	    4288 B/op	      67 allocs/op
+BenchmarkToMondrian/packet_size_66-8            	 7097006	      5032 ns/op	  13.12 MB/s	    4432 B/op	      67 allocs/op
+BenchmarkToMondrian/packet_size_73-8            	 7322040	      4884 ns/op	  14.95 MB/s	    4160 B/op	      66 allocs/op
+BenchmarkToMondrian/packet_size_74-8            	 7294818	      4873 ns/op	  15.18 MB/s	    4160 B/op	      66 allocs/op
+BenchmarkToMondrian/packet_size_98-8            	 7317085	      4885 ns/op	  20.06 MB/s	    4304 B/op	      66 allocs/op
+BenchmarkFromMondrianAndSend/packet_size_119-8  	 3010260	     11935 ns/op	   9.97 MB/s	    2576 B/op	      42 allocs/op
+BenchmarkFromMondrianAndSend/packet_size_124-8  	 3016618	     11932 ns/op	  10.39 MB/s	    2576 B/op	      42 allocs/op
+BenchmarkFromMondrianAndSend/packet_size_136-8  	 3004629	     11952 ns/op	  11.38 MB/s	    2624 B/op	      42 allocs/op
+BenchmarkFromMondrianAndSend/packet_size_143-8  	 3004291	     11975 ns/op	  11.94 MB/s	    2640 B/op	      42 allocs/op
+BenchmarkFromMondrianAndSend/packet_size_144-8  	 3004088	     11966 ns/op	  12.03 MB/s	    2640 B/op	      42 allocs/op
+BenchmarkFromMondrianAndSend/packet_size_168-8  	 2989916	     12022 ns/op	  13.97 MB/s	    2720 B/op	      42 allocs/op
+BenchmarkFromMondrianAndSendNaive/packet_size_119-8         	 2744091	     13117 ns/op	   9.07 MB/s	    3456 B/op	      52 allocs/op
+BenchmarkFromMondrianAndSendNaive/packet_size_124-8         	 2747439	     13105 ns/op	   9.46 MB/s	    3616 B/op	      51 allocs/op
+BenchmarkFromMondrianAndSendNaive/packet_size_136-8         	 2731488	     13180 ns/op	  10.32 MB/s	    3680 B/op	      51 allocs/op
+BenchmarkFromMondrianAndSendNaive/packet_size_143-8         	 2697690	     13319 ns/op	  10.74 MB/s	    3728 B/op	      52 allocs/op
+BenchmarkFromMondrianAndSendNaive/packet_size_144-8         	 2671921	     13483 ns/op	  10.68 MB/s	    3952 B/op	      52 allocs/op
+BenchmarkFromMondrianAndSendNaive/packet_size_168-8         	 2730902	     13195 ns/op	  12.73 MB/s	    3584 B/op	      52 allocs/op
+BenchmarkToMondrianAndSend/packet_size_49-8                 	 2608282	     13795 ns/op	   3.55 MB/s	    3328 B/op	      57 allocs/op
+BenchmarkToMondrianAndSend/packet_size_54-8                 	 2616324	     13738 ns/op	   3.93 MB/s	    3344 B/op	      57 allocs/op
+BenchmarkToMondrianAndSend/packet_size_66-8                 	 2594436	     13861 ns/op	   4.76 MB/s	    3472 B/op	      57 allocs/op
+BenchmarkToMondrianAndSend/packet_size_73-8                 	 2628344	     13691 ns/op	   5.33 MB/s	    3200 B/op	      56 allocs/op
+BenchmarkToMondrianAndSend/packet_size_74-8                 	 2633066	     13682 ns/op	   5.41 MB/s	    3200 B/op	      56 allocs/op
+BenchmarkToMondrianAndSend/packet_size_98-8                 	 2618958	     13745 ns/op	   7.13 MB/s	    3312 B/op	      56 allocs/op
+BenchmarkToMondrianAndSendNaive/packet_size_49-8            	 2400802	     14980 ns/op	   3.27 MB/s	    4272 B/op	      67 allocs/op
+BenchmarkToMondrianAndSendNaive/packet_size_54-8            	 2397424	     14985 ns/op	   3.60 MB/s	    4288 B/op	      67 allocs/op
+BenchmarkToMondrianAndSendNaive/packet_size_66-8            	 2383838	     15079 ns/op	   4.38 MB/s	    4432 B/op	      67 allocs/op
+BenchmarkToMondrianAndSendNaive/packet_size_73-8            	 2412242	     14947 ns/op	   4.88 MB/s	    4160 B/op	      66 allocs/op
+BenchmarkToMondrianAndSendNaive/packet_size_74-8            	 2411440	     14919 ns/op	   4.96 MB/s	    4160 B/op	      66 allocs/op
+BenchmarkToMondrianAndSendNaive/packet_size_98-8            	 2401777	     14981 ns/op	   6.54 MB/s	    4304 B/op	      66 allocs/op
+BenchmarkID/packet_size_49-8                                	1000000000	         0.277 ns/op	176665.26 MB/s	       0 B/op	       0 allocs/op
+BenchmarkID/packet_size_54-8                                	1000000000	         0.276 ns/op	195788.71 MB/s	       0 B/op	       0 allocs/op
+BenchmarkID/packet_size_66-8                                	1000000000	         0.277 ns/op	238318.90 MB/s	       0 B/op	       0 allocs/op
+BenchmarkID/packet_size_73-8                                	1000000000	         0.275 ns/op	265041.76 MB/s	       0 B/op	       0 allocs/op
+BenchmarkID/packet_size_74-8                                	1000000000	         0.268 ns/op	275873.68 MB/s	       0 B/op	       0 allocs/op
+BenchmarkID/packet_size_98-8                                	1000000000	         0.268 ns/op	366224.57 MB/s	       0 B/op	       0 allocs/op
+BenchmarkEncryption/packet_size_49-8                        	49009806	       726 ns/op	  67.53 MB/s	     848 B/op	       6 allocs/op
+BenchmarkEncryption/packet_size_54-8                        	48815608	       723 ns/op	  74.69 MB/s	     848 B/op	       6 allocs/op
+BenchmarkEncryption/packet_size_66-8                        	47505999	       743 ns/op	  88.77 MB/s	     864 B/op	       6 allocs/op
+BenchmarkEncryption/packet_size_73-8                        	48534081	       744 ns/op	  98.18 MB/s	     864 B/op	       6 allocs/op
+BenchmarkEncryption/packet_size_74-8                        	47982132	       744 ns/op	  99.41 MB/s	     864 B/op	       6 allocs/op
+BenchmarkEncryption/packet_size_98-8                        	46220752	       779 ns/op	 125.86 MB/s	     896 B/op	       6 allocs/op
+BenchmarkDecryption/packet_size_119-8                       	21622280	      1663 ns/op	  71.57 MB/s	    1888 B/op	      17 allocs/op
+BenchmarkDecryption/packet_size_124-8                       	21678054	      1659 ns/op	  74.74 MB/s	    1888 B/op	      17 allocs/op
+BenchmarkDecryption/packet_size_136-8                       	21207640	      1691 ns/op	  80.43 MB/s	    1952 B/op	      17 allocs/op
+BenchmarkDecryption/packet_size_143-8                       	21090214	      1697 ns/op	  84.26 MB/s	    1968 B/op	      17 allocs/op
+BenchmarkDecryption/packet_size_144-8                       	21027756	      1698 ns/op	  84.78 MB/s	    1968 B/op	      17 allocs/op
+BenchmarkDecryption/packet_size_168-8                       	20435868	      1743 ns/op	  96.38 MB/s	    2080 B/op	      17 allocs/op
+BenchmarkSendPacket/packet_size_119-8                       	26313758	      1324 ns/op	  89.86 MB/s	       0 B/op	       0 allocs/op
+BenchmarkSendPacket/packet_size_124-8                       	26983026	      1322 ns/op	  93.79 MB/s	       0 B/op	       0 allocs/op
+BenchmarkSendPacket/packet_size_136-8                       	26747682	      1330 ns/op	 102.26 MB/s	       0 B/op	       0 allocs/op
+BenchmarkSendPacket/packet_size_143-8                       	27089546	      1324 ns/op	 108.01 MB/s	       0 B/op	       0 allocs/op
+BenchmarkSendPacket/packet_size_144-8                       	27227576	      1313 ns/op	 109.64 MB/s	       0 B/op	       0 allocs/op
+BenchmarkSendPacket/packet_size_168-8                       	26914231	      1334 ns/op	 125.97 MB/s	       0 B/op	       0 allocs/op
+BenchmarkIteratePackets/packet_size_varying-8               	1000000000	        24.6 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	gateway_tp/gateway_test	2377.312s
